@@ -1,0 +1,6 @@
+name: python-tutorial
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - ipykernel
