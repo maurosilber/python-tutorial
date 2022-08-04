@@ -1,0 +1,24 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Tutorial de Python
+author: Mauro Silberberg
+logo: logo.png
+
+only_build_toc_files: true  # Auto-exclude files not in the toc
+
+execute:
+  execute_notebooks: auto
+  allow_errors: true
+
+bibtex_bibfiles:
+  - references.bib
+
+repository:
+  url: https://github.com/maurosilber/python-tutorial
+  path_to_book: book
+  branch: main
+
+launch_buttons:
+  binderhub_url: ""
+  colab_url: "https://colab.research.google.com"
