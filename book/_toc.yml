@@ -4,3 +4,4 @@ parts:
   - caption: Base
     chapters:
     - file: base/variables
+    - file: base/funciones
