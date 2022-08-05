@@ -1,0 +1,41 @@
+name: publish
+
+# Only run this when the main branch changes
+on:
+  push:
+    branches:
+    - main
+    # If your git repository has the Jupyter Book within some-subfolder next to
+    # unrelated files, you can make this run only if a file within that specific
+    # folder has been modified.
+    paths:
+    - book/**
+
+# This job installs dependencies, builds the book, and pushes it to `gh-pages`
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    # Check out repo
+    - uses: actions/checkout@v2
+
+    # Install dependencies
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        miniforge-variant: Mambaforge
+        miniforge-version: latest
+        use-mamba: true
+        activate-environment: python-tutorial
+        environment-file: environment.yaml
+
+    # Build the book
+    - name: Build the book
+      shell: bash -l {0}
+      run: jupyter-book build book
+
+    # Push the book's HTML to github-pages
+    - name: GitHub Pages action
+      uses: peaceiris/actions-gh-pages@v3.6.1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: book/_build/html
