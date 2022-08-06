@@ -5,3 +5,4 @@ parts:
     chapters:
     - file: base/variables
     - file: base/funciones
+    - file: base/listas-e-iteraciones
