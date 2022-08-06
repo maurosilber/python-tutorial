@@ -1,0 +1,1162 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Variables y operaciones aritméticas &#8212; Tutorial de Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Funciones" href="funciones.html" />
+    <link rel="prev" title="Introducción a Python" href="../index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tutorial de Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Introducción a Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Base
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Variables y operaciones aritméticas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="listas-e-iteraciones.html">
+   Listas e iteraciones
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://colab.research.google.com/github/maurosilber/python-tutorial/blob/main/book/base/variables.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/base/variables.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-aritmeticas">
+   Operaciones aritméticas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-1-evaluar-un-polinomio">
+     Ejercicio 1: evaluar un polinomio
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solucion">
+       Solución
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#asignacion-de-variables">
+   Asignación de variables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#asignando-una-variable">
+     Asignando una variable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nombres-de-variables">
+     Nombres de variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inspeccionando-una-variable">
+     Inspeccionando una variable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#usando-una-variable">
+     Usando una variable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#asignar-no-representa-una-igualdad">
+     Asignar no representa una igualdad
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#borrando-una-variable">
+     Borrando una variable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-2-parametrizar-un-polinomio">
+     Ejercicio 2: parametrizar un polinomio
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Solución
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-intermedias">
+   Variables intermedias
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-3-raices-de-la-cuadratica">
+     Ejercicio 3: raíces de la cuadrática
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Solución
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Variables y operaciones aritméticas</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-aritmeticas">
+   Operaciones aritméticas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-1-evaluar-un-polinomio">
+     Ejercicio 1: evaluar un polinomio
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solucion">
+       Solución
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#asignacion-de-variables">
+   Asignación de variables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#asignando-una-variable">
+     Asignando una variable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nombres-de-variables">
+     Nombres de variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inspeccionando-una-variable">
+     Inspeccionando una variable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#usando-una-variable">
+     Usando una variable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#asignar-no-representa-una-igualdad">
+     Asignar no representa una igualdad
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#borrando-una-variable">
+     Borrando una variable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-2-parametrizar-un-polinomio">
+     Ejercicio 2: parametrizar un polinomio
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Solución
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-intermedias">
+   Variables intermedias
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-3-raices-de-la-cuadratica">
+     Ejercicio 3: raíces de la cuadrática
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Solución
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="variables-y-operaciones-aritmeticas">
+<h1>Variables y operaciones aritméticas<a class="headerlink" href="#variables-y-operaciones-aritmeticas" title="Permalink to this headline">#</a></h1>
+<p>Hay diferentes formas de empezar a aprender Python,
+o más en general, programar.
+Una posible es empezar usándolo como una calculadora.</p>
+<section id="operaciones-aritmeticas">
+<h2>Operaciones aritméticas<a class="headerlink" href="#operaciones-aritmeticas" title="Permalink to this headline">#</a></h2>
+<p>Las operaciones aritméticas básicas en Python son las siguientes:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>Operación</p></th>
+<th class="text-align:center head"><p>Operador</p></th>
+<th class="text-align:center head"><p>Ejemplo</p></th>
+<th class="text-align:center head"><p>Resultado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p>suma</p></td>
+<td class="text-align:center"><p>+</p></td>
+<td class="text-align:center"><p>2 + 3</p></td>
+<td class="text-align:center"><p>5</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>resta</p></td>
+<td class="text-align:center"><p>-</p></td>
+<td class="text-align:center"><p>2 - 3</p></td>
+<td class="text-align:center"><p>-1</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>multiplicación</p></td>
+<td class="text-align:center"><p>*</p></td>
+<td class="text-align:center"><p>2 * 3</p></td>
+<td class="text-align:center"><p>6</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>división</p></td>
+<td class="text-align:center"><p>/</p></td>
+<td class="text-align:center"><p>2 / 3</p></td>
+<td class="text-align:center"><p>1.5</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>exponenciación</p></td>
+<td class="text-align:center"><p>**</p></td>
+<td class="text-align:center"><p>2**3</p></td>
+<td class="text-align:center"><p>8</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>división entera</p></td>
+<td class="text-align:center"><p>//</p></td>
+<td class="text-align:center"><p>7 // 3</p></td>
+<td class="text-align:center"><p>2</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>módulo o resto</p></td>
+<td class="text-align:center"><p>%</p></td>
+<td class="text-align:center"><p>7 % 3</p></td>
+<td class="text-align:center"><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p>que son las mismas que en la mayoría de los lenguajes.
+La única que difiere de es la exponenciación <code class="docutils literal notranslate"><span class="pre">**</span></code>,
+que en otros lenguajes suele ser <code class="docutils literal notranslate"><span class="pre">^</span></code>.</p>
+<p>Podemos probarlas en una celda de código:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p>En expresiones compuestas por múltiples operadores,
+ciertos operadores tienen precedencia sobre otros.
+En orden de prioridad:</p>
+<ol class="simple">
+<li><p>exponenciación</p></li>
+<li><p>multiplicación o división</p></li>
+<li><p>suma o resta</p></li>
+</ol>
+<p>Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es decir, evaluó primero el <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span></code> y después sumó <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p>Si quisiéramos hacerlo al revés,
+se puede usar paréntesis para agrupar las expresiones:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una pregunta típica que surge es como evalúa Python la “doble división”:</p>
+<p><code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">/</span> <span class="pre">2</span> <span class="pre">/</span> <span class="pre">2</span></code>.</p>
+<p>Hay dos opciones:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">(4</span> <span class="pre">/</span> <span class="pre">2)</span> <span class="pre">/</span> <span class="pre">2</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">/</span> <span class="pre">(2</span> <span class="pre">/</span> <span class="pre">2)</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">4</span></code></p></li>
+</ol>
+<p>Cuando los operadores tienen la misma prioridad,
+se evalúa de izquierda a derecha.
+Es decir, la opción 1.</p>
+<p>Pero no me crean a mí.
+Siempre que tengan una duda,
+pueden probarlo en una celda de código:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ejercicio-1-evaluar-un-polinomio">
+<h3>Ejercicio 1: evaluar un polinomio<a class="headerlink" href="#ejercicio-1-evaluar-un-polinomio" title="Permalink to this headline">#</a></h3>
+<p>Usando las operaciones aritméticas,
+obtener el resultado de evaluar el polinomio <span class="math notranslate nohighlight">\(f(x) = 2 x^2 - 5x + 2\)</span> en <span class="math notranslate nohighlight">\(x=2\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Escriba su solución aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="solucion">
+<h4>Solución<a class="headerlink" href="#solucion" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="asignacion-de-variables">
+<h2>Asignación de variables<a class="headerlink" href="#asignacion-de-variables" title="Permalink to this headline">#</a></h2>
+<p>El código que escribimos resuelve el problema 1.</p>
+<p>Sin embargo,
+si quisiéramos cambiar el punto donde evaluamos el polinomio,
+ya no nos es tan útil.</p>
+<p>Por ejemplo,
+si quisiéramos evaluar en <span class="math notranslate nohighlight">\(x=4\)</span>,
+reemplazar el <code class="docutils literal notranslate"><span class="pre">2</span></code> por <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p>
+<p>Pero hay muchos <code class="docutils literal notranslate"><span class="pre">2</span></code>, y no todos corresponden a <code class="docutils literal notranslate"><span class="pre">x</span></code>.
+Algunos eran coeficientes del polinomio.</p>
+<p>Esta solución es poco práctica.
+Una mejor solución a este problema es
+<em>parametrizar</em> el código usando variables.</p>
+<section id="asignando-una-variable">
+<h3>Asignando una variable<a class="headerlink" href="#asignando-una-variable" title="Permalink to this headline">#</a></h3>
+<p>Una variable es
+un nombre que le damos a un valor,
+y nos permite reusar dicho valor
+a través de este nombre.</p>
+<p>La sintaxis para asignar una variable es: <code class="docutils literal notranslate"><span class="pre">nombre</span> <span class="pre">=</span> <span class="pre">valor</span></code>.
+Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="nombres-de-variables">
+<h3>Nombres de variables<a class="headerlink" href="#nombres-de-variables" title="Permalink to this headline">#</a></h3>
+<p>Como nombre,
+podemos usar casi cualquier conjunto de letras, números, y/o guión bajo (<code class="docutils literal notranslate"><span class="pre">_</span></code>).</p>
+<p>En Python,
+la convención es escribir las variables en minúscula
+y usar guión bajo como espacio entre palabras.
+Por ejemplo, <code class="docutils literal notranslate"><span class="pre">mi_numero</span></code>.</p>
+<p>Hay un conjunto de
+<a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#keywords">nombres reservados</a>
+que Python interpreta de manera especial
+y no se pueden usar.</p>
+<p>Pero no hace falta aprenderlos.
+Si los tratamos de usar,
+Python nos va a avisar que hay un error.
+Por ejemplo,
+traten de correr <code class="docutils literal notranslate"><span class="pre">and</span> <span class="pre">=</span> <span class="pre">1</span></code>
+en una celda de código.</p>
+</section>
+<section id="inspeccionando-una-variable">
+<h3>Inspeccionando una variable<a class="headerlink" href="#inspeccionando-una-variable" title="Permalink to this headline">#</a></h3>
+<p>Si queremos ver que valor está “guardado” en una variable,
+hay dos formas:</p>
+<p>Podemos escribir su nombre en una celda y ejecutarla:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>que funciona cuando estamos corriendo Python de manera interactiva.</p>
+<p>Si no, la otra forma es utilizar la función <code class="docutils literal notranslate"><span class="pre">print</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este caso,
+el resultado es el mismo.</p>
+</section>
+<section id="usando-una-variable">
+<h3>Usando una variable<a class="headerlink" href="#usando-una-variable" title="Permalink to this headline">#</a></h3>
+<p>En lugar de usar explícitamente el valor <code class="docutils literal notranslate"><span class="pre">2</span></code>,
+podemos usar el nombre <code class="docutils literal notranslate"><span class="pre">x</span></code> para hacer operaciones:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python reemplaza la variable <code class="docutils literal notranslate"><span class="pre">x</span></code> por su valor actual,
+<code class="docutils literal notranslate"><span class="pre">2</span></code>,
+antes de hacer la operación.</p>
+<p>También podemos guardar este resultado
+si lo asignamos a otra variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Noten que,
+al asignar una variable,
+no nos muestra el resultado.</p>
+<p>Pero,
+si pedimos que nos muestre la variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p>guardó el resultado de <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">x</span></code>.</p>
+</section>
+<section id="asignar-no-representa-una-igualdad">
+<h3>Asignar no representa una igualdad<a class="headerlink" href="#asignar-no-representa-una-igualdad" title="Permalink to this headline">#</a></h3>
+<p>A pesar de usar el <code class="docutils literal notranslate"><span class="pre">=</span></code>,
+al poner <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">3</span> <span class="pre">*</span> <span class="pre">x</span></code>,
+no estamos declarando una igualdad entre <code class="docutils literal notranslate"><span class="pre">x</span></code> e <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<p>Si cambiamos el valor de <code class="docutils literal notranslate"><span class="pre">x</span></code> y volvemos a pedir el valor de <code class="docutils literal notranslate"><span class="pre">y</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">y</span></code> sigue siendo <code class="docutils literal notranslate"><span class="pre">6</span></code>,
+no <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">x</span></code>.</p>
+<p>Es decir,
+<code class="docutils literal notranslate"><span class="pre">y</span></code> no sabe nada del actual valor de <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>Una <strong>asignación no es una igualdad</strong>.
+Es <em>ponerle un nombre</em> a un valor.</p>
+<p>Para evitar la confusión,
+otros lenguajes de programación prefieren usar otras expresiones,
+como <code class="docutils literal notranslate"><span class="pre">nombre</span> <span class="pre">&lt;-</span> <span class="pre">valor</span></code>.</p>
+<p>En las asignaciones,
+primero se resuelve la parte de la derecha,
+reemplazando las variables por sus valores actuales,
+y después se le asigna el nombre de la izquierda.</p>
+<p>Por ejemplo,
+nos permite hacer esto:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Matemáticamente,
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code> no tendría sentido.</p>
+<p>Pero,
+primero se resolvió <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code>,
+que resultó <code class="docutils literal notranslate"><span class="pre">2</span></code>,
+y después se lo volvió a “guardar” en la variable <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</section>
+<section id="borrando-una-variable">
+<h3>Borrando una variable<a class="headerlink" href="#borrando-una-variable" title="Permalink to this headline">#</a></h3>
+<p>Finalmente,
+así como se pueden asignar variables,
+se puede borrar variables con la palabra clave <code class="docutils literal notranslate"><span class="pre">del</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luego,
+si tratamos de acceder a <code class="docutils literal notranslate"><span class="pre">x</span></code>,
+nos devuelve un error diciendo que no está definido:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [16],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">x</span>
+
+<span class="ne">NameError</span>: name &#39;x&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es poco usual usar explícitamente <code class="docutils literal notranslate"><span class="pre">del</span></code>.
+Veremos más adelante que
+Python lo hace automáticamente en ciertas situaciones.</p>
+</section>
+<section id="ejercicio-2-parametrizar-un-polinomio">
+<h3>Ejercicio 2: parametrizar un polinomio<a class="headerlink" href="#ejercicio-2-parametrizar-un-polinomio" title="Permalink to this headline">#</a></h3>
+<p>Asignando <span class="math notranslate nohighlight">\(x=2\)</span> como variable,
+repetir el ejercicio 1:</p>
+<blockquote>
+<div><p>Usando las operaciones aritméticas,
+obtener el resultado de evaluar el polinomio <span class="math notranslate nohighlight">\(f(x) = 2 x^2 - 5x + 2\)</span> en <span class="math notranslate nohighlight">\(x=2\)</span>.</p>
+</div></blockquote>
+<p>Luego,
+cambiar <span class="math notranslate nohighlight">\(x\)</span> a un valor distinto
+y volver a correr el código.</p>
+<p>Por ejemplo,
+para <span class="math notranslate nohighlight">\(x=0\)</span>,
+el resultado debería ser <span class="math notranslate nohighlight">\(2\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Escriba su solución aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h4>Solución<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Parametrizar el código tiene dos ventajas:</p>
+<ol class="simple">
+<li><p>Al usar el código,
+es más práctico para cambiar el valor donde queremos evaluar el polinomio.</p></li>
+<li><p>Al leer el código,
+es más explícito a simple vista que es un polinomio en <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="variables-intermedias">
+<h2>Variables intermedias<a class="headerlink" href="#variables-intermedias" title="Permalink to this headline">#</a></h2>
+<p>Además de parametrizar el código,
+usar variables permite
+separar (y explicar) una operación compleja
+en varias operaciones más simples.</p>
+<p>Por ejemplo,
+imaginemos que 8 personas se juntaron a comer
+y compraron 3 pizzas a <span class="math notranslate nohighlight">\(1500 cada una
+y 2 gaseosas a \)</span>300 cada una.
+¿Cuánto tendría que pagar cada uno?</p>
+<p>Se puede resolver fácilmente en una linea:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="mi">1500</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">300</span><span class="p">)</span> <span class="o">/</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>637.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>o se puede resolver <strong>claramente</strong> en varias lineas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">personas</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">pizza</span> <span class="o">=</span> <span class="mi">1500</span>
+<span class="n">bebida</span> <span class="o">=</span> <span class="mi">300</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">pizza</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">bebida</span>
+<span class="n">total_por_persona</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="n">personas</span>
+
+<span class="n">total_por_persona</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>637.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>De ambas maneras,
+llegamos al mismo resultado,
+pero el código se explica por sí mismo en el segundo caso.</p>
+<p>No tengo que explicar que parte del código modificar
+si hay que cambiar la cantidad de personas.</p>
+<p>Pero no solo se trata de usar variables intermedias.
+También es importante usar nombres de variables claros.
+A pesar de que llegamos al mismo resultado,
+no es lo mismo si usamos nombres genéricos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1500</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">300</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">y</span>
+<span class="n">tn</span> <span class="o">=</span> <span class="n">t</span> <span class="o">/</span> <span class="n">n</span>
+
+<span class="n">tn</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>637.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Elegir un nombre apropiado para una variable depende del contexto.</p>
+<p>Por ejemplo,
+¿se entiende que <code class="docutils literal notranslate"><span class="pre">pizza</span></code> es el precio de una pizza y no la cantidad?
+Si no, podríamos usar <code class="docutils literal notranslate"><span class="pre">precio_pizza</span></code>.</p>
+<section id="ejercicio-3-raices-de-la-cuadratica">
+<h3>Ejercicio 3: raíces de la cuadrática<a class="headerlink" href="#ejercicio-3-raices-de-la-cuadratica" title="Permalink to this headline">#</a></h3>
+<p>Combinando lo aprendido,
+calcular las raíces del polinomio <span class="math notranslate nohighlight">\(f(x) = 2 x^2 - 5x + 2\)</span> utilizando la fórmula cuadrática:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{-b \pm \sqrt{b^2 - 4 ac}}{2 a} \]</div>
+<p>Ayuda:</p>
+<ul class="simple">
+<li><p>Para calcular la raíz cuadrada,
+use que <span class="math notranslate nohighlight">\(\sqrt x = x^½\)</span>.</p></li>
+<li><p>No existe el operador <code class="docutils literal notranslate"><span class="pre">±</span></code>,
+use <code class="docutils literal notranslate"><span class="pre">+</span></code> y <code class="docutils literal notranslate"><span class="pre">-</span></code> por separado.</p></li>
+<li><p>Para mostrar dos variables,
+<code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>,
+puede escribir:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code> en dos celdas distintas,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x1,</span> <span class="pre">x2</span></code> al final de la celda de código,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(x1)</span></code> y <code class="docutils literal notranslate"><span class="pre">print(x2)</span></code> en distintas lineas,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(x1,</span> <span class="pre">x2)</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Escriba su solución aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id2">
+<h4>Solución<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">disc</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">raiz_1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">disc</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+<span class="n">raiz_2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">disc</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="n">raiz_1</span><span class="p">,</span> <span class="n">raiz_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.5, 2.0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Usar una variable intermedia <code class="docutils literal notranslate"><span class="pre">disc</span></code> para el discriminante* tiene dos ventajas:</p>
+<ol>
+<li><p>La menos relevante,
+en este caso,
+es que <strong>el código es más eficiente</strong>.</p>
+<p>Si calcular el discriminante fuese computacionalmente muy intensivo,
+querríamos hacerlo una única vez
+y reusar su resultado para cada una de las raíces.</p>
+</li>
+<li><p>La más importante es que <strong>el código es más legible</strong>.</p>
+<p>Si no hubiésemos usado una variable intermedia,
+tendríamos una maraña de operaciones y paréntesis,
+y sería más difícil de comprobar que está bien escrito.</p>
+<p>Por ejemplo,
+el siguiente código tiene un error en algún lado:</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raiz_1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="o">*</span>  <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+<span class="n">raiz_2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="n">raiz_1</span><span class="p">,</span> <span class="n">raiz_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.125, (1.25+1.2747548783981961j))
+</pre></div>
+</div>
+</div>
+</div>
+<p>*técnicamente, el discriminante es antes de tomar la raíz cuadrada.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python",
+            path: "./base"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introducción a Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="funciones.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Funciones</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mauro Silberberg<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
