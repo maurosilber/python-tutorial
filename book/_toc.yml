@@ -6,3 +6,6 @@ parts:
     - file: base/variables
     - file: base/funciones
     - file: base/listas-e-iteraciones
+  - caption: NumPy y matplotlib
+    chapters:
+    - file: numpy/array-1
