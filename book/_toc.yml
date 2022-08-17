@@ -9,3 +9,4 @@ parts:
   - caption: NumPy y matplotlib
     chapters:
     - file: numpy/array-1
+    - file: numpy/array-2
