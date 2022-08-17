@@ -497,7 +497,7 @@ corriendo la siguiente linea en una celda de código:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!wget https://github.com/maurosilber/python-tutorial/blob/main/book/numpy/datos.txt
 </pre></div>
 </div>
-<p>TAmbién,
+<p>También,
 pueden descargarlo manualmente,
 y subirlo a Google Colab.</p>
 <p>Si abren el archivo <code class="docutils literal notranslate"><span class="pre">datos.txt</span></code> en un editor de texto,
@@ -550,7 +550,7 @@ como separador decimal.</p>
 <p>En ese caso,
 necesitan definir una función
 para convertir los números con coma,
-y pasarsela a <code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code> en el parámetro <code class="docutils literal notranslate"><span class="pre">converters</span></code>:</p>
+y pasársela a <code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code> en el parámetro <code class="docutils literal notranslate"><span class="pre">converters</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">comma_to_float</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -577,7 +577,7 @@ pueden ver más opciones para <code class="docutils literal notranslate"><span c
 <p>Lo primero y más importante que hay que hacer
 al trabajar con datos
 es visualizarlos.</p>
-<p>Una forma es usar la funcion <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>,
+<p>Una forma es usar la función <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>,
 que usamos en la sección anterior:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -586,7 +586,7 @@ que usamos en la sección anterior:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe47c1889a0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f31f451c9d0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/array-2_9_1.png" src="../_images/array-2_9_1.png" />
@@ -848,10 +848,10 @@ y rehacer el histograma para los datos filtrados.</p>
 </section>
 <section id="reduccion">
 <h2>Reducción<a class="headerlink" href="#reduccion" title="Permalink to this headline">#</a></h2>
-<p>De esta parte sobre los arrays de Numpy,
+<p>De esta parte sobre los arrays de NumPy,
 nos queda aprender las operaciones de reducción.</p>
 <p>Hasta ahora,
-habiamos visto las operaciones elemento a elemento y de <em>broadcasting</em>.</p>
+habíamos visto las operaciones elemento a elemento y de <em>broadcasting</em>.</p>
 <p>En la primera,
 a partir de dos arrays iguales,
 se generaba un tercero del mismo tamaño.</p>
@@ -925,7 +925,7 @@ Pero va a tener sentido cuando veamos arrays en 2 o más dimensiones.</p>
 calcular la cantidad de datos,
 su promedio <span class="math notranslate nohighlight">\(\bar{x}\)</span>,
 y su desviación estándar <span class="math notranslate nohighlight">\(\hat{\sigma}\)</span>.</p>
-<p>La fórmula para estos útimos es:</p>
+<p>La fórmula para estos últimos es:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -941,7 +941,7 @@ y su desviación estándar <span class="math notranslate nohighlight">\(\hat{\si
 \end{split}\]</div>
 <p><em>Ayuda:</em> usar las funciones <code class="docutils literal notranslate"><span class="pre">np.size</span></code>, <code class="docutils literal notranslate"><span class="pre">np.sum</span></code>.
 Para restar el promedio a todos los números,
-revea la sección, <em>broadcasting</em>.</p>
+rever la sección, <em>broadcasting</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Escriba aquí su código</span>
@@ -970,7 +970,7 @@ revea la sección, <em>broadcasting</em>.</p>
 </div>
 </div>
 </div>
-<p>Si necesitaramos calcular constantemente la desviación estándar de los datos,
+<p>Si necesitáramos calcular constantemente la desviación estándar de los datos,
 nos convendría definir una función que encapsule esas operaciones.</p>
 <p>Pero esas funciones ya están definidas en NumPy:</p>
 <div class="cell docutils container">
