@@ -1,0 +1,1056 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Array (parte 2) &#8212; Tutorial de Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Array (parte 1)" href="array-1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tutorial de Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Introducción a Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Base
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../base/variables.html">
+   Variables y operaciones aritméticas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../base/funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../base/listas-e-iteraciones.html">
+   Listas e iteraciones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  NumPy y matplotlib
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="array-1.html">
+   Array (parte 1)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Array (parte 2)
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://colab.research.google.com/github/maurosilber/python-tutorial/blob/main/book/numpy/array-2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/numpy/array-2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cargando-un-archivo">
+   Cargando un archivo
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numeros-con-coma-decimal">
+     Números con coma decimal
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comentarios-o-titulos">
+     Comentarios o títulos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizando-datos">
+   Visualizando datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexing-y-slicing">
+   Indexing y slicing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#advanced-indexing">
+     Advanced indexing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-1">
+     Ejercicio 1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solucion">
+       Solución
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reduccion">
+   Reducción
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-2">
+     Ejercicio 2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Solución
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Array (parte 2)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cargando-un-archivo">
+   Cargando un archivo
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numeros-con-coma-decimal">
+     Números con coma decimal
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comentarios-o-titulos">
+     Comentarios o títulos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizando-datos">
+   Visualizando datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexing-y-slicing">
+   Indexing y slicing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#advanced-indexing">
+     Advanced indexing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-1">
+     Ejercicio 1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solucion">
+       Solución
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reduccion">
+   Reducción
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-2">
+     Ejercicio 2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Solución
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="array-parte-2">
+<h1>Array (parte 2)<a class="headerlink" href="#array-parte-2" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s2">&quot;figure&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>  <span class="c1"># aumenta la resolución de las figuras</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="cargando-un-archivo">
+<h2>Cargando un archivo<a class="headerlink" href="#cargando-un-archivo" title="Permalink to this headline">#</a></h2>
+<p>Hay muchos formatos para guardar datos en archivos.
+El más simple es guardarlos en un archivo de texto.</p>
+<p>En este caso,
+tenemos preparado un archivo de ejemplo
+que pueden descargar de <a class="reference external" href="https://github.com/maurosilber/python-tutorial/blob/main/book/numpy/datos.txt">aqui</a>.</p>
+<p>Si están corriendo este notebook en Google Colab,
+pueden descargar el archivo de ejemplo
+corriendo la siguiente linea en una celda de código:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!wget https://github.com/maurosilber/python-tutorial/blob/main/book/numpy/datos.txt
+</pre></div>
+</div>
+<p>TAmbién,
+pueden descargarlo manualmente,
+y subirlo a Google Colab.</p>
+<p>Si abren el archivo <code class="docutils literal notranslate"><span class="pre">datos.txt</span></code> en un editor de texto,
+como el bloc de notas o notepad,
+pueden ver que es un archivo de texto
+con un número en cada línea:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">10.50</span>
+<span class="mf">9.86</span>
+<span class="mf">10.65</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Para cargarlo a un array de NumPy,
+podemos usar la función <code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code>,
+a la que le tenemos que pasar el nombre o ubicación del archivo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;datos.txt&quot;</span><span class="p">)</span>
+
+<span class="n">datos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10.5 ,  9.86, 10.65, 11.52,  9.77,  9.77, 11.58, 10.77,  9.53,
+       10.54,  9.54,  9.53, 10.24,  8.09,  8.28,  9.44,  8.99, 10.31,
+        9.09,  8.59, 11.47,  9.77, 10.07,  8.58,  9.46, 10.11,  8.85,
+       10.38,  9.4 ,  9.71,  9.4 , 11.85,  9.99,  8.94, 10.82,  8.78,
+       10.21,  8.04,  8.67, 10.2 , 10.74, 10.17, 15.  ,  9.7 ,  8.52,
+        9.28,  9.54, 11.06, 10.34,  8.24, 10.32,  9.61,  9.32, 10.61,
+       11.03, 10.93,  9.16,  9.69, 10.33, 10.98,  9.52,  9.81,  8.89,
+        8.8 , 10.81, 11.36,  9.93, 11.  , 10.36,  9.35, 10.36, 11.54,
+        9.96, 11.56,  7.38, 10.82, 10.09,  9.7 , 10.09,  8.01,  9.78,
+       10.36, 11.48,  9.48,  9.19,  9.5 , 10.92, 10.33,  9.47, 10.51,
+       10.1 , 10.97,  9.3 ,  9.67,  9.61,  8.54, 10.3 , 10.26, 10.01,
+        9.77])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si tienen problemas al cargar el archivo,
+puede deberse a que no se encuentre en la misma carpeta en la que están ejecutando el notebook.</p>
+<section id="numeros-con-coma-decimal">
+<h3>Números con coma decimal<a class="headerlink" href="#numeros-con-coma-decimal" title="Permalink to this headline">#</a></h3>
+<p>Un problema típico es que
+los programas de adquisición de datos
+hayan guardado los números con coma,
+en lugar de punto,
+como separador decimal.</p>
+<p>En ese caso,
+necesitan definir una función
+para convertir los números con coma,
+y pasarsela a <code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code> en el parámetro <code class="docutils literal notranslate"><span class="pre">converters</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">comma_to_float</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;datos.txt&quot;</span><span class="p">,</span> <span class="n">converters</span><span class="o">=</span><span class="n">comma_to_float</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="comentarios-o-titulos">
+<h3>Comentarios o títulos<a class="headerlink" href="#comentarios-o-titulos" title="Permalink to this headline">#</a></h3>
+<p>Otro problema sucede cuando en la(s) primera(s) línea(s) del archivo no hay números,
+sino texto con comentarios o títulos sobre los datos.
+Podemos decirle que se saltee la primera linea con:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;datos.txt&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Si lo llegaran a necesitar,
+pueden ver más opciones para <code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code> en la <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html">documentación</a>.</p>
+</section>
+</section>
+<section id="visualizando-datos">
+<h2>Visualizando datos<a class="headerlink" href="#visualizando-datos" title="Permalink to this headline">#</a></h2>
+<p>Lo primero y más importante que hay que hacer
+al trabajar con datos
+es visualizarlos.</p>
+<p>Una forma es usar la funcion <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>,
+que usamos en la sección anterior:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe47c1889a0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/array-2_9_1.png" src="../_images/array-2_9_1.png" />
+</div>
+</div>
+<p>Cuando solo le pasamos un array a <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>,
+lo usa para los valores en <code class="docutils literal notranslate"><span class="pre">y</span></code>,
+mientras que para <code class="docutils literal notranslate"><span class="pre">x</span></code> usa la posición (o índice) de cada valor.</p>
+<p>Es decir,
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">np.arange(len(y))</span></code>.</p>
+<p>Otra forma de visualizarlos
+es hacer un histograma:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Cantidad de datos&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Cantidad de datos&#39;)
+</pre></div>
+</div>
+<img alt="../_images/array-2_11_1.png" src="../_images/array-2_11_1.png" />
+</div>
+</div>
+<p>Un histograma se construye
+dividiendo el rango de los datos en “canastas”,
+o <code class="docutils literal notranslate"><span class="pre">bins</span></code>,
+y contando cuantos datos caen en cada canasta.</p>
+<p>En el histograma anterior,
+dejamos que la cantidad y ancho de los <em>bins</em>
+se elijan automáticamente,
+pero se pueden especificar manualmente.</p>
+<p>A diferencia del gráfico de linea,
+en el histograma
+se puede entender mejor la distribución de los datos.
+Hay una mayor cantidad de datos alrededor de ~10,
+y disminuye su cantidad a medida que nos alejamos.</p>
+<p>En ambos gráficos,
+podemos notar que hay un valor,
+alrededor de <code class="docutils literal notranslate"><span class="pre">15</span></code>,
+que se aleja significativamente del resto.
+Veamos como podemos hacer para descartarlo*.</p>
+<p>(*no vamos a discutir acá si está bien o no descartarlo)</p>
+</section>
+<section id="indexing-y-slicing">
+<h2>Indexing y slicing<a class="headerlink" href="#indexing-y-slicing" title="Permalink to this headline">#</a></h2>
+<p>Los <em>arrays</em> de NumPy permiten seleccionar un subconjunto de elementos de diversas maneras.</p>
+<p>Para el siguiente array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>podemos seleccionar un elemento particular por su índice,
+por ejemplo,
+el tercer elemento como:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>(recuerden que el primer elemento es el <code class="docutils literal notranslate"><span class="pre">0</span></code>).</p>
+<p>Si queremos acceder al último elemento,
+necesitamos saber el largo del array.
+Podemos usar la función <code class="docutils literal notranslate"><span class="pre">len</span></code>,
+y restarle <code class="docutils literal notranslate"><span class="pre">1</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python nos permite ahorrarnos el <code class="docutils literal notranslate"><span class="pre">len(x)</span></code>
+y directamente poner <code class="docutils literal notranslate"><span class="pre">-1</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para seleccionar un rango (o <em>slice</em>) de elementos,
+usamos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([20,  5])
+</pre></div>
+</div>
+</div>
+</div>
+<p>donde la sintaxis es <code class="docutils literal notranslate"><span class="pre">x[start:stop]</span></code>,
+incluyendo <code class="docutils literal notranslate"><span class="pre">start</span></code> y excluyendo <code class="docutils literal notranslate"><span class="pre">stop</span></code>,
+al igual que la función <code class="docutils literal notranslate"><span class="pre">range</span></code>.</p>
+<p>Otras variantes de <em>slicing</em> son:</p>
+<ul class="simple">
+<li><p>especificar el paso con <code class="docutils literal notranslate"><span class="pre">x[start:stop:step]</span></code>,</p></li>
+<li><p>omitir <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">x[:stop]</span></code>, donde el valor por defecto es <code class="docutils literal notranslate"><span class="pre">0</span></code>,</p></li>
+<li><p>omitir <code class="docutils literal notranslate"><span class="pre">stop</span></code>, <code class="docutils literal notranslate"><span class="pre">x[start:]</span></code>, donde el valor por defecto es “hasta el final”.</p></li>
+</ul>
+<p>Por ejemplo,
+para seleccionar los dos primeros elementos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10, 20])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Todo esto también es válido para las listas,
+pero lo siguiente no.</p>
+<section id="advanced-indexing">
+<h3>Advanced indexing<a class="headerlink" href="#advanced-indexing" title="Permalink to this headline">#</a></h3>
+<p>NumPy permite indexar los arrays de otras maneras,
+que no son válidas para la lista.</p>
+<p>Una de ellas es
+pasarle una lista con los índices de los valores que queremos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10, 20,  7])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Otra es pasarle un array
+de valores <em>booleanos</em>,
+es decir,
+<code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Si este array tiene
+<code class="docutils literal notranslate"><span class="pre">True</span></code> en la posición <code class="docutils literal notranslate"><span class="pre">i</span></code>-ésima,
+es que queremos quedarnos con el valor en la posición <code class="docutils literal notranslate"><span class="pre">i</span></code>-ésima,
+y <code class="docutils literal notranslate"><span class="pre">False</span></code>, que no lo queremos.</p>
+<p>Para generar este array,
+podemos usar operadores de comparación:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True, False, False,  True])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Recuerden que <code class="docutils literal notranslate"><span class="pre">x</span></code> era:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10, 20,  5,  7,  8])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Entonces,
+podemos usar ese array para quedarnos con los valores mayores a <code class="docutils literal notranslate"><span class="pre">7</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10, 20,  8])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si queremos obtener los índices donde se cumple la condición,
+podemos usar la función <code class="docutils literal notranslate"><span class="pre">np.nonzero</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0, 1, 4]),)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-1">
+<h3>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this headline">#</a></h3>
+<p>Filtrar los datos para descartar el dato cuyo valor es ~15,
+y rehacer el histograma para los datos filtrados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Escriba aquí su solución</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="solucion">
+<h4>Solución<a class="headerlink" href="#solucion" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos_filtrados</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="n">datos</span> <span class="o">&lt;</span> <span class="mi">14</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">datos_filtrados</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 1.,  4.,  6.,  8., 19., 16., 21., 11.,  6.,  7.]),
+ array([ 7.38 ,  7.827,  8.274,  8.721,  9.168,  9.615, 10.062, 10.509,
+        10.956, 11.403, 11.85 ]),
+ &lt;BarContainer object of 10 artists&gt;)
+</pre></div>
+</div>
+<img alt="../_images/array-2_39_1.png" src="../_images/array-2_39_1.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="reduccion">
+<h2>Reducción<a class="headerlink" href="#reduccion" title="Permalink to this headline">#</a></h2>
+<p>De esta parte sobre los arrays de Numpy,
+nos queda aprender las operaciones de reducción.</p>
+<p>Hasta ahora,
+habiamos visto las operaciones elemento a elemento y de <em>broadcasting</em>.</p>
+<p>En la primera,
+a partir de dos arrays iguales,
+se generaba un tercero del mismo tamaño.</p>
+<p>En la de <em>broadcasting</em>,
+al combinar un número con un array,
+el número se “estiraba” al tamaño del array,
+y se combinaba elemento a elemento.</p>
+<p>En las operaciones de reducción,
+partimos de un array
+y lo reducimos a un número.</p>
+<p>Por ejemplo,
+para este array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>podemos usar la función <code class="docutils literal notranslate"><span class="pre">np.sum</span></code>
+para calcular la suma:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>o <code class="docutils literal notranslate"><span class="pre">np.max</span></code> para calcular el máximo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>o <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> para encontrar la posición del máximo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>y muchas otras que pueden buscar en la <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.html">documentación</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Puede parecer innecesario que haya un término específico,
+<em>reducción</em>,
+para operaciones como calcular la suma o el máximo.
+Pero va a tener sentido cuando veamos arrays en 2 o más dimensiones.</p>
+</div>
+<section id="ejercicio-2">
+<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this headline">#</a></h3>
+<p>Para el array de datos filtrados,
+calcular la cantidad de datos,
+su promedio <span class="math notranslate nohighlight">\(\bar{x}\)</span>,
+y su desviación estándar <span class="math notranslate nohighlight">\(\hat{\sigma}\)</span>.</p>
+<p>La fórmula para estos útimos es:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\bar{x}
+&amp;= \frac{x_1 + \ldots + x_n}{n}
+&amp;&amp;= \frac{1}{n} \sum_{i=1}^n x_i
+\\
+\\
+\hat{\sigma}
+&amp;= \sqrt{\frac{(x_1 - \bar{x})^2 + \ldots + (x_n - \bar{x})^2}{n}}
+&amp;&amp;= \sqrt{\frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2}
+\end{align}
+\end{split}\]</div>
+<p><em>Ayuda:</em> usar las funciones <code class="docutils literal notranslate"><span class="pre">np.size</span></code>, <code class="docutils literal notranslate"><span class="pre">np.sum</span></code>.
+Para restar el promedio a todos los números,
+revea la sección, <em>broadcasting</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Escriba aquí su código</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h4>Solución<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">datos_filtrados</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">promedio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">total</span>
+<span class="n">varianza</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">promedio</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">total</span>
+<span class="n">desv_estandar</span> <span class="o">=</span> <span class="n">varianza</span><span class="o">**</span><span class="mf">0.5</span>
+
+<span class="n">total</span><span class="p">,</span> <span class="n">promedio</span><span class="p">,</span> <span class="n">desv_estandar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(99, 9.896464646464647, 0.9080919202475125)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si necesitaramos calcular constantemente la desviación estándar de los datos,
+nos convendría definir una función que encapsule esas operaciones.</p>
+<p>Pero esas funciones ya están definidas en NumPy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(99, 9.896464646464647, 0.9080919202475125)
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mean</span></code> es media o promedio en inglés,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">std</span></code> viene de <em>standard deviation</em>, desviación estándar en inglés.</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python",
+            path: "./numpy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="array-1.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Array (parte 1)</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mauro Silberberg<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
