@@ -10,3 +10,6 @@ parts:
     chapters:
     - file: numpy/array-1
     - file: numpy/array-2
+  - caption: Estadística
+    chapters:
+    - file: estadistica/histograma
