@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -42,6 +42,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -52,12 +53,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
     <link rel="next" title="Listas e iteraciones" href="listas-e-iteraciones.html" />
     <link rel="prev" title="Variables y operaciones aritméticas" href="variables.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="es">
     
 
     <!-- Google Analytics -->
@@ -151,6 +152,18 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../numpy/array-2.html">
    Array (parte 2)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estadística
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../estadistica/histograma.html">
+   Histogramas
   </a>
  </li>
 </ul>
@@ -542,9 +555,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="funciones">
-<h1>Funciones<a class="headerlink" href="#funciones" title="Permalink to this headline">#</a></h1>
+<h1>Funciones<a class="headerlink" href="#funciones" title="Enlazar permanentemente con este título">#</a></h1>
 <section id="motivacion">
-<h2>Motivación<a class="headerlink" href="#motivacion" title="Permalink to this headline">#</a></h2>
+<h2>Motivación<a class="headerlink" href="#motivacion" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Para evaluar el polinomio <span class="math notranslate nohighlight">\(f(x) = 2 x^2 - 5x + 2\)</span> en <span class="math notranslate nohighlight">\(x=2\)</span>,
 habíamos escrito el siguiente código:</p>
 <div class="cell docutils container">
@@ -598,13 +611,13 @@ tenemos que editar todas las lineas donde dice:
 queremos definir en un único lugar el polinomio,
 y después poder evaluarlo en distintos <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p>Para eso,
-necesitamos poder definir una variable <code class="docutils literal notranslate"><span class="pre">x</span></code> “indeterminada”,
+necesitamos poder definir una variable <code class="docutils literal notranslate"><span class="pre">x</span></code> «indeterminada»,
 es decir,
 que aún no tome un valor concreto.</p>
 <p>Esto se puede lograr definiendo una <em>función</em>.</p>
 </section>
 <section id="definiendo-una-funcion">
-<h2>Definiendo una función<a class="headerlink" href="#definiendo-una-funcion" title="Permalink to this headline">#</a></h2>
+<h2>Definiendo una función<a class="headerlink" href="#definiendo-una-funcion" title="Enlazar permanentemente con este título">#</a></h2>
 <p>La sintaxis para definir una función es la siguiente:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -621,14 +634,14 @@ con un parámetro <code class="docutils literal notranslate"><span class="pre">n
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">def</span></code>, una palabra clave para que Python sepa que estamos <em>definiendo</em> una función,</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">duplicar</span></code>, que es el nombre de la variable donde se va a guardar esta función,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">(n)</span></code>, donde ponemos el nombre de la “variable indeterminada” o parámetro que toma la función,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(n)</span></code>, donde ponemos el nombre de la «variable indeterminada» o parámetro que toma la función,</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">:</span></code>, al final, para indicar que comienza el código de la función.</p></li>
 </ul>
 <p>En las siguientes lineas,
 está el bloque de código que se va a ejecutar
 cuando se corra la función.</p>
 <p>Para que Python pueda distinguir que código pertenece a la función,
-el código debe estar “indentado”, tabulado,
+el código debe estar «indentado», tabulado,
 o con sangría, respecto a la palabra clave <code class="docutils literal notranslate"><span class="pre">def</span></code>.</p>
 <p>La convención es usar 4 espacios,
 pero cualquier número de espacios funciona
@@ -636,10 +649,10 @@ pero cualquier número de espacios funciona
 <p>Finalmente,
 está el <code class="docutils literal notranslate"><span class="pre">return</span></code>,
 que es otra palabra clave
-y será el resultado que nos “devolverá” función al ejecutarla.</p>
+y será el resultado que nos «devolverá» función al ejecutarla.</p>
 </section>
 <section id="llamando-una-funcion">
-<h2>Llamando una función<a class="headerlink" href="#llamando-una-funcion" title="Permalink to this headline">#</a></h2>
+<h2>Llamando una función<a class="headerlink" href="#llamando-una-funcion" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Ya definimos la función <code class="docutils literal notranslate"><span class="pre">duplicar(n)</span></code>.</p>
 <p>Pero,
 si tratamos de acceder a la variable <code class="docutils literal notranslate"><span class="pre">n</span></code>,
@@ -664,7 +677,7 @@ nos dice que aún no existe:</p>
 <p>Y,
 por lo tanto,
 tampoco existe <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
-<p>Solo existe la “receta”
+<p>Solo existe la «receta»
 que está guardada en la variable <code class="docutils literal notranslate"><span class="pre">duplicar</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -778,7 +791,7 @@ que no tiene porque coincidir en nombre con el parámetro:</p>
 <p>aunque a veces hace el código más legible.
 Más adelante veremos mas ejemplos.</p>
 <section id="ejercicio-1">
-<h3>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this headline">#</a></h3>
+<h3>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Definir una función que tome un parámetro <code class="docutils literal notranslate"><span class="pre">x</span></code>
 y devuelva el resultado de evaluar el polinomio <span class="math notranslate nohighlight">\(f(x) = 2 x^2 - 8x + 6\)</span>.</p>
 <p>Evaluar en <span class="math notranslate nohighlight">\(x=2\)</span> y <span class="math notranslate nohighlight">\(x=3\)</span>.</p>
@@ -790,7 +803,7 @@ y devuelva el resultado de evaluar el polinomio <span class="math notranslate no
 </div>
 </div>
 <section id="solucion">
-<h4>Solución<a class="headerlink" href="#solucion" title="Permalink to this headline">#</a></h4>
+<h4>Solución<a class="headerlink" href="#solucion" title="Enlazar permanentemente con este título">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mi_polinomio</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -818,7 +831,7 @@ no hace falta guardar el resultado en una variable intermedia.</p>
 </section>
 </section>
 <section id="multiples-parametros">
-<h2>Múltiples parámetros<a class="headerlink" href="#multiples-parametros" title="Permalink to this headline">#</a></h2>
+<h2>Múltiples parámetros<a class="headerlink" href="#multiples-parametros" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Para definir una función con múltiples parámetros,
 estos se separan con comas (<code class="docutils literal notranslate"><span class="pre">,</span></code>).
 Por ejemplo:</p>
@@ -839,7 +852,7 @@ Por ejemplo:</p>
 </div>
 </div>
 <section id="llamando-funciones-de-multiples-parametros">
-<h3>Llamando funciones de múltiples parámetros<a class="headerlink" href="#llamando-funciones-de-multiples-parametros" title="Permalink to this headline">#</a></h3>
+<h3>Llamando funciones de múltiples parámetros<a class="headerlink" href="#llamando-funciones-de-multiples-parametros" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Vimos que hay dos formas de llamar a las funciones:</p>
 <ul class="simple">
 <li><p>por posición</p></li>
@@ -918,7 +931,7 @@ es confuso cambiar el orden de los parámetros llamándolos por nombre.</p>
 sería un poco menos confuso hacer <code class="docutils literal notranslate"><span class="pre">dividir(denominador=2,</span> <span class="pre">numerador=8)</span></code>.</p>
 </section>
 <section id="ejercicio-2">
-<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this headline">#</a></h3>
+<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Escribir una función que permita evaluar un polinomio cuadrático:</p>
 <div class="math notranslate nohighlight">
 \[ f(x) = ax^2 + bx + c \]</div>
@@ -932,7 +945,7 @@ sería un poco menos confuso hacer <code class="docutils literal notranslate"><s
 </div>
 </div>
 <section id="id1">
-<h4>Solución<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<h4>Solución<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluar_cuadratica</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
@@ -960,7 +973,7 @@ para saber si <code class="docutils literal notranslate"><span class="pre">x</sp
 </section>
 </section>
 <section id="multiples-return">
-<h2>Múltiples <code class="docutils literal notranslate"><span class="pre">return</span></code><a class="headerlink" href="#multiples-return" title="Permalink to this headline">#</a></h2>
+<h2>Múltiples <code class="docutils literal notranslate"><span class="pre">return</span></code><a class="headerlink" href="#multiples-return" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Una función solo puede devolver (<code class="docutils literal notranslate"><span class="pre">return</span></code>) una única variable. Pero eso no significa que no pueda haber más de un <code class="docutils literal notranslate"><span class="pre">return</span></code> dentro de una función.</p>
 <p>La función se ejecuta secuencialmente,
 linea por linea,
@@ -1024,7 +1037,7 @@ Pongámoslo antes del <code class="docutils literal notranslate"><span class="pr
 <p>Veremos más adelante que puede ser útil tener más de un <code class="docutils literal notranslate"><span class="pre">return</span></code> dentro de una función.</p>
 </section>
 <section id="multiples-resultados">
-<h2>Múltiples resultados<a class="headerlink" href="#multiples-resultados" title="Permalink to this headline">#</a></h2>
+<h2>Múltiples resultados<a class="headerlink" href="#multiples-resultados" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Si queremos devolver múltiples resultados,
 una forma es separarlos con comas (<code class="docutils literal notranslate"><span class="pre">,</span></code>) en el <code class="docutils literal notranslate"><span class="pre">return</span></code>:</p>
 <div class="cell docutils container">
@@ -1047,9 +1060,9 @@ una forma es separarlos con comas (<code class="docutils literal notranslate"><s
 </div>
 </div>
 </div>
-<p>Lo que estamos haciendo es crear una “tupla”,
+<p>Lo que estamos haciendo es crear una «tupla»,
 que veremos más adelante.</p>
-<p>Podemos “desempacar” el resultado
+<p>Podemos «desempacar» el resultado
 asignándolo a variables separadas por comas:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1092,7 +1105,7 @@ dice que no pudo desempacar los valores.
 Esperaba 3 valores (<code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">c</span></code>),
 pero la función solo devolvió 2.</p>
 <section id="ejercicio-3">
-<h3>Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permalink to this headline">#</a></h3>
+<h3>Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Definir una función para calcular las raíces de una cuadrática,
 y calcule las raíces del polinomio <span class="math notranslate nohighlight">\(f(x) = 2 x^2 - 5x + 2\)</span>.</p>
 <div class="cell docutils container">
@@ -1103,7 +1116,7 @@ y calcule las raíces del polinomio <span class="math notranslate nohighlight">\
 </div>
 </div>
 <section id="id2">
-<h4>Solución<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<h4>Solución<a class="headerlink" href="#id2" title="Enlazar permanentemente con este título">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">raices_cuadratica</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
@@ -1152,14 +1165,14 @@ está explicito en el nombre de la función.</p>
 </section>
 </section>
 <section id="probando-la-funcion">
-<h2>Probando la función<a class="headerlink" href="#probando-la-funcion" title="Permalink to this headline">#</a></h2>
+<h2>Probando la función<a class="headerlink" href="#probando-la-funcion" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Es importante probar la función después de definirla,
 para estar seguros que la definimos bien.</p>
 <p>Hay,
 al menos,
 dos formas:</p>
 <section id="probar-casos-conocidos">
-<h3>Probar casos conocidos<a class="headerlink" href="#probar-casos-conocidos" title="Permalink to this headline">#</a></h3>
+<h3>Probar casos conocidos<a class="headerlink" href="#probar-casos-conocidos" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Una forma es probar casos donde conozcamos la respuesta.</p>
 <p>Por ejemplo:</p>
 <ul class="simple">
@@ -1194,7 +1207,7 @@ dos formas:</p>
 </div>
 </section>
 <section id="evaluar-propiedades">
-<h3>Evaluar propiedades<a class="headerlink" href="#evaluar-propiedades" title="Permalink to this headline">#</a></h3>
+<h3>Evaluar propiedades<a class="headerlink" href="#evaluar-propiedades" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Otra forma es evaluar propiedades de la solución.</p>
 <p>Por definición,
 si evaluamos el polinomio en las raíces,
@@ -1256,16 +1269,16 @@ ya que la computadora tiene una precisión finita.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="variables.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="variables.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">anterior</p>
             <p class="prev-next-title">Variables y operaciones aritméticas</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="listas-e-iteraciones.html" title="next page">
+    <a class='right-next' id="next-link" href="listas-e-iteraciones.html" title="siguiente página">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">siguiente</p>
         <p class="prev-next-title">Listas e iteraciones</p>
     </div>
     <i class="fas fa-angle-right"></i>

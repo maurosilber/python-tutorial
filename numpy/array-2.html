@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -42,6 +42,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -52,11 +53,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Histogramas" href="../estadistica/histograma.html" />
     <link rel="prev" title="Array (parte 1)" href="array-1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="es">
     
 
     <!-- Google Analytics -->
@@ -150,6 +152,18 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Array (parte 2)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estadística
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../estadistica/histograma.html">
+   Histogramas
   </a>
  </li>
 </ul>
@@ -473,7 +487,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="array-parte-2">
-<h1>Array (parte 2)<a class="headerlink" href="#array-parte-2" title="Permalink to this headline">#</a></h1>
+<h1>Array (parte 2)<a class="headerlink" href="#array-parte-2" title="Enlazar permanentemente con este título">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -485,7 +499,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="cargando-un-archivo">
-<h2>Cargando un archivo<a class="headerlink" href="#cargando-un-archivo" title="Permalink to this headline">#</a></h2>
+<h2>Cargando un archivo<a class="headerlink" href="#cargando-un-archivo" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Hay muchos formatos para guardar datos en archivos.
 El más simple es guardarlos en un archivo de texto.</p>
 <p>En este caso,
@@ -541,7 +555,7 @@ a la que le tenemos que pasar el nombre o ubicación del archivo:</p>
 <p>Si tienen problemas al cargar el archivo,
 puede deberse a que no se encuentre en la misma carpeta en la que están ejecutando el notebook.</p>
 <section id="numeros-con-coma-decimal">
-<h3>Números con coma decimal<a class="headerlink" href="#numeros-con-coma-decimal" title="Permalink to this headline">#</a></h3>
+<h3>Números con coma decimal<a class="headerlink" href="#numeros-con-coma-decimal" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Un problema típico es que
 los programas de adquisición de datos
 hayan guardado los números con coma,
@@ -561,7 +575,7 @@ y pasársela a <code class="docutils literal notranslate"><span class="pre">np.l
 </div>
 </section>
 <section id="comentarios-o-titulos">
-<h3>Comentarios o títulos<a class="headerlink" href="#comentarios-o-titulos" title="Permalink to this headline">#</a></h3>
+<h3>Comentarios o títulos<a class="headerlink" href="#comentarios-o-titulos" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Otro problema sucede cuando en la(s) primera(s) línea(s) del archivo no hay números,
 sino texto con comentarios o títulos sobre los datos.
 Podemos decirle que se saltee la primera linea con:</p>
@@ -573,7 +587,7 @@ pueden ver más opciones para <code class="docutils literal notranslate"><span c
 </section>
 </section>
 <section id="visualizando-datos">
-<h2>Visualizando datos<a class="headerlink" href="#visualizando-datos" title="Permalink to this headline">#</a></h2>
+<h2>Visualizando datos<a class="headerlink" href="#visualizando-datos" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Lo primero y más importante que hay que hacer
 al trabajar con datos
 es visualizarlos.</p>
@@ -586,7 +600,7 @@ que usamos en la sección anterior:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fd48c86c9a0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f0038428a60&gt;]
 </pre></div>
 </div>
 <img alt="../_images/array-2_9_1.png" src="../_images/array-2_9_1.png" />
@@ -615,7 +629,7 @@ es hacer un histograma:</p>
 </div>
 </div>
 <p>Un histograma se construye
-dividiendo el rango de los datos en “canastas”,
+dividiendo el rango de los datos en «canastas»,
 o <code class="docutils literal notranslate"><span class="pre">bins</span></code>,
 y contando cuantos datos caen en cada canasta.</p>
 <p>En el histograma anterior,
@@ -635,7 +649,7 @@ Veamos como podemos hacer para descartarlo*.</p>
 <p>(*no vamos a discutir acá si está bien o no descartarlo)</p>
 </section>
 <section id="indexing-y-slicing">
-<h2>Indexing y slicing<a class="headerlink" href="#indexing-y-slicing" title="Permalink to this headline">#</a></h2>
+<h2>Indexing y slicing<a class="headerlink" href="#indexing-y-slicing" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Los <em>arrays</em> de NumPy permiten seleccionar un subconjunto de elementos de diversas maneras.</p>
 <p>Para el siguiente array:</p>
 <div class="cell docutils container">
@@ -712,7 +726,7 @@ al igual que la función <code class="docutils literal notranslate"><span class=
 <ul class="simple">
 <li><p>especificar el paso con <code class="docutils literal notranslate"><span class="pre">x[start:stop:step]</span></code>,</p></li>
 <li><p>omitir <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">x[:stop]</span></code>, donde el valor por defecto es <code class="docutils literal notranslate"><span class="pre">0</span></code>,</p></li>
-<li><p>omitir <code class="docutils literal notranslate"><span class="pre">stop</span></code>, <code class="docutils literal notranslate"><span class="pre">x[start:]</span></code>, donde el valor por defecto es “hasta el final”.</p></li>
+<li><p>omitir <code class="docutils literal notranslate"><span class="pre">stop</span></code>, <code class="docutils literal notranslate"><span class="pre">x[start:]</span></code>, donde el valor por defecto es «hasta el final».</p></li>
 </ul>
 <p>Por ejemplo,
 para seleccionar los dos primeros elementos:</p>
@@ -731,7 +745,7 @@ para seleccionar los dos primeros elementos:</p>
 <p>Todo esto también es válido para las listas,
 pero lo siguiente no.</p>
 <section id="advanced-indexing">
-<h3>Advanced indexing<a class="headerlink" href="#advanced-indexing" title="Permalink to this headline">#</a></h3>
+<h3>Advanced indexing<a class="headerlink" href="#advanced-indexing" title="Enlazar permanentemente con este título">#</a></h3>
 <p>NumPy permite indexar los arrays de otras maneras,
 que no son válidas para la lista.</p>
 <p>Una de ellas es
@@ -813,7 +827,7 @@ podemos usar la función <code class="docutils literal notranslate"><span class=
 </div>
 </section>
 <section id="ejercicio-1">
-<h3>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this headline">#</a></h3>
+<h3>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Filtrar los datos para descartar el dato cuyo valor es ~15,
 y rehacer el histograma para los datos filtrados.</p>
 <div class="cell docutils container">
@@ -824,7 +838,7 @@ y rehacer el histograma para los datos filtrados.</p>
 </div>
 </div>
 <section id="solucion">
-<h4>Solución<a class="headerlink" href="#solucion" title="Permalink to this headline">#</a></h4>
+<h4>Solución<a class="headerlink" href="#solucion" title="Enlazar permanentemente con este título">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos_filtrados</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="n">datos</span> <span class="o">&lt;</span> <span class="mi">14</span><span class="p">]</span>
@@ -847,7 +861,7 @@ y rehacer el histograma para los datos filtrados.</p>
 </section>
 </section>
 <section id="reduccion">
-<h2>Reducción<a class="headerlink" href="#reduccion" title="Permalink to this headline">#</a></h2>
+<h2>Reducción<a class="headerlink" href="#reduccion" title="Enlazar permanentemente con este título">#</a></h2>
 <p>De esta parte sobre los arrays de NumPy,
 nos queda aprender las operaciones de reducción.</p>
 <p>Hasta ahora,
@@ -857,7 +871,7 @@ a partir de dos arrays iguales,
 se generaba un tercero del mismo tamaño.</p>
 <p>En la de <em>broadcasting</em>,
 al combinar un número con un array,
-el número se “estiraba” al tamaño del array,
+el número se «estiraba» al tamaño del array,
 y se combinaba elemento a elemento.</p>
 <p>En las operaciones de reducción,
 partimos de un array
@@ -913,14 +927,14 @@ para calcular la suma:</p>
 </div>
 <p>y muchas otras que pueden buscar en la <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.html">documentación</a>.</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">Nota</p>
 <p>Puede parecer innecesario que haya un término específico,
 <em>reducción</em>,
 para operaciones como calcular la suma o el máximo.
 Pero va a tener sentido cuando veamos arrays en 2 o más dimensiones.</p>
 </div>
 <section id="ejercicio-2">
-<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this headline">#</a></h3>
+<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Para el array de datos filtrados,
 calcular la cantidad de datos,
 su promedio <span class="math notranslate nohighlight">\(\bar{x}\)</span>,
@@ -950,7 +964,7 @@ rever la sección, <em>broadcasting</em>.</p>
 </div>
 </div>
 <section id="id1">
-<h4>Solución<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<h4>Solución<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">datos_filtrados</span>
@@ -1021,12 +1035,19 @@ nos convendría definir una función que encapsule esas operaciones.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="array-1.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="array-1.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">anterior</p>
             <p class="prev-next-title">Array (parte 1)</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="../estadistica/histograma.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Histogramas</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

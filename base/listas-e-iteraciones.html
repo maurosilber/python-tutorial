@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -42,6 +42,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -52,12 +53,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
     <link rel="next" title="Array (parte 1)" href="../numpy/array-1.html" />
     <link rel="prev" title="Funciones" href="funciones.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="es">
     
 
     <!-- Google Analytics -->
@@ -151,6 +152,18 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../numpy/array-2.html">
    Array (parte 2)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estadística
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../estadistica/histograma.html">
+   Histogramas
   </a>
  </li>
 </ul>
@@ -592,9 +605,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="listas-e-iteraciones">
-<h1>Listas e iteraciones<a class="headerlink" href="#listas-e-iteraciones" title="Permalink to this headline">#</a></h1>
+<h1>Listas e iteraciones<a class="headerlink" href="#listas-e-iteraciones" title="Enlazar permanentemente con este título">#</a></h1>
 <section id="motivacion-evaluar-un-polinomio-de-grado-n">
-<h2>Motivación: evaluar un polinomio de grado <span class="math notranslate nohighlight">\(n\)</span><a class="headerlink" href="#motivacion-evaluar-un-polinomio-de-grado-n" title="Permalink to this headline">#</a></h2>
+<h2>Motivación: evaluar un polinomio de grado <span class="math notranslate nohighlight">\(n\)</span><a class="headerlink" href="#motivacion-evaluar-un-polinomio-de-grado-n" title="Enlazar permanentemente con este título">#</a></h2>
 <p>En la sección anterior,
 escribimos la siguiente función,
 que nos permite evaluar un polinomio cuadrático <span class="math notranslate nohighlight">\(f(x) = ax^2 + bx + c\)</span>:</p>
@@ -619,7 +632,7 @@ que nos permite evaluar un polinomio cuadrático <span class="math notranslate n
 <span class="math notranslate nohighlight">\(f(x) = ax + b\)</span>,
 y supongamos que queremos evaluar <span class="math notranslate nohighlight">\(f(x) = 2 x + 3\)</span> en <span class="math notranslate nohighlight">\(x=1\)</span>.</p>
 <section id="opcion-1">
-<h3>Opción 1<a class="headerlink" href="#opcion-1" title="Permalink to this headline">#</a></h3>
+<h3>Opción 1<a class="headerlink" href="#opcion-1" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Podemos escribir otra función para evaluar un polinomio lineal:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -641,7 +654,7 @@ y supongamos que queremos evaluar <span class="math notranslate nohighlight">\(f
 <p>Debe haber una mejor manera…</p>
 </section>
 <section id="opcion-2">
-<h3>Opción 2<a class="headerlink" href="#opcion-2" title="Permalink to this headline">#</a></h3>
+<h3>Opción 2<a class="headerlink" href="#opcion-2" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Una lineal es <em>una cuadrática sin coeficiente cuadrático</em>.</p>
 <p>Entonces,
 podríamos reusar la función <code class="docutils literal notranslate"><span class="pre">evaluar_cuadratica</span></code>:</p>
@@ -669,7 +682,7 @@ el <code class="docutils literal notranslate"><span class="pre">a</span></code> 
 <p>Y no nos sirve para polinomios de mayor grado.</p>
 </section>
 <section id="opcion-3">
-<h3>Opción 3<a class="headerlink" href="#opcion-3" title="Permalink to this headline">#</a></h3>
+<h3>Opción 3<a class="headerlink" href="#opcion-3" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Si queremos escribir un código para polinomios de grado <span class="math notranslate nohighlight">\(n\)</span>,
 veamos como es la fórmula para dichos polinomios.</p>
 <p>Un polinomio de grado <span class="math notranslate nohighlight">\(n\)</span> se puede escribir como:</p>
@@ -680,7 +693,7 @@ veamos como es la fórmula para dichos polinomios.</p>
 para poder definir una función general <code class="docutils literal notranslate"><span class="pre">evaluar_polinomio</span></code>,
 necesitamos de 2 cosas:</p>
 <ol class="simple">
-<li><p>definir “variables numeradas”,</p></li>
+<li><p>definir «variables numeradas»,</p></li>
 <li><p>sumar tantos términos como coeficientes que hayamos recibido.</p></li>
 </ol>
 <p>Si pudiésemos definir variables numeradas,
@@ -705,8 +718,8 @@ vamos a introducir 3 herramientas nuevas:</p>
 </section>
 </section>
 <section id="listas">
-<h2>Listas<a class="headerlink" href="#listas" title="Permalink to this headline">#</a></h2>
-<p>La lista es una estructura de datos que nos permite definir “variables numeradas”.</p>
+<h2>Listas<a class="headerlink" href="#listas" title="Enlazar permanentemente con este título">#</a></h2>
+<p>La lista es una estructura de datos que nos permite definir «variables numeradas».</p>
 <p>Para definir una lista,
 ponemos los elementos entre corchetes,
 <code class="docutils literal notranslate"><span class="pre">[]</span></code>,
@@ -742,7 +755,7 @@ podemos usar la función <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <section id="acceder-a-una-variable-numerada">
-<h3>Acceder a una variable numerada<a class="headerlink" href="#acceder-a-una-variable-numerada" title="Permalink to this headline">#</a></h3>
+<h3>Acceder a una variable numerada<a class="headerlink" href="#acceder-a-una-variable-numerada" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Para acceder a un elemento de la lista,
 se usa la notación <code class="docutils literal notranslate"><span class="pre">lista[numero]</span></code>.</p>
 <p>La lista numera sus elementos desde <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
@@ -795,7 +808,7 @@ nos arroja un error:</p>
 </div>
 </section>
 <section id="reasignar-agregar-y-eliminar-elementos">
-<h3>Reasignar, agregar y eliminar elementos<a class="headerlink" href="#reasignar-agregar-y-eliminar-elementos" title="Permalink to this headline">#</a></h3>
+<h3>Reasignar, agregar y eliminar elementos<a class="headerlink" href="#reasignar-agregar-y-eliminar-elementos" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Podemos cambiar un elemento al igual que cuando reasignamos una variable:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -902,7 +915,7 @@ ahora está en la posición <code class="docutils literal notranslate"><span cla
 </div>
 </section>
 <section id="ejercicio-1">
-<h3>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this headline">#</a></h3>
+<h3>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Reescribir la función <code class="docutils literal notranslate"><span class="pre">evaluar_cuadratica(x,</span> <span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">c)</span></code> como <code class="docutils literal notranslate"><span class="pre">evaluar_cuadratica(x,</span> <span class="pre">c)</span></code>
 donde <code class="docutils literal notranslate"><span class="pre">c</span></code> es una lista de coeficientes.</p>
 <p>Evaluar el polinomio <span class="math notranslate nohighlight">\(f(x) = 2 x^2 + 3 x + 5\)</span> en <span class="math notranslate nohighlight">\(x=7\)</span>.</p>
@@ -914,7 +927,7 @@ donde <code class="docutils literal notranslate"><span class="pre">c</span></cod
 </div>
 </div>
 <section id="solucion">
-<h4>Solución<a class="headerlink" href="#solucion" title="Permalink to this headline">#</a></h4>
+<h4>Solución<a class="headerlink" href="#solucion" title="Enlazar permanentemente con este título">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluar_cuadratica</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
@@ -979,14 +992,14 @@ nos dice que el índice de la lista se fue del rango válido.</p>
 </section>
 </section>
 <section id="iteraciones-y-bucle-for">
-<h2>Iteraciones y bucle <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#iteraciones-y-bucle-for" title="Permalink to this headline">#</a></h2>
+<h2>Iteraciones y bucle <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#iteraciones-y-bucle-for" title="Enlazar permanentemente con este título">#</a></h2>
 <p>En cada término del polinomio,
 necesitamos hacer una cuenta similar,
 <code class="docutils literal notranslate"><span class="pre">c[k]</span> <span class="pre">*</span> <span class="pre">x**k</span></code> para <code class="docutils literal notranslate"><span class="pre">k</span></code> de <code class="docutils literal notranslate"><span class="pre">0</span></code> a <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
 <p>Entonces,
 necesitamos una forma de repetir una operación (<code class="docutils literal notranslate"><span class="pre">c[k]</span> <span class="pre">*</span> <span class="pre">x**k</span></code>),
 cambiando una variable (<code class="docutils literal notranslate"><span class="pre">k</span></code>).</p>
-<p>Empecemos con un caso más “visual”:
+<p>Empecemos con un caso más «visual»:
 imprimir los números 2, 3 y 5,
 cada uno en una linea distinta.</p>
 <p>Podemos hacerlo manualmente:</p>
@@ -1051,7 +1064,7 @@ variando la asignación <code class="docutils literal notranslate"><span class="
 </div>
 </div>
 <p>Se lee como:
-“para cada <code class="docutils literal notranslate"><span class="pre">x</span></code> en la lista <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">3,</span> <span class="pre">5]</span></code>, hace <code class="docutils literal notranslate"><span class="pre">print(x)</span></code>”.</p>
+«para cada <code class="docutils literal notranslate"><span class="pre">x</span></code> en la lista <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">3,</span> <span class="pre">5]</span></code>, hace <code class="docutils literal notranslate"><span class="pre">print(x)</span></code>».</p>
 <p>Este código hace exactamente lo mismo al de la celda anterior.</p>
 <p>Se imaginarán que es muy útil
 si tenemos que repetir algo muchas veces.</p>
@@ -1059,7 +1072,7 @@ si tenemos que repetir algo muchas veces.</p>
 como se hace una vez
 y que lo repita para todos.</p>
 <section id="sintaxis-del-bucle-for">
-<h3>Sintaxis del bucle <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#sintaxis-del-bucle-for" title="Permalink to this headline">#</a></h3>
+<h3>Sintaxis del bucle <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#sintaxis-del-bucle-for" title="Enlazar permanentemente con este título">#</a></h3>
 <p>La sintaxis en general es</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
     <span class="n">bloque_de_codigo</span>
@@ -1078,7 +1091,7 @@ Python reconoce cual es el bloque de código a repetir
 porque está <em>indentado</em>.</p>
 </section>
 <section id="ejercicio-2">
-<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this headline">#</a></h3>
+<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Muchos problemas se pueden descomponer
 en iterar una misma operación múltiples veces.</p>
 <p>Por ejemplo,
@@ -1162,7 +1175,7 @@ este algoritmo nos serviría para sumar una lista de números:</p>
 </div>
 </div>
 <section id="id1">
-<h4>Solución<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<h4>Solución<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
@@ -1184,7 +1197,7 @@ este algoritmo nos serviría para sumar una lista de números:</p>
 </section>
 </section>
 <section id="ejercicio-3">
-<h3>Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permalink to this headline">#</a></h3>
+<h3>Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Reescribir la función <code class="docutils literal notranslate"><span class="pre">evaluar_cuadratica(x,</span> <span class="pre">c)</span></code>
 usando un bucle <code class="docutils literal notranslate"><span class="pre">for</span></code> para sumar los términos.</p>
 <p>Evaluar el polinomio <span class="math notranslate nohighlight">\(f(x) = 2 x^2 + 3 x + 5\)</span> en <span class="math notranslate nohighlight">\(x=7\)</span>.</p>
@@ -1199,7 +1212,7 @@ $<span class="math notranslate nohighlight">\( f(x) = c_0 x^0 + c_1 x^1 + c_2 x^
 </div>
 </div>
 <section id="id2">
-<h4>Solución<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<h4>Solución<a class="headerlink" href="#id2" title="Enlazar permanentemente con este título">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluar_cuadratica</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
@@ -1223,7 +1236,7 @@ $<span class="math notranslate nohighlight">\( f(x) = c_0 x^0 + c_1 x^1 + c_2 x^
 </section>
 </section>
 <section id="la-funcion-range">
-<h2>La función <code class="docutils literal notranslate"><span class="pre">range</span></code><a class="headerlink" href="#la-funcion-range" title="Permalink to this headline">#</a></h2>
+<h2>La función <code class="docutils literal notranslate"><span class="pre">range</span></code><a class="headerlink" href="#la-funcion-range" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Lo último que nos falta es que los índices que pusimos a mano,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
     <span class="o">...</span>
@@ -1331,7 +1344,7 @@ que genera el intervalo <span class="math notranslate nohighlight">\([a,b)\)</sp
 </div>
 </div>
 <section id="ejercicio-4">
-<h3>Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Permalink to this headline">#</a></h3>
+<h3>Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Reescribir la función <code class="docutils literal notranslate"><span class="pre">evaluar_cuadratica</span></code> para un polinomio de grado <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p>Pruebe evaluarla con polinomios de distinto grado.</p>
 <div class="cell docutils container">
@@ -1342,7 +1355,7 @@ que genera el intervalo <span class="math notranslate nohighlight">\([a,b)\)</sp
 </div>
 </div>
 <section id="id3">
-<h4>Solución<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<h4>Solución<a class="headerlink" href="#id3" title="Enlazar permanentemente con este título">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluar_polinomio</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
@@ -1441,16 +1454,16 @@ estamos calculando <code class="docutils literal notranslate"><span class="pre">
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="funciones.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="funciones.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">anterior</p>
             <p class="prev-next-title">Funciones</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../numpy/array-1.html" title="next page">
+    <a class='right-next' id="next-link" href="../numpy/array-1.html" title="siguiente página">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">siguiente</p>
         <p class="prev-next-title">Array (parte 1)</p>
     </div>
     <i class="fas fa-angle-right"></i>

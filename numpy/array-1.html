@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -42,6 +42,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -52,12 +53,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
     <link rel="next" title="Array (parte 2)" href="array-2.html" />
     <link rel="prev" title="Listas e iteraciones" href="../base/listas-e-iteraciones.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="es">
     
 
     <!-- Google Analytics -->
@@ -151,6 +152,18 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="array-2.html">
    Array (parte 2)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estadística
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../estadistica/histograma.html">
+   Histogramas
   </a>
  </li>
 </ul>
@@ -526,9 +539,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="array-parte-1">
-<h1>Array (parte 1)<a class="headerlink" href="#array-parte-1" title="Permalink to this headline">#</a></h1>
+<h1>Array (parte 1)<a class="headerlink" href="#array-parte-1" title="Enlazar permanentemente con este título">#</a></h1>
 <section id="motivacion-graficar-funciones">
-<h2>Motivación: graficar funciones<a class="headerlink" href="#motivacion-graficar-funciones" title="Permalink to this headline">#</a></h2>
+<h2>Motivación: graficar funciones<a class="headerlink" href="#motivacion-graficar-funciones" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Para graficar una función <span class="math notranslate nohighlight">\(y = f(x)\)</span>
 en un dado rango de <span class="math notranslate nohighlight">\(x\)</span>,
 tenemos que:</p>
@@ -574,7 +587,7 @@ se puede hacer de una manera mucho más simple (y rápida)
 utilizando un <em>array</em> de NumPy.</p>
 </section>
 <section id="importando-paquetes-y-modulos">
-<h2>Importando paquetes y módulos<a class="headerlink" href="#importando-paquetes-y-modulos" title="Permalink to this headline">#</a></h2>
+<h2>Importando paquetes y módulos<a class="headerlink" href="#importando-paquetes-y-modulos" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Para poder reutilizar valores,
 los asignamos en variables.</p>
 <p>Para poder reutilizar bloques de código,
@@ -583,12 +596,12 @@ que nos permiten volver a correrlos
 cambiando algunas variables (parámetros).</p>
 <p>Para poder reutilizar funciones,
 hay que crear módulos,
-que nos permiten “importar” variables y funciones,
+que nos permiten «importar» variables y funciones,
 y reutilizarlas en diferentes proyectos.</p>
 <p>Hasta ahora,
 estuvimos usando funciones,
 como <code class="docutils literal notranslate"><span class="pre">print</span></code> y <code class="docutils literal notranslate"><span class="pre">len</span></code>,
-que vienen “pre-importadas” en Python.</p>
+que vienen «pre-importadas» en Python.</p>
 <p>Python incluye varios módulos,
 donde hay funcionalidad extra
 que nos puede ser útil.</p>
@@ -714,7 +727,7 @@ las funciones de NumPy
 nos permiten operar sobre <em>array</em>s.</p>
 </section>
 <section id="creacion-de-arrays">
-<h2>Creación de arrays<a class="headerlink" href="#creacion-de-arrays" title="Permalink to this headline">#</a></h2>
+<h2>Creación de arrays<a class="headerlink" href="#creacion-de-arrays" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Para crear un array,
 le podemos pasar una lista a la función <code class="docutils literal notranslate"><span class="pre">np.array</span></code>:</p>
 <div class="cell docutils container">
@@ -788,7 +801,7 @@ en lugar del paso entre números:</p>
 <p>Es decir,
 genera un paso <code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">=</span> <span class="pre">(stop</span> <span class="pre">-</span> <span class="pre">start)</span> <span class="pre">/</span> <span class="pre">num</span></code>.</p>
 <section id="ejercicio-1">
-<h3>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this headline">#</a></h3>
+<h3>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Crear un array de 9 números equiespaciados en el intervalo <span class="math notranslate nohighlight">\([-1, 1]\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -798,7 +811,7 @@ genera un paso <code class="docutils literal notranslate"><span class="pre">step
 </div>
 </div>
 <section id="solucion">
-<h4>Solución<a class="headerlink" href="#solucion" title="Permalink to this headline">#</a></h4>
+<h4>Solución<a class="headerlink" href="#solucion" title="Enlazar permanentemente con este título">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
@@ -815,7 +828,7 @@ genera un paso <code class="docutils literal notranslate"><span class="pre">step
 </section>
 </section>
 <section id="accediendo-a-y-modificando-elementos">
-<h2>Accediendo a y modificando elementos<a class="headerlink" href="#accediendo-a-y-modificando-elementos" title="Permalink to this headline">#</a></h2>
+<h2>Accediendo a y modificando elementos<a class="headerlink" href="#accediendo-a-y-modificando-elementos" title="Enlazar permanentemente con este título">#</a></h2>
 <p>El array es similar a la lista,
 y comparten ciertos comportamientos.</p>
 <div class="cell docutils container">
@@ -904,7 +917,7 @@ ya sea borrando:</p>
 ¿qué tiene de bueno el <code class="docutils literal notranslate"><span class="pre">array</span></code>?</p>
 </section>
 <section id="operaciones-elemento-a-elemento-y-broadcasting">
-<h2>Operaciones elemento a elemento y broadcasting<a class="headerlink" href="#operaciones-elemento-a-elemento-y-broadcasting" title="Permalink to this headline">#</a></h2>
+<h2>Operaciones elemento a elemento y broadcasting<a class="headerlink" href="#operaciones-elemento-a-elemento-y-broadcasting" title="Enlazar permanentemente con este título">#</a></h2>
 <p>El <em>array</em> de NumPy nos permite
 hacer operaciones aritméticas entre elementos
 sin tener que recorrer el <em>array</em> con un <em>for-loop</em>.</p>
@@ -984,7 +997,7 @@ nos arroja un error:</p>
 </div>
 </div>
 <p>A esto le llama <a class="reference external" href="https://numpy.org/doc/stable/user/basics.broadcasting.html"><em>broadcasting</em></a>,
-que consiste en “estirar” el <code class="docutils literal notranslate"><span class="pre">1</span></code>
+que consiste en «estirar» el <code class="docutils literal notranslate"><span class="pre">1</span></code>
 hasta que tenga el mismo largo que <code class="docutils literal notranslate"><span class="pre">x</span></code>,
 y realizar la suma elemento a elemento.</p>
 <p>Funciona para todas las operaciones aritméticas,
@@ -1068,7 +1081,7 @@ si queremos usar la función seno del módulo <code class="docutils literal notr
 <p>Si quieren ver que funciones define NumPy,
 pueden leer la <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html">documentación</a>.</p>
 <section id="ejercicio-2">
-<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this headline">#</a></h3>
+<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Generar un array con los 10 primeros números enteros,
 <span class="math notranslate nohighlight">\(k \in \{0, 1, \ldots\}\)</span>,
 y calcular:</p>
@@ -1084,7 +1097,7 @@ y calcular:</p>
 </div>
 </div>
 <section id="id1">
-<h4>Solución<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<h4>Solución<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -1104,7 +1117,7 @@ y calcular:</p>
 </section>
 </section>
 <section id="graficando-funciones">
-<h2>Graficando funciones<a class="headerlink" href="#graficando-funciones" title="Permalink to this headline">#</a></h2>
+<h2>Graficando funciones<a class="headerlink" href="#graficando-funciones" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Recordemos:</p>
 <blockquote>
 <div><p>Para graficar una función <span class="math notranslate nohighlight">\(y = f(x)\)</span>
@@ -1137,7 +1150,7 @@ grafiquemos una función cuadrática:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fda78fbace0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fef303e2800&gt;]
 </pre></div>
 </div>
 <img alt="../_images/array-1_75_1.png" src="../_images/array-1_75_1.png" />
@@ -1157,7 +1170,7 @@ y los une con lineas.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fda78e8c7f0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fef30490dc0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/array-1_77_1.png" src="../_images/array-1_77_1.png" />
@@ -1173,7 +1186,7 @@ para que dibuje los puntos:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fda783ecc40&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fef1c734760&gt;]
 </pre></div>
 </div>
 <img alt="../_images/array-1_79_1.png" src="../_images/array-1_79_1.png" />
@@ -1184,7 +1197,7 @@ elegimos <code class="docutils literal notranslate"><span class="pre">o</span></
 pero hay más variantes para elegir,
 que pueden consultar en la <a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html">documentación</a>.</p>
 <section id="ejercicio-3">
-<h3>Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permalink to this headline">#</a></h3>
+<h3>Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Graficar el polinomio <span class="math notranslate nohighlight">\(f(x) = 2x^2 - 5x + 2\)</span>
 en el rango <span class="math notranslate nohighlight">\(-3 \leq x \leq 1\)</span>.</p>
 <div class="cell docutils container">
@@ -1195,7 +1208,7 @@ en el rango <span class="math notranslate nohighlight">\(-3 \leq x \leq 1\)</spa
 </div>
 </div>
 <section id="id2">
-<h4>Solución<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<h4>Solución<a class="headerlink" href="#id2" title="Enlazar permanentemente con este título">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
@@ -1206,7 +1219,7 @@ en el rango <span class="math notranslate nohighlight">\(-3 \leq x \leq 1\)</spa
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fda78260e20&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fef1c7a89d0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/array-1_84_1.png" src="../_images/array-1_84_1.png" />
@@ -1216,7 +1229,7 @@ en el rango <span class="math notranslate nohighlight">\(-3 \leq x \leq 1\)</spa
 </section>
 </section>
 <section id="graficando-multiples-lineas">
-<h2>Graficando múltiples lineas<a class="headerlink" href="#graficando-multiples-lineas" title="Permalink to this headline">#</a></h2>
+<h2>Graficando múltiples lineas<a class="headerlink" href="#graficando-multiples-lineas" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Para graficar múltiples lineas,
 se puede llamar múltiples veces a la función <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>.</p>
 <p>Por ejemplo,</p>
@@ -1231,7 +1244,7 @@ se puede llamar múltiples veces a la función <code class="docutils literal not
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fda782cce80&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fef1c6109d0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/array-1_86_1.png" src="../_images/array-1_86_1.png" />
@@ -1254,14 +1267,14 @@ para que nos muestre la leyenda:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fda781363e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fef1c678fd0&gt;
 </pre></div>
 </div>
 <img alt="../_images/array-1_88_1.png" src="../_images/array-1_88_1.png" />
 </div>
 </div>
 <section id="ejercicio-4">
-<h3>Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Permalink to this headline">#</a></h3>
+<h3>Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Para el rango <span class="math notranslate nohighlight">\(x \in [-\pi, \pi]\)</span>,
 graficar la sumatoria:</p>
 <div class="math notranslate nohighlight">
@@ -1283,7 +1296,7 @@ se puede escribir como:</p>
 </div>
 </div>
 <section id="id3">
-<h4>Solución<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<h4>Solución<a class="headerlink" href="#id3" title="Enlazar permanentemente con este título">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">onda_cuadrada</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n_terminos</span><span class="p">):</span>
@@ -1304,7 +1317,7 @@ se puede escribir como:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fda78119180&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fef1c53e650&gt;
 </pre></div>
 </div>
 <img alt="../_images/array-1_92_1.png" src="../_images/array-1_92_1.png" />
@@ -1342,16 +1355,16 @@ se puede escribir como:</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../base/listas-e-iteraciones.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../base/listas-e-iteraciones.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">anterior</p>
             <p class="prev-next-title">Listas e iteraciones</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="array-2.html" title="next page">
+    <a class='right-next' id="next-link" href="array-2.html" title="siguiente página">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">siguiente</p>
         <p class="prev-next-title">Array (parte 2)</p>
     </div>
     <i class="fas fa-angle-right"></i>
