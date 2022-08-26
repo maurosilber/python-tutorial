@@ -573,6 +573,14 @@ y pasársela a <code class="docutils literal notranslate"><span class="pre">np.l
 <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;datos.txt&quot;</span><span class="p">,</span> <span class="n">converters</span><span class="o">=</span><span class="n">comma_to_float</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>En versiones de NumPy anteriores a la 1.23,
+hay que pasar un diccionario con <code class="docutils literal notranslate"><span class="pre">numero_de_columna:</span> <span class="pre">funcion</span></code>.
+En este caso,
+que solo hay una columna,
+sería para la columna <code class="docutils literal notranslate"><span class="pre">0</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;datos.txt&quot;</span><span class="p">,</span> <span class="n">converters</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="n">comma_to_float</span><span class="p">})</span>
+</pre></div>
+</div>
 </section>
 <section id="comentarios-o-titulos">
 <h3>Comentarios o títulos<a class="headerlink" href="#comentarios-o-titulos" title="Enlazar permanentemente con este título">#</a></h3>
@@ -600,7 +608,7 @@ que usamos en la sección anterior:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f0038428a60&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe448408a90&gt;]
 </pre></div>
 </div>
 <img alt="../_images/array-2_9_1.png" src="../_images/array-2_9_1.png" />
