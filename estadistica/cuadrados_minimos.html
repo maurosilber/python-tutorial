@@ -1,0 +1,956 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Cuadrados mínimos &#8212; Tutorial de Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="prev" title="Histogramas" href="histograma.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tutorial de Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Introducción a Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Base
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../base/variables.html">
+   Variables y operaciones aritméticas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../base/funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../base/listas-e-iteraciones.html">
+   Listas e iteraciones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  NumPy y matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/array-1.html">
+   Array (parte 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/array-2.html">
+   Array (parte 2)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estadística
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="histograma.html">
+   Histogramas
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Cuadrados mínimos
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://colab.research.google.com/github/maurosilber/python-tutorial/blob/main/book/estadistica/cuadrados_minimos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/estadistica/cuadrados_minimos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivacion">
+   Motivación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ajuste-por-cuadrados-minimos">
+   Ajuste por cuadrados mínimos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#graficar-el-ajuste">
+   Graficar el ajuste
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-1">
+   Ejercicio 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solucion">
+     Solución
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#errores-diferentes-en-y">
+   Errores diferentes en
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     y
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiples-parametros">
+   Múltiples parámetros
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Cuadrados mínimos</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivacion">
+   Motivación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ajuste-por-cuadrados-minimos">
+   Ajuste por cuadrados mínimos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#graficar-el-ajuste">
+   Graficar el ajuste
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-1">
+   Ejercicio 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solucion">
+     Solución
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#errores-diferentes-en-y">
+   Errores diferentes en
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     y
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiples-parametros">
+   Múltiples parámetros
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="cuadrados-minimos">
+<h1>Cuadrados mínimos<a class="headerlink" href="#cuadrados-minimos" title="Enlazar permanentemente con este título">#</a></h1>
+<p>Para realizar un ajuste de una función por cuadrados mínimos,
+vamos a usar la función <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> de <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s2">&quot;figure&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Hay funciones especializadas para casos particulares,
+como los casos lineales,
+que son más eficientes.</p>
+</div>
+<section id="motivacion">
+<h2>Motivación<a class="headerlink" href="#motivacion" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Supongamos que tenemos una serie de <span class="math notranslate nohighlight">\(N\)</span> mediciones <span class="math notranslate nohighlight">\((x_i, y_i)\)</span>,
+y sabemos que están relacionadas por una dada función <span class="math notranslate nohighlight">\(f\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ y = f(x, p_1, \ldots, p_k) \]</div>
+<p>donde <span class="math notranslate nohighlight">\(p_1, \ldots, p_k\)</span> son parámetros de la función
+que queremos determinar.</p>
+<p>Por ejemplo,
+supongamos que la función es <span class="math notranslate nohighlight">\(y = Ax\)</span>,
+y queremos determinar el parámetro <span class="math notranslate nohighlight">\(A\)</span>
+a partir de los siguientes datos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span>  <span class="c1"># la constante A es 3!</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe1aa677e50&gt;]
+</pre></div>
+</div>
+<img alt="../_images/cuadrados_minimos_4_1.png" src="../_images/cuadrados_minimos_4_1.png" />
+</div>
+</div>
+<p>En este caso,
+alcanzaría con dividir <span class="math notranslate nohighlight">\(y/x\)</span>
+para obtener <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">/</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3., 3., 3., 3., 3.])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pero,
+estas «mediciones» son perfectas,
+sin ninguna incerteza.
+En la práctica,
+todas las mediciones tienen un error.</p>
+<p>Simulemos una medición agregándole error a los datos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_error</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># la desviación estándar</span>
+<span class="n">y_medido</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">y_error</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ideal&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_medido</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Medido&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe1aa545db0&gt;
+</pre></div>
+</div>
+<img alt="../_images/cuadrados_minimos_8_1.png" src="../_images/cuadrados_minimos_8_1.png" />
+</div>
+</div>
+<p>Si tratamos de determinar <span class="math notranslate nohighlight">\(A\)</span>
+a partir de estas mediciones,
+no obtenemos exactamente <span class="math notranslate nohighlight">\(3\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_medido</span> <span class="o">/</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.62434536, 2.69412179, 2.82394275, 2.73175784, 3.17308153])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Obtenemos una pendiente <span class="math notranslate nohighlight">\(A\)</span> distinta
+para cada medición.
+¿Cómo podemos unificarlas?</p>
+<p>Una opción «incorrecta» para combinarlas
+es hacer un promedio de estos valores:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_medido</span> <span class="o">/</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.2094498552819224
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pero hay una manera más general de resolver este problema,
+que es realizar un ajuste por cuadrados mínimos.</p>
+</section>
+<section id="ajuste-por-cuadrados-minimos">
+<h2>Ajuste por cuadrados mínimos<a class="headerlink" href="#ajuste-por-cuadrados-minimos" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Para realizar un ajuste por cuadrados mínimos,
+vamos a usar la función <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> de <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> necesita (al menos) 3 parámetros:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code>, la función que queremos ajustar,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xdata</span></code>, el array de datos en <span class="math notranslate nohighlight">\(x\)</span>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ydata</span></code>, el array de datos en <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Es importante el orden de los parámetros al definir <code class="docutils literal notranslate"><span class="pre">f</span></code>.
+Primero va la variable <code class="docutils literal notranslate"><span class="pre">x</span></code>,
+y después los parámetros a determinar.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lineal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span> <span class="o">*</span> <span class="n">x</span>
+
+
+<span class="n">p_opt</span><span class="p">,</span> <span class="n">p_cov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">lineal</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y_medido</span><span class="p">)</span>
+
+<span class="n">p_opt</span><span class="p">,</span> <span class="n">p_cov</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([2.97911784]), array([[0.02349053]]))
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> devuelve dos valores:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p_opt</span></code> es un array que contiene los valores óptimos de los parámetros,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p_cov</span></code> es la matriz de covarianza de los parámetros.</p></li>
+</ul>
+<p>En este caso,</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p_opt</span></code> es un array de tamaño <span class="math notranslate nohighlight">\(1\)</span> que contiene el valor óptimo de <span class="math notranslate nohighlight">\(A\)</span>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p_cov</span></code> es una matriz de <span class="math notranslate nohighlight">\(1\times1\)</span> que contiene la varianza de <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+</ul>
+<p>Entonces,
+podemos calcular el error de <span class="math notranslate nohighlight">\(A\)</span>
+como la raíz de la varianza.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_optimo</span> <span class="o">=</span> <span class="n">p_opt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">A_error</span> <span class="o">=</span> <span class="n">p_cov</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mf">0.5</span>
+
+<span class="n">A_optimo</span><span class="p">,</span> <span class="n">A_error</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.9791178354896406, 0.15326622133629833)
+</pre></div>
+</div>
+</div>
+</div>
+<p>El valor obtenido no da exactamente 3,
+pero el intervalo <code class="docutils literal notranslate"><span class="pre">A_optimo</span> <span class="pre">±</span> <span class="pre">A_error</span></code> es compatible con <span class="math notranslate nohighlight">\(A=3\)</span>.</p>
+</section>
+<section id="graficar-el-ajuste">
+<h2>Graficar el ajuste<a class="headerlink" href="#graficar-el-ajuste" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Para graficar el ajuste,
+podemos usar la misma función que le pasamos a <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>.
+La evaluamos en los datos <code class="docutils literal notranslate"><span class="pre">x</span></code> y el parámetro <code class="docutils literal notranslate"><span class="pre">A_optimo</span></code>.</p>
+<p>Para graficar los datos,
+se los suele graficar como puntos con barra de error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">lineal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A_optimo</span><span class="p">)</span>  <span class="c1"># El &quot;y&quot; predicho a partir del ajuste</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_medido</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">y_error</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ajuste&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mediciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe1aa3b59f0&gt;
+</pre></div>
+</div>
+<img alt="../_images/cuadrados_minimos_21_1.png" src="../_images/cuadrados_minimos_21_1.png" />
+</div>
+</div>
+<p>Generalmente,
+se acompaña este gráfico con
+el gráfico de los residuos.</p>
+<p>Los residuos <span class="math notranslate nohighlight">\(r_i\)</span> son la diferencia entre
+la función <span class="math notranslate nohighlight">\(f(x_i)\)</span>
+y la medición <span class="math notranslate nohighlight">\(y_i\)</span> correspondiente a dicho <span class="math notranslate nohighlight">\(x_i\)</span>:
+$<span class="math notranslate nohighlight">\( r_i = y_i - f(x_i) \)</span>$
+donde se usan los parámetros óptimos para la función.</p>
+<p>Para graficar los residuos,
+se suele agregar un segundo gráfico debajo,
+ya que comparten en eje <span class="math notranslate nohighlight">\(x\)</span>.
+Es decir,
+<span class="math notranslate nohighlight">\(y_i\)</span> y <span class="math notranslate nohighlight">\(r_i\)</span> comparten el mismo <span class="math notranslate nohighlight">\(x_i\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">lineal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A_optimo</span><span class="p">)</span>
+<span class="n">residuos</span> <span class="o">=</span> <span class="n">y_medido</span> <span class="o">-</span> <span class="n">y_pred</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
+    <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;height_ratios&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)}</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_medido</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">y_error</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">residuos</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">y_error</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Magnitud [unidad]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Residuos [unidad]&quot;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Otra magnitud [otra unidad]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0, 0.5, &#39;Residuos [unidad]&#39;),
+ Text(0.5, 0, &#39;Otra magnitud [otra unidad]&#39;)]
+</pre></div>
+</div>
+<img alt="../_images/cuadrados_minimos_23_1.png" src="../_images/cuadrados_minimos_23_1.png" />
+</div>
+</div>
+<p>Los residuos tienen la misma unidad que el eje <span class="math notranslate nohighlight">\(y\)</span>,
+y el residuo <span class="math notranslate nohighlight">\(r_i\)</span> tiene el mismo error que la medición <span class="math notranslate nohighlight">\(y_i\)</span>.</p>
+<p>Los residuos nos permiten hacer un «zoom»
+a la diferencia entre las mediciones y la curva teórica.</p>
+</section>
+<section id="ejercicio-1">
+<h2>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Usando el siguiente conjunto de datos:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">11.5</span><span class="p">,</span> <span class="mf">10.2</span><span class="p">,</span> <span class="mf">10.4</span><span class="p">,</span>  <span class="mf">9.1</span><span class="p">,</span>  <span class="mf">8.</span> <span class="p">,</span>  <span class="mf">9.7</span><span class="p">,</span> <span class="mf">10.2</span><span class="p">,</span> <span class="mf">11.2</span><span class="p">,</span> <span class="mf">11.2</span><span class="p">,</span>  <span class="mf">9.6</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>ajustar por cuadrados mínimos
+una función constante,
+es decir,
+<span class="math notranslate nohighlight">\(f(x) = A\)</span>.</p>
+<p>Comparar el resultado contra
+el promedio <span class="math notranslate nohighlight">\(\bar{x}\)</span>
+y el error del promedio <span class="math notranslate nohighlight">\(\sigma_{\bar{x}}\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Para <code class="docutils literal notranslate"><span class="pre">x</span></code>,
+no debería importar los valores que se usan,
+mientras sea del mismo largo que <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Escriba aquí su solución</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="solucion">
+<h3>Solución<a class="headerlink" href="#solucion" title="Enlazar permanentemente con este título">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">11.5</span><span class="p">,</span> <span class="mf">10.2</span><span class="p">,</span> <span class="mf">10.4</span><span class="p">,</span> <span class="mf">9.1</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">9.7</span><span class="p">,</span> <span class="mf">10.2</span><span class="p">,</span> <span class="mf">11.2</span><span class="p">,</span> <span class="mf">11.2</span><span class="p">,</span> <span class="mf">9.6</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">constante</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span>
+
+
+<span class="n">p_opt</span><span class="p">,</span> <span class="n">p_cov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">constante</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">A_opt</span> <span class="o">=</span> <span class="n">p_opt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">A_error</span> <span class="o">=</span> <span class="n">p_cov</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mf">0.5</span>
+
+<span class="n">promedio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">error_promedio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+<span class="c1"># ddof=1 es para que divida por N-1 al calcular la desviación estándar</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;                 A = &quot;</span><span class="p">,</span> <span class="n">A_opt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;          promedio = &quot;</span><span class="p">,</span> <span class="n">promedio</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;        error de A = &quot;</span><span class="p">,</span> <span class="n">A_error</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error del promedio = &quot;</span><span class="p">,</span> <span class="n">error_promedio</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                 A =  10.110000000019873
+          promedio =  10.11
+        error de A =  0.33844415214514456
+error del promedio =  0.3384441526226217
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="errores-diferentes-en-y">
+<h2>Errores diferentes en <code class="docutils literal notranslate"><span class="pre">y</span></code><a class="headerlink" href="#errores-diferentes-en-y" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Por defecto,
+<code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> asume que los errores en <code class="docutils literal notranslate"><span class="pre">y</span></code> son iguales.
+Pero,
+si cada <code class="docutils literal notranslate"><span class="pre">y</span></code> tiene un error distinto,
+podemos tenerlo en cuenta,
+para que le dé mayor peso a las mediciones con menor error.</p>
+<p>Por ejemplo,
+en los siguientes datos,
+las mediciones para <code class="docutils literal notranslate"><span class="pre">x=3</span></code> y <code class="docutils literal notranslate"><span class="pre">x=4</span></code>
+tienen 10 veces más incerteza
+que las mediciones para <code class="docutils literal notranslate"><span class="pre">x=1</span></code> y <code class="docutils literal notranslate"><span class="pre">x=2</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">y_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">y_error</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">y_error</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ErrorbarContainer object of 3 artists&gt;
+</pre></div>
+</div>
+<img alt="../_images/cuadrados_minimos_30_1.png" src="../_images/cuadrados_minimos_30_1.png" />
+</div>
+</div>
+<p>Para pasarle los errores a <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>,
+hay que pasarle un array (del mismo tamaño que <code class="docutils literal notranslate"><span class="pre">ydata</span></code>)
+en el parámetro <code class="docutils literal notranslate"><span class="pre">sigma</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_opt</span><span class="p">,</span> <span class="n">p_cov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">lineal</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">y_error</span><span class="p">)</span>
+
+<span class="n">A_opt</span> <span class="o">=</span> <span class="n">p_opt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">A_err</span> <span class="o">=</span> <span class="n">p_cov</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mf">0.5</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">y_error</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mediciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lineal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A_opt</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ajuste&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">A_opt</span><span class="p">,</span> <span class="n">A_err</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3.1949912491950037, 0.4220395679483022)
+</pre></div>
+</div>
+<img alt="../_images/cuadrados_minimos_32_1.png" src="../_images/cuadrados_minimos_32_1.png" />
+</div>
+</div>
+<p>Si no los tenemos en cuenta,
+el valor que se obtiene es distinto:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_opt</span><span class="p">,</span> <span class="n">p_cov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">lineal</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">A_opt</span> <span class="o">=</span> <span class="n">p_opt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">A_err</span> <span class="o">=</span> <span class="n">p_cov</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mf">0.5</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">y_error</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mediciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lineal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A_opt</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ajuste&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">A_opt</span><span class="p">,</span> <span class="n">A_err</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5.685734531667022, 0.8012683123310547)
+</pre></div>
+</div>
+<img alt="../_images/cuadrados_minimos_34_1.png" src="../_images/cuadrados_minimos_34_1.png" />
+</div>
+</div>
+<p>Al especificar las incertezas,
+<code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> «priorizó» pasar más cerca de los puntos con menor error,
+resultando en una pendiente <span class="math notranslate nohighlight">\(A\)</span> distinta.</p>
+</section>
+<section id="multiples-parametros">
+<h2>Múltiples parámetros<a class="headerlink" href="#multiples-parametros" title="Enlazar permanentemente con este título">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">recta</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">B</span>
+
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">20</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="n">p_opt</span><span class="p">,</span> <span class="n">p_cov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">recta</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">p_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">p_cov</span><span class="p">))</span>  <span class="c1"># la raíz de la diagonal</span>
+
+<span class="n">p_opt</span><span class="p">,</span> <span class="n">p_err</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 2.98653563, 20.60831635]), array([0.00855936, 0.50771664]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los parámetros están en el mismo orden
+que en la definición de la función (<code class="docutils literal notranslate"><span class="pre">recta</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">p_opt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">p_opt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-tip notranslate"><div class="highlight"><pre><span></span>Para evaluar la función,
+pueden usar `recta(x, *p_opt)`.
+Es equivalente a `recta(x, p_opt[0], p_opt[1])`,
+o, en general,
+`recta(x, p_opt[0], p_opt[1], ..., p_opt[n])`.
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python",
+            path: "./estadistica"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="histograma.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title">Histogramas</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mauro Silberberg<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
