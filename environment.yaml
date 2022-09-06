@@ -9,3 +9,4 @@ dependencies:
   - jupyter-book
   - numpy
   - matplotlib
+  - scipy
