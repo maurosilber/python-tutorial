@@ -28,8 +28,9 @@ def process_notebook(notebook: Notebook):
 def clean_notebook(notebook: Notebook):
     remove_notebook_metadata(notebook)
 
+    keep = {"tags"}
     for cell in notebook["cells"]:
-        remove_cell_metadata(cell)
+        remove_cell_metadata(cell, keep=keep)
         if cell["cell_type"] == "code":
             remove_output(cell)
 
@@ -67,8 +68,13 @@ def remove_output(cell: Cell):
     cell["execution_count"] = None
 
 
-def remove_cell_metadata(cell: Cell):
-    cell["metadata"].clear()
+def remove_cell_metadata(cell: Cell, keep: set[str] = None):
+    metadata = cell["metadata"]
+    if keep is None:
+        metadata.clear()
+        return
+
+    cell["metadata"] = {k: v for k, v in metadata.items() if k in keep}
 
 
 def is_solution_section(cell: Cell):
