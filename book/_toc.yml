@@ -14,3 +14,4 @@ parts:
     chapters:
     - file: estadistica/histograma
     - file: estadistica/cuadrados_minimos
+    - file: estadistica/mediciones-consecutivas
