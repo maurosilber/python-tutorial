@@ -373,6 +373,11 @@ title="Print to PDF"
    Múltiples parámetros
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-no-lineales">
+   Funciones no lineales
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -434,6 +439,11 @@ title="Print to PDF"
    Múltiples parámetros
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-no-lineales">
+   Funciones no lineales
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -455,7 +465,6 @@ vamos a usar la función <code class="docutils literal notranslate"><span class=
 <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s2">&quot;figure&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -488,10 +497,10 @@ a partir de los siguientes datos:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe1aa677e50&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f63bcc3ba60&gt;]
 </pre></div>
 </div>
-<img alt="../_images/cuadrados_minimos_4_1.png" src="../_images/cuadrados_minimos_4_1.png" />
+<img alt="../_images/cuadrados_minimos_5_1.png" src="../_images/cuadrados_minimos_5_1.png" />
 </div>
 </div>
 <p>En este caso,
@@ -527,10 +536,10 @@ todas las mediciones tienen un error.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe1aa545db0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f63ead4f340&gt;
 </pre></div>
 </div>
-<img alt="../_images/cuadrados_minimos_8_1.png" src="../_images/cuadrados_minimos_8_1.png" />
+<img alt="../_images/cuadrados_minimos_9_1.png" src="../_images/cuadrados_minimos_9_1.png" />
 </div>
 </div>
 <p>Si tratamos de determinar <span class="math notranslate nohighlight">\(A\)</span>
@@ -651,10 +660,10 @@ se los suele graficar como puntos con barra de error.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe1aa3b59f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f63bcbd5d80&gt;
 </pre></div>
 </div>
-<img alt="../_images/cuadrados_minimos_21_1.png" src="../_images/cuadrados_minimos_21_1.png" />
+<img alt="../_images/cuadrados_minimos_22_1.png" src="../_images/cuadrados_minimos_22_1.png" />
 </div>
 </div>
 <p>Generalmente,
@@ -695,7 +704,7 @@ Es decir,
  Text(0.5, 0, &#39;Otra magnitud [otra unidad]&#39;)]
 </pre></div>
 </div>
-<img alt="../_images/cuadrados_minimos_23_1.png" src="../_images/cuadrados_minimos_23_1.png" />
+<img alt="../_images/cuadrados_minimos_24_1.png" src="../_images/cuadrados_minimos_24_1.png" />
 </div>
 </div>
 <p>Los residuos tienen la misma unidad que el eje <span class="math notranslate nohighlight">\(y\)</span>,
@@ -797,7 +806,7 @@ que las mediciones para <code class="docutils literal notranslate"><span class="
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ErrorbarContainer object of 3 artists&gt;
 </pre></div>
 </div>
-<img alt="../_images/cuadrados_minimos_30_1.png" src="../_images/cuadrados_minimos_30_1.png" />
+<img alt="../_images/cuadrados_minimos_31_1.png" src="../_images/cuadrados_minimos_31_1.png" />
 </div>
 </div>
 <p>Para pasarle los errores a <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>,
@@ -822,7 +831,7 @@ en el parámetro <code class="docutils literal notranslate"><span class="pre">si
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3.1949912491950037, 0.4220395679483022)
 </pre></div>
 </div>
-<img alt="../_images/cuadrados_minimos_32_1.png" src="../_images/cuadrados_minimos_32_1.png" />
+<img alt="../_images/cuadrados_minimos_33_1.png" src="../_images/cuadrados_minimos_33_1.png" />
 </div>
 </div>
 <p>Si no los tenemos en cuenta,
@@ -846,7 +855,7 @@ el valor que se obtiene es distinto:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5.685734531667022, 0.8012683123310547)
 </pre></div>
 </div>
-<img alt="../_images/cuadrados_minimos_34_1.png" src="../_images/cuadrados_minimos_34_1.png" />
+<img alt="../_images/cuadrados_minimos_35_1.png" src="../_images/cuadrados_minimos_35_1.png" />
 </div>
 </div>
 <p>Al especificar las incertezas,
@@ -884,13 +893,150 @@ que en la definición de la función (<code class="docutils literal notranslate"
 <span class="n">B</span> <span class="o">=</span> <span class="n">p_opt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-tip notranslate"><div class="highlight"><pre><span></span>Para evaluar la función,
-pueden usar `recta(x, *p_opt)`.
-Es equivalente a `recta(x, p_opt[0], p_opt[1])`,
+<div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p>Para evaluar la función,
+pueden usar <code class="docutils literal notranslate"><span class="pre">recta(x,</span> <span class="pre">*p_opt)</span></code>.
+Es equivalente a <code class="docutils literal notranslate"><span class="pre">recta(x,</span> <span class="pre">p_opt[0],</span> <span class="pre">p_opt[1])</span></code>,
 o, en general,
-`recta(x, p_opt[0], p_opt[1], ..., p_opt[n])`.
+<code class="docutils literal notranslate"><span class="pre">recta(x,</span> <span class="pre">p_opt[0],</span> <span class="pre">p_opt[1],</span> <span class="pre">...,</span> <span class="pre">p_opt[n])</span></code>.</p>
+</div>
+</section>
+<section id="funciones-no-lineales">
+<h2>Funciones no lineales<a class="headerlink" href="#funciones-no-lineales" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Para usar cuadrados mínimos con funciones no lineales,
+hay que darle una ayuda al algoritmo,
+diciendode un punto inicial para que encuentre la solución.</p>
+<p>Una función es lineal para cuadrados mínimos
+si sus derivadas respecto de los parámetros no dependen de los parámetros.
+Por ejemplo:</p>
+<div class="math notranslate nohighlight">
+\[ f(x, A, B) = A \sin(x) + B \cos(x) \]</div>
+<p>es lineal,
+ya que</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{cases}
+    \frac{\partial f}{\partial A} = \sin(x)
+    \\ \\
+    \frac{\partial f}{\partial B} = \cos(x)
+\end{cases}
+\end{split}\]</div>
+<p>En cambio,</p>
+<div class="math notranslate nohighlight">
+\[ f(x, A, w) = A \sin(w x) \]</div>
+<p>pero no es lineal,
+ya que</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{cases}
+    \frac{\partial f}{\partial A} = \sin(w x)
+    \\ \\
+    \frac{\partial f}{\partial w} = w A \cos(w x)
+\end{cases}
+\end{split}\]</div>
+<p>Generemos datos para esta función no lineal,
+con <span class="math notranslate nohighlight">\(A=2\)</span> y <span class="math notranslate nohighlight">\(w=5\)</span>,
+y tratemos de ajustar sin darle parámetros iniciales para la busqueda:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">w</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+
+
+<span class="c1"># Genero datos</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Ajusto parámetros</span>
+<span class="n">p</span><span class="p">,</span> <span class="n">cov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Grafico</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">p</span><span class="p">))</span>
+
+<span class="n">p</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.1409882 , 1.74692602])
+</pre></div>
+</div>
+<img alt="../_images/cuadrados_minimos_43_1.png" src="../_images/cuadrados_minimos_43_1.png" />
+</div>
+</div>
+<p>Ni hace falta ver los residuos para saber que ajustó mal.</p>
+<p>Para pasarle los parámetros iniciales,
+hay que usar el parámetro <code class="docutils literal notranslate"><span class="pre">p0</span></code> de <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">5.3</span><span class="p">)</span>
+<span class="n">p</span><span class="p">,</span> <span class="n">cov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">p</span><span class="p">))</span>
+
+<span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2., 5.])
+</pre></div>
+</div>
+<img alt="../_images/cuadrados_minimos_45_1.png" src="../_images/cuadrados_minimos_45_1.png" />
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Como estos datos no tienen incerteza,
+los residuos son exactamente 0,
+y el error de los parámetros también.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p>Para saber si estamos dandole parámetros iniciales razonables,
+podemos comentar la linea de <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>,
+y graficar la función con los parámetros iniciales <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">5.3</span><span class="p">)</span>
+<span class="c1"># p, cov = curve_fit(func, x, y, p0=p)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">p</span><span class="p">))</span>
+
+<span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 5.3)
+</pre></div>
+</div>
+<img alt="../_images/cuadrados_minimos_47_1.png" src="../_images/cuadrados_minimos_47_1.png" />
+</div>
+</div>
+<p>Muchas veces se puede automatizar la elección de los parámetros iniciales.</p>
+<p>Por ejemplo,
+para <span class="math notranslate nohighlight">\(A\)</span> podriamos usar:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.9994817696826983
+</pre></div>
+</div>
+</div>
+</div>
+<p>y para <span class="math notranslate nohighlight">\(w\)</span>,
+obtener una estimación a través de la distancia entre máximos.
+Los máximos se podrían encontrar con <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks.html"><code class="docutils literal notranslate"><span class="pre">scipy.signal.find_peaks</span></code></a>.</p>
 </section>
 </section>
 
