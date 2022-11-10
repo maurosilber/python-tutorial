@@ -1,0 +1,780 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Múltiples mediciones &#8212; Tutorial de Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="prev" title="Cuadrados mínimos" href="cuadrados_minimos.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tutorial de Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Introducción a Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Base
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../base/variables.html">
+   Variables y operaciones aritméticas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../base/funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../base/listas-e-iteraciones.html">
+   Listas e iteraciones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  NumPy y matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/array-1.html">
+   Array (parte 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/array-2.html">
+   Array (parte 2)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estadística
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="histograma.html">
+   Histogramas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cuadrados_minimos.html">
+   Cuadrados mínimos
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Múltiples mediciones
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://colab.research.google.com/github/maurosilber/python-tutorial/blob/main/book/estadistica/mediciones-consecutivas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/estadistica/mediciones-consecutivas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caso-1-mediciones-independientes">
+   Caso 1: mediciones independientes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#con-error-por-resolucion-instrumental">
+     Con error por resolución instrumental
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#con-error-estadistico">
+     Con error estadístico
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caso-2-midiendo-extremos">
+   Caso 2: midiendo extremos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-del-caso-2">
+     Ejemplo del caso 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caso-3-mediciones-consecutivas">
+   Caso 3: mediciones consecutivas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opcion-1-incorrecta">
+     Opción 1 (incorrecta)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opcion-2">
+     Opción 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aclaracion-importante">
+     Aclaración importante
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Múltiples mediciones</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caso-1-mediciones-independientes">
+   Caso 1: mediciones independientes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#con-error-por-resolucion-instrumental">
+     Con error por resolución instrumental
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#con-error-estadistico">
+     Con error estadístico
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caso-2-midiendo-extremos">
+   Caso 2: midiendo extremos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-del-caso-2">
+     Ejemplo del caso 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caso-3-mediciones-consecutivas">
+   Caso 3: mediciones consecutivas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opcion-1-incorrecta">
+     Opción 1 (incorrecta)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opcion-2">
+     Opción 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aclaracion-importante">
+     Aclaración importante
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="multiples-mediciones">
+<h1>Múltiples mediciones<a class="headerlink" href="#multiples-mediciones" title="Enlazar permanentemente con este título">#</a></h1>
+<p>Al realizar múltiples mediciones,
+podemos mejorar la precisión de la magnitud que estamos midiendo.
+Hay varias formas de realizar múltiples mediciones,
+de las cuales consideraremos 3 casos.</p>
+<p>Imaginen que tenemos <span class="math notranslate nohighlight">\(N=10\)</span> objetos idénticos,
+que vamos a representar con un rectángulo,
+y queremos medir su longitud.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/mediciones-consecutivas_3_0.png" src="../_images/mediciones-consecutivas_3_0.png" />
+</div>
+</div>
+<p>Vamos a asumir que son exactamente iguales,
+es decir,
+si tuviésemos infinita precisión para medir,
+mediríamos lo mismo para todos.</p>
+<p>Estos objetos no representan necesariamente rectángulos físicos,
+sino que pueden representar intervalos de tiempo.</p>
+<section id="caso-1-mediciones-independientes">
+<h2>Caso 1: mediciones independientes<a class="headerlink" href="#caso-1-mediciones-independientes" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Una primera opción es medirlos de forma independiente:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/mediciones-consecutivas_6_0.png" src="../_images/mediciones-consecutivas_6_0.png" />
+</div>
+</div>
+<p>En ese caso,
+tenemos dos posibilidades,
+según si estamos limitados por la resolución instrumental o no.</p>
+<section id="con-error-por-resolucion-instrumental">
+<h3>Con error por resolución instrumental<a class="headerlink" href="#con-error-por-resolucion-instrumental" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Si el error está dado por la resolución <span class="math notranslate nohighlight">\(\Delta L\)</span> de nuestro instrumento,
+vamos a medir siempre lo mismo.
+Hacer más mediciones no aporta nada.
+En este caso,
+el error será:</p>
+<div class="math notranslate nohighlight">
+\[ \Delta L \]</div>
+</section>
+<section id="con-error-estadistico">
+<h3>Con error estadístico<a class="headerlink" href="#con-error-estadistico" title="Enlazar permanentemente con este título">#</a></h3>
+<p>En cambio,
+si tenemos un error estadístico <span class="math notranslate nohighlight">\(\sigma_L\)</span>,
+podemos promediar las mediciones y disminuir el error.
+El error del promedio <span class="math notranslate nohighlight">\(\bar{L}\)</span> disminuye como</p>
+<div class="math notranslate nohighlight">
+\[ \sigma_{\bar{L}} = \frac{\sigma_L}{\sqrt N} \]</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El error estadístico tiene que tener promedio <span class="math notranslate nohighlight">\(0\)</span>.
+Coloquialmente,
+tener las mismas chances de medir por exceso que por defecto.</p>
+</div>
+<p>El error de este promedio <span class="math notranslate nohighlight">\(\bar{L}\)</span>
+no depende de la resolución instrumental <span class="math notranslate nohighlight">\(\Delta L\)</span>,
+si <span class="math notranslate nohighlight">\(\sigma_L \gtrsim \Delta L\)</span>.
+Pero no significa que podamos hacerlo tan chico como queramos,
+ya que sí depende de la calibración instrumental.
+Por ejemplo,
+un cronómetro típico tiene una resolución instrumental de <span class="math notranslate nohighlight">\(10 \text{ ms} = 0.01 \text{ s} = 10^{-2} \text{ s}\)</span>,
+pero tiene un error de calibración del orden de <span class="math notranslate nohighlight">\(\sim 5 \text{ μs} = 5 \times 10^{-6} \text{ s}\)</span>.
+Midiendo a mano,
+donde se tiene un error del orden de <span class="math notranslate nohighlight">\(\sigma_T \approx 50 \text{ ms}\)</span>,
+hay que tener cuidado de no promediar más de <span class="math notranslate nohighlight">\(N = \left(\frac{50 \text{ ms}}{5 \times 10^{-6} \text{s}}\right)^2 = 10^8\)</span> veces.</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Probablemente se rompan otras hipótesis de la teoría ante de llegar a ese nivel de precisión.
+Por ejemplo,
+en el caso del péndulo,
+la aproximación de pequeñas oscilaciones.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Técnicamente,
+<span class="math notranslate nohighlight">\(\sigma_L\)</span> si depende del error instrumental <span class="math notranslate nohighlight">\(\Delta L\)</span></p>
+<div class="math notranslate nohighlight">
+\[\sigma_L^2 = \sigma_{L_0}^2 + (\Delta L)^2 / 12\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\sigma_{L_0}\)</span> es la desviación estándar de las mediciones no limitadas por la resolución.
+Es decir,
+con todos los decimales.
+Sin embargo,
+casi siempre estimamos <span class="math notranslate nohighlight">\(\sigma_L\)</span> directamente a partir de mediciones
+ya «redondeadas» por el instrumento.</p>
+</div>
+</section>
+</section>
+<section id="caso-2-midiendo-extremos">
+<h2>Caso 2: midiendo extremos<a class="headerlink" href="#caso-2-midiendo-extremos" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Si alineamos los <span class="math notranslate nohighlight">\(N\)</span> objetos,
+podemos calcular indirectamente el largo <span class="math notranslate nohighlight">\(L_1\)</span> de un objeto
+a partir del largo <span class="math notranslate nohighlight">\(L_N\)</span> de <span class="math notranslate nohighlight">\(N\)</span> objetos consecutivos.</p>
+<div class="math notranslate nohighlight">
+\[ L_1 = \frac{L_N}{N} \]</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ErrorbarContainer object of 3 artists&gt;
+</pre></div>
+</div>
+<img alt="../_images/mediciones-consecutivas_11_1.png" src="../_images/mediciones-consecutivas_11_1.png" />
+</div>
+</div>
+<p>Supongamos que el error de medir <strong>directamente</strong> <span class="math notranslate nohighlight">\(L_1\)</span>,
+es igual al de medir directamente <span class="math notranslate nohighlight">\(L_N\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \sigma_{L_1} = \sigma_{L_N} = \sigma_L \]</div>
+<p>Entonces,
+por propagación de errores,
+medir <strong>indirectamente</strong> <span class="math notranslate nohighlight">\(L_1\)</span> es:</p>
+<div class="math notranslate nohighlight">
+\[ \sigma_{L_1} = \frac{\sigma_{L}}{N} \]</div>
+<p>que disminuye más rápido que el promedio.</p>
+<p>Repitiendo la cuenta anterior,
+al medir a mano con un cronómetro,
+si <span class="math notranslate nohighlight">\(N = \left(\frac{50 \text{ ms}}{5 \times 10^{-6} \text{s}}\right)^1 = 10^4 = 10.000\)</span>,
+tendríamos que tener en cuenta el error de calibración.</p>
+<section id="ejemplo-del-caso-2">
+<h3>Ejemplo del caso 2<a class="headerlink" href="#ejemplo-del-caso-2" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Imaginemos que la sección mide <span class="math notranslate nohighlight">\(L_1^{real} = 10.12 \text{ mm}\)</span>,
+pero medimos con una regla de resolución <span class="math notranslate nohighlight">\(1 \text{ mm}\)</span>.</p>
+<p>Si medimos una única sección,
+nuestra medición va ser <span class="math notranslate nohighlight">\(L_1^{medido} = (10 \pm 1) \text{ mm}\)</span>.</p>
+<p>Pero,
+si medimos <span class="math notranslate nohighlight">\(N=10\)</span> secciones consecutivas,
+cuyo largo es</p>
+<div class="math notranslate nohighlight">
+\[ L_{10}^{real}
+= 10 \times 10.12 \text{ mm}
+= 101.2 \text{ mm}
+\]</div>
+<p>vamos a medir <span class="math notranslate nohighlight">\(L_{10}^{medido} = 101 \pm 1 \text{ mm}\)</span>.</p>
+<p>Noten que es diferente a multiplicar por <span class="math notranslate nohighlight">\(N=10\)</span>
+la medición de una sección:</p>
+<div class="math notranslate nohighlight">
+\[ 10 \times L_1^{medido}
+= 10 \times (10 \pm 1) \text{ mm}
+= (100 \pm 10) \text{ mm}
+\]</div>
+<p>Calculando indirectamente <span class="math notranslate nohighlight">\(L_1\)</span>,
+y propagando,
+llegamos a:</p>
+<div class="math notranslate nohighlight">
+\[ L_1^{indirecto} = 10.1 \pm 0.1 \text{ mm} \]</div>
+<p>que tiene un error 10 veces menor
+que la medición directa de <span class="math notranslate nohighlight">\(L_1\)</span>.</p>
+<p>¡Ganamos un decimal!</p>
+</section>
+</section>
+<section id="caso-3-mediciones-consecutivas">
+<h2>Caso 3: mediciones consecutivas<a class="headerlink" href="#caso-3-mediciones-consecutivas" title="Enlazar permanentemente con este título">#</a></h2>
+<p>En el caso 3,
+al igual que el caso 2,
+alineamos todos los objetos para medirlos.
+Pero,
+medimos todas las distancias intermedios <span class="math notranslate nohighlight">\(L(n)\)</span>:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/mediciones-consecutivas_19_0.png" src="../_images/mediciones-consecutivas_19_0.png" />
+</div>
+</div>
+<p>¿Cómo calculamos el largo <span class="math notranslate nohighlight">\(L_1\)</span> de un segmento a partir de estas mediciones?</p>
+<section id="opcion-1-incorrecta">
+<h3>Opción 1 (incorrecta)<a class="headerlink" href="#opcion-1-incorrecta" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Podemos tomar las diferencias entre puntos consecutivos:</p>
+<div class="math notranslate nohighlight">
+\[ \Delta L_n = L(n) - L(n-1) \]</div>
+<p>y promediarlas.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Ojo, este <span class="math notranslate nohighlight">\(\Delta L_n\)</span> no tiene es un error de medición.</p>
+</div>
+<p>¿Si hacemos un promedio,
+el error no debería disminuir como <span class="math notranslate nohighlight">\(1 / \sqrt{N}\)</span>?
+En ese caso, ¿no es mejor el caso anterior,
+donde mediamos los extremos
+y el error disminuía como <span class="math notranslate nohighlight">\(1 / N\)</span>?</p>
+<p>Como los <span class="math notranslate nohighlight">\(\Delta L_n\)</span> no son independientes,
+no se cumples las hipótesis
+para que el error del promedio sea <span class="math notranslate nohighlight">\(\sigma_L / \sqrt{N}\)</span>.</p>
+<p>Si escribimos explícitamente los <span class="math notranslate nohighlight">\(\Delta L_n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{cases}
+\Delta L_1 = L(1) - L(0) \\
+\Delta L_2 = L(2) - L(1) \\
+\ldots
+\end{cases} \end{split}\]</div>
+<p>vemos que <span class="math notranslate nohighlight">\(\Delta L_1\)</span> y <span class="math notranslate nohighlight">\(\Delta L_1\)</span> comparten la medición <span class="math notranslate nohighlight">\(L(1)\)</span>.
+Si hacemos un promedio de estos:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\Delta L_2 + \Delta L_1}{2}
+= \frac{[L(2) - L(1)] + [L(1) - L(0)]}{2}
+= \frac{L(2) - L(0)}{2}
+\]</div>
+<p>quedan solo los extremos <span class="math notranslate nohighlight">\(L(2)\)</span> y <span class="math notranslate nohighlight">\(L(0)\)</span>.</p>
+<p>Si lo extendemos a las <span class="math notranslate nohighlight">\(N\)</span> mediciones,</p>
+<div class="math notranslate nohighlight">
+\[ \frac{1}{N} \sum_{n=1}^N \Delta L_n = \frac{L(n) - L(0)}{N} \]</div>
+<p>que es lo mismo que calculábamos en el caso anterior.</p>
+</section>
+<section id="opcion-2">
+<h3>Opción 2<a class="headerlink" href="#opcion-2" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Para combinar las mediciones <span class="math notranslate nohighlight">\(L(n)\)</span>,
+aprovechando la información de las mediciones intermedias,
+y obtener <span class="math notranslate nohighlight">\(L_1\)</span>,
+se puede realizar un ajuste lineal:</p>
+<div class="math notranslate nohighlight">
+\[ L(n) = L_1 n + L_o \]</div>
+<p>donde <span class="math notranslate nohighlight">\(n\)</span> es la cantidad de secciones consecutivas.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/mediciones-consecutivas_23_0.png" src="../_images/mediciones-consecutivas_23_0.png" />
+</div>
+</div>
+<p>En este caso,
+el error de <span class="math notranslate nohighlight">\(L_1\)</span> disminuye aún más rápido que en el caso anterior:</p>
+<div class="math notranslate nohighlight">
+\[ \sigma_{L_1} \propto \frac{\sigma_L}{N^{3/2}} \]</div>
+<p>Repitiendo la cuenta para el cronómetro,
+si <span class="math notranslate nohighlight">\(N = \left(\frac{50 \text{ ms}}{5 \times 10^{-6} \text{s}}\right)^{\frac{2}{3}} \approx 464\)</span>,
+tendríamos que tener en cuenta el error de calibración.
+Ya no es (tan) inalcanzable.</p>
+</section>
+<section id="aclaracion-importante">
+<h3>Aclaración importante<a class="headerlink" href="#aclaracion-importante" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Hay un detalle importante,
+que lo diferencia de simplemente repetir <span class="math notranslate nohighlight">\(N\)</span> veces el caso 2,
+una vez para cada <span class="math notranslate nohighlight">\(L(n)\)</span>:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/mediciones-consecutivas_26_0.png" src="../_images/mediciones-consecutivas_26_0.png" />
+</div>
+</div>
+<p>En el caso 3,
+las mediciones comparten el mismo origen,
+mientras que en el esquema anterior,
+estamos volviendo a medir el origen.</p>
+<p>Es más claro con un ejemplo.
+Para mediciones con una regla,
+se puede:</p>
+<ol class="simple">
+<li><p>apoyar la regla una vez y tomar todas las mediciones intermedias</p></li>
+<li><p>apoyar la regla <span class="math notranslate nohighlight">\(N\)</span> veces, y tomar cada vez un <span class="math notranslate nohighlight">\(L(n)\)</span> distinto.</p></li>
+</ol>
+<p>En este último caso,
+cada vez que apoyamos la regla,
+estamos introduciendo un error en el origen.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python",
+            path: "./estadistica"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="cuadrados_minimos.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title">Cuadrados mínimos</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mauro Silberberg<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
