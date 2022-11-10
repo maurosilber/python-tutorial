@@ -6,6 +6,7 @@ dependencies:
   - ipykernel
   - pre-commit
   - nbformat
+  - jupytext
   - jupyter-book
   - numpy
   - matplotlib
