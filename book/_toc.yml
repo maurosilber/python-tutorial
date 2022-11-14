@@ -15,3 +15,4 @@ parts:
     - file: estadistica/histograma
     - file: estadistica/cuadrados_minimos
     - file: estadistica/mediciones-consecutivas
+    - file: estadistica/error-sistematico-y-modelado
