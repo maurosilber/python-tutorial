@@ -1,0 +1,1116 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Error sistemático y modelado &#8212; Tutorial de Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="prev" title="Múltiples mediciones" href="mediciones-consecutivas.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tutorial de Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Introducción a Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Base
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../base/variables.html">
+   Variables y operaciones aritméticas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../base/funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../base/listas-e-iteraciones.html">
+   Listas e iteraciones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  NumPy y matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/array-1.html">
+   Array (parte 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/array-2.html">
+   Array (parte 2)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estadística
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="histograma.html">
+   Histogramas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cuadrados_minimos.html">
+   Cuadrados mínimos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mediciones-consecutivas.html">
+   Múltiples mediciones
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Error sistemático y modelado
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://colab.research.google.com/github/maurosilber/python-tutorial/blob/main/book/estadistica/error-sistematico-y-modelado.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/estadistica/error-sistematico-y-modelado.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulando-una-medicion">
+   Simulando una medición
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hipotesis">
+     Hipótesis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#error-por-resolucion-en-la-longitud-l">
+     Error por resolución en la longitud
+     <span class="math notranslate nohighlight">
+      \(L\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#con-un-error-sistematico-l-0">
+     Con un error sistemático
+     <span class="math notranslate nohighlight">
+      \(L_0\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#efecto-del-error-sistematico">
+   Efecto del error sistemático
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sin-error-sistematico">
+     Sin error sistemático
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#error-sistematico-en-la-longitud">
+     Error sistemático en la longitud
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rango-de-longitudes-medidas">
+     Rango de longitudes medidas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aumentando-la-precision-en-l">
+     Aumentando la precisión en
+     <span class="math notranslate nohighlight">
+      \(L\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ajustes-y-el-g-estimado">
+   Ajustes y el
+   <span class="math notranslate nohighlight">
+    \(g\)
+   </span>
+   estimado
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Sin error sistemático
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#error-sistematico-grande">
+     Error sistemático grande
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Rango de longitudes medidas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#error-sistematico-pequeno">
+     Error sistemático pequeño
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Error sistemático y modelado</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulando-una-medicion">
+   Simulando una medición
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hipotesis">
+     Hipótesis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#error-por-resolucion-en-la-longitud-l">
+     Error por resolución en la longitud
+     <span class="math notranslate nohighlight">
+      \(L\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#con-un-error-sistematico-l-0">
+     Con un error sistemático
+     <span class="math notranslate nohighlight">
+      \(L_0\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#efecto-del-error-sistematico">
+   Efecto del error sistemático
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sin-error-sistematico">
+     Sin error sistemático
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#error-sistematico-en-la-longitud">
+     Error sistemático en la longitud
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rango-de-longitudes-medidas">
+     Rango de longitudes medidas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aumentando-la-precision-en-l">
+     Aumentando la precisión en
+     <span class="math notranslate nohighlight">
+      \(L\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ajustes-y-el-g-estimado">
+   Ajustes y el
+   <span class="math notranslate nohighlight">
+    \(g\)
+   </span>
+   estimado
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Sin error sistemático
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#error-sistematico-grande">
+     Error sistemático grande
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Rango de longitudes medidas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#error-sistematico-pequeno">
+     Error sistemático pequeño
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="error-sistematico-y-modelado">
+<h1>Error sistemático y modelado<a class="headerlink" href="#error-sistematico-y-modelado" title="Enlazar permanentemente con este título">#</a></h1>
+<p>Bajo la aproximación de pequeñas oscilaciones,
+el periodo de oscilación <span class="math notranslate nohighlight">\(T\)</span> de un péndulo de largo <span class="math notranslate nohighlight">\(L\)</span> es:</p>
+<div class="math notranslate nohighlight" id="equation-periodo">
+<span class="eqno">(1)<a class="headerlink" href="#equation-periodo" title="Enlace permanente a esta ecuación">#</a></span>\[ T = 2π \sqrt{\frac{L}{g}}
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(g\)</span> es la aceleración de la gravedad.</p>
+<p>Si medimos el periodo <span class="math notranslate nohighlight">\(T\)</span> para múltiples largos <span class="math notranslate nohighlight">\(L\)</span>,
+podemos obtener <span class="math notranslate nohighlight">\(g\)</span> a partir de un ajuste por cuadrados mínimos,
+ya sea que ajustemos por la ecuación <a class="reference internal" href="#equation-periodo">(1)</a> o por su cuadrado:</p>
+<div class="math notranslate nohighlight" id="equation-periodo-2">
+<span class="eqno">(2)<a class="headerlink" href="#equation-periodo-2" title="Enlace permanente a esta ecuación">#</a></span>\[ T^2 = (2π)^2 \, \frac{L}{g}
+\]</div>
+<p>En la práctica,
+se suele observar que hay que agregar una constante al ajuste.
+Sin embargo,
+no es lo mismo agregar una constante en <a class="reference internal" href="#equation-periodo-2">(2)</a></p>
+<div class="math notranslate nohighlight" id="equation-longitud-l0">
+<span class="eqno">(3)<a class="headerlink" href="#equation-longitud-l0" title="Enlace permanente a esta ecuación">#</a></span>\[
+L = g \left( \frac{T}{2π} \right)^2 + L_0
+\]</div>
+<p>que en <a class="reference internal" href="#equation-periodo">(1)</a></p>
+<div class="math notranslate nohighlight">
+\[
+\sqrt{L} = \sqrt{g} \left( \frac{T}{2π} \right) + B
+\]</div>
+<p>En <a class="reference internal" href="#equation-periodo-2">(2)</a>,
+se puede interpretar esta constante <span class="math notranslate nohighlight">\(L_0\)</span> como un error sistemático en la longitud <span class="math notranslate nohighlight">\(L\)</span>.
+En cambio,
+en <a class="reference internal" href="#equation-periodo">(1)</a>,
+se podría reinterpretar <span class="math notranslate nohighlight">\(B\)</span> como un error sistemático <span class="math notranslate nohighlight">\(T_0\)</span> en el periodo <span class="math notranslate nohighlight">\(T\)</span></p>
+<div class="math notranslate nohighlight" id="equation-longitud-t0">
+<span class="eqno">(4)<a class="headerlink" href="#equation-longitud-t0" title="Enlace permanente a esta ecuación">#</a></span>\[
+L = g \left( \frac{T+T_0}{2π} \right)^2
+\]</div>
+<p>Veamos que sucede si simulamos uno de estos casos
+y ajustamos por los modelos incorrectos.</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+
+
+<span class="k">def</span> <span class="nf">ajustar</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ajusta con curve_fit y devuelve los errores</span>
+<span class="sd">    en lugar de la matriz de covarianza.&quot;&quot;&quot;</span>
+    <span class="n">p</span><span class="p">,</span> <span class="n">cov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">yerr</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">cov</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">,</span> <span class="n">err</span>
+
+
+<span class="k">def</span> <span class="nf">graficar_ajuste</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Grafica el ajuste y los residuos.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">axes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">fig</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">axes</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">yerr</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">axes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="mi">9800</span>  <span class="c1"># mm/s</span>
+
+
+<span class="k">def</span> <span class="nf">periodo</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Periodo del péndulo en la aproximación de pequenas oscilaciones.</span>
+
+<span class="sd">    T = 2π √(L/g)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">L</span> <span class="o">/</span> <span class="n">g</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="simulando-una-medicion">
+<h2>Simulando una medición<a class="headerlink" href="#simulando-una-medicion" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Para entender que pasa al analizar incorrectamente las mediciones,
+por ejemplo,
+cuando se ignora el efecto del error sistemático en la longitud,
+necesitamos simular <strong>correctamente</strong> el proceso de medición.</p>
+<section id="hipotesis">
+<h3>Hipótesis<a class="headerlink" href="#hipotesis" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Para la simulación,
+vamos a asumir dos cosas:</p>
+<ol class="simple">
+<li><p>tenemos un error sistemático <span class="math notranslate nohighlight">\(L_0\)</span> en la longitud <span class="math notranslate nohighlight">\(L\)</span>,</p></li>
+<li><p>el error en el periodo <span class="math notranslate nohighlight">\(T\)</span> es despreciable frente al error en la longitud <span class="math notranslate nohighlight">\(L\)</span>.</p></li>
+</ol>
+<p>Este último punto es razonable,
+ya que podemos <a class="reference internal" href="mediciones-consecutivas.html"><span class="doc std std-doc">medir muchos periodos</span></a> para una dada longitud,
+y reducir el error de <span class="math notranslate nohighlight">\(T\)</span>.
+En cambio,
+al medir <span class="math notranslate nohighlight">\(L\)</span>,
+estamos limitados por el error de resolución <span class="math notranslate nohighlight">\(\Delta L\)</span> de la cinta métrica.</p>
+</section>
+<section id="error-por-resolucion-en-la-longitud-l">
+<h3>Error por resolución en la longitud <span class="math notranslate nohighlight">\(L\)</span><a class="headerlink" href="#error-por-resolucion-en-la-longitud-l" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Al preparar el experimento,
+se arma el péndulo de una dada longitud <span class="math notranslate nohighlight">\(L_{real}\)</span>,
+que cuya medición <span class="math notranslate nohighlight">\(L_{medido}\)</span> se determina con una dada precisión <span class="math notranslate nohighlight">\(\Delta L\)</span>.
+Entonces,
+para simular la medición,
+vamos a generar un $L_{real} y redondearlo.
+Por ejemplo,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+  L_{real} &amp;= 500.325\ldots \text{ mm} \\
+L_{medido} &amp;= 500 \text{ mm} \\
+  \Delta L &amp;=   1 \text{ mm}
+\end{aligned}
+\end{split}\]</div>
+<p>donde asumimos que medimos con una cinta metrica de <span class="math notranslate nohighlight">\(1 \text{ mm}\)</span> de resolución.</p>
+<p>Por otro lado,
+el periodo <span class="math notranslate nohighlight">\(T_{real}\)</span> lo tenemos que calcular a partir del <span class="math notranslate nohighlight">\(L_{real}\)</span>,
+no del <span class="math notranslate nohighlight">\(L_{medido}\)</span>.
+Después de todo,
+el péndulo (o la naturaleza) sí conoce el largo real.
+Y el periodo medido <span class="math notranslate nohighlight">\(T_{medido}\)</span>,
+como asumimos que podemos hacer muy pequeño el error,
+va a ser igual al real: <span class="math notranslate nohighlight">\(T_{medido} = T_{real}\)</span>.</p>
+</section>
+<section id="con-un-error-sistematico-l-0">
+<h3>Con un error sistemático <span class="math notranslate nohighlight">\(L_0\)</span><a class="headerlink" href="#con-un-error-sistematico-l-0" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Para considerar un error sistemático <span class="math notranslate nohighlight">\(L_0\)</span>,
+se lo sumamos al <span class="math notranslate nohighlight">\(L_{real}\)</span> antes de «medir» (redondear):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+  L_{real}   &amp;= 500.325\ldots \text{ mm} \\
+  L_0 &amp;= 0.431\ldots \text{ mm} \\
+  L_{medido} &amp;= 501 \text{ mm} \\
+  \Delta L   &amp;=   1  \text{ mm}
+\end{aligned}
+\end{split}\]</div>
+<p>Al igual que antes,
+el <span class="math notranslate nohighlight">\(T_{real}\)</span> se calcula a partir del <span class="math notranslate nohighlight">\(L_{real}\)</span>,
+sin considerar el error sistemático ni la medición.</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">experimento</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">L_min</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">L_max</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">N_largos</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">L0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">decimales</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">medir</span><span class="p">():</span>
+        <span class="n">ΔL</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">decimales</span><span class="p">)</span>
+        <span class="c1"># Los valores reales</span>
+        <span class="c1"># Al L real, para que no sea exactamente igual al medido cuando redondeemos,</span>
+        <span class="c1"># y varie en las repeticiones del experimento,</span>
+        <span class="c1"># le agregamos una pequeña desviación, tal que sus decimales no sean 0.</span>
+        <span class="n">L_real</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">L_min</span><span class="p">,</span> <span class="n">L_max</span><span class="p">,</span> <span class="n">N_largos</span><span class="p">)</span>
+        <span class="n">L_real</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">ΔL</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ΔL</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N_largos</span><span class="p">)</span>
+        <span class="n">T_real</span> <span class="o">=</span> <span class="n">periodo</span><span class="p">(</span><span class="n">L_real</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">)</span>
+
+        <span class="c1"># Los valores medidos:</span>
+        <span class="c1"># - el T medido no tiene error, así que lo dejamos igual al T real</span>
+        <span class="c1"># - el L medido proviene de redonear el L real + un error sistemático L0</span>
+        <span class="n">T_medido</span> <span class="o">=</span> <span class="n">T_real</span>
+        <span class="n">L_medido</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">L_real</span> <span class="o">+</span> <span class="n">L0</span><span class="p">,</span> <span class="n">decimales</span><span class="p">)</span>
+
+        <span class="c1"># El error para L equivalente a una desviación estándar es:</span>
+        <span class="n">L_err</span> <span class="o">=</span> <span class="n">ΔL</span> <span class="o">/</span> <span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span>
+        <span class="n">L_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">N_largos</span><span class="p">,</span> <span class="n">L_err</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">T_medido</span><span class="p">,</span> <span class="n">L_medido</span><span class="p">,</span> <span class="n">L_err</span><span class="p">,</span> <span class="n">L_real</span>
+
+    <span class="k">return</span> <span class="n">medir</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="efecto-del-error-sistematico">
+<h2>Efecto del error sistemático<a class="headerlink" href="#efecto-del-error-sistematico" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Al realizar una simulación,
+tenemos acceso a los valores reales,
+sin «error de medición».
+Antes de hacer ajustes,
+podemos comparar las «mediciones» contra los valores reales.
+Para eso,
+vamos a realizar simulaciones para diferentes parámetros,
+y gráficar tanto <span class="math notranslate nohighlight">\(L\)</span> vs <span class="math notranslate nohighlight">\(T^2\)</span> como <span class="math notranslate nohighlight">\(\sqrt{L}\)</span> vs <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">graficar_vs_real</span><span class="p">(</span><span class="n">medir</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Realiza una medición y realiza un gráfico con residuos,</span>
+<span class="sd">    tanto para T^2 vs L como T vs √L.&quot;&quot;&quot;</span>
+    <span class="n">T</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">L_err</span><span class="p">,</span> <span class="n">L_real</span> <span class="o">=</span> <span class="n">medir</span><span class="p">()</span>
+
+    <span class="n">figs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">subfigures</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># T^2 vs L</span>
+    <span class="n">figs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;$L$ vs $T^2$&quot;</span><span class="p">)</span>
+    <span class="n">axes</span> <span class="o">=</span> <span class="n">graficar_ajuste</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">T</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">L</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">=</span><span class="n">L_real</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">L_err</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">figs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;L [mm]&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Residuos [mm]&quot;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;T² [s²]&quot;</span><span class="p">)</span>
+
+    <span class="c1"># T vs L^1/2</span>
+    <span class="n">figs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\sqrt</span><span class="si">{L}</span><span class="s2">$ vs $T$&quot;</span><span class="p">)</span>
+    <span class="n">axes</span> <span class="o">=</span> <span class="n">graficar_ajuste</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">L</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">=</span><span class="n">L_real</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">L_err</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">L</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">figs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\sqrt</span><span class="si">{L}</span><span class="s2">$ [√mm]&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Residuos [√mm]&quot;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;T [s]&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">fig</span> <span class="ow">in</span> <span class="n">figs</span><span class="p">:</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">align_ylabels</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="sin-error-sistematico">
+<h3>Sin error sistemático<a class="headerlink" href="#sin-error-sistematico" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Si no tenemos error sistemático,
+en ambos gráficos se observa una relación lineal,
+y los residuos se distribuyen aleatoriamente alrededor del 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graficar_vs_real</span><span class="p">(</span><span class="n">experimento</span><span class="p">(</span><span class="n">L_min</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">N_largos</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">L0</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/error-sistematico-y-modelado_12_0.png" src="../_images/error-sistematico-y-modelado_12_0.png" />
+</div>
+</div>
+</section>
+<section id="error-sistematico-en-la-longitud">
+<h3>Error sistemático en la longitud<a class="headerlink" href="#error-sistematico-en-la-longitud" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Si simulamos un error sistemático pequeño,
+<span class="math notranslate nohighlight">\(L_0 = 1 \text{ mm}\)</span>,
+vemos que la estructura en los residuos es diferente en cada caso.</p>
+<p>Para <span class="math notranslate nohighlight">\(L\)</span> vs <span class="math notranslate nohighlight">\(T^2\)</span>,
+podemos se distribuyen aleatoriamente alrededor de <span class="math notranslate nohighlight">\(1\)</span>,
+correspondiendo al error sistemático añadido.
+Esto se podría corregir agregando una constante,
+como en <a class="reference internal" href="#equation-longitud-l0">(3)</a>.</p>
+<p>En cambio,
+para <span class="math notranslate nohighlight">\(\sqrt{L}\)</span> vs <span class="math notranslate nohighlight">\(T\)</span>,
+los residuos no se distribuyen aleatoriamente alrededor de un número.
+Por lo que no se podría corregir añadiendo una constante,
+como en <a class="reference internal" href="#equation-longitud-t0">(4)</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graficar_vs_real</span><span class="p">(</span><span class="n">experimento</span><span class="p">(</span><span class="n">L_min</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">N_largos</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">L0</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/error-sistematico-y-modelado_14_0.png" src="../_images/error-sistematico-y-modelado_14_0.png" />
+</div>
+</div>
+</section>
+<section id="rango-de-longitudes-medidas">
+<h3>Rango de longitudes medidas<a class="headerlink" href="#rango-de-longitudes-medidas" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Con el mismo <span class="math notranslate nohighlight">\(L_0\)</span> que en caso anterior,
+pero cambiando el rango de longitudes medidas,
+no observamos una diferencia en la estructura de los residuos en ambos casos.
+A priori,
+ambos podrían ajustarse con los modelos <a class="reference internal" href="#equation-longitud-l0">(3)</a> y <a class="reference internal" href="#equation-longitud-t0">(4)</a>,
+a pesar de que este último es incorrecto.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graficar_vs_real</span><span class="p">(</span><span class="n">experimento</span><span class="p">(</span><span class="n">L_min</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">N_largos</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">L0</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/error-sistematico-y-modelado_16_0.png" src="../_images/error-sistematico-y-modelado_16_0.png" />
+</div>
+</div>
+</section>
+<section id="aumentando-la-precision-en-l">
+<h3>Aumentando la precisión en <span class="math notranslate nohighlight">\(L\)</span><a class="headerlink" href="#aumentando-la-precision-en-l" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Si aumentamos la precisión de medición de <span class="math notranslate nohighlight">\(L\)</span>,
+pasando de un <span class="math notranslate nohighlight">\(\Delta L = 1 \text{ mm}\)</span> a <span class="math notranslate nohighlight">\(\Delta L = 0.1 \text{ mm}\)</span>,
+volvemos a distinguir entre ambos casos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graficar_vs_real</span><span class="p">(</span><span class="n">experimento</span><span class="p">(</span><span class="n">L_min</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">N_largos</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">L0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">decimales</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/error-sistematico-y-modelado_18_0.png" src="../_images/error-sistematico-y-modelado_18_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="ajustes-y-el-g-estimado">
+<h2>Ajustes y el <span class="math notranslate nohighlight">\(g\)</span> estimado<a class="headerlink" href="#ajustes-y-el-g-estimado" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Realicemos simulaciones para diferentes parámetros experimentales
+y observemos que sucede con la estimación de <span class="math notranslate nohighlight">\(g\)</span>.</p>
+<p>Definamos 3 funciones para ajustar,
+correspondientes a las ecuaciones <a class="reference internal" href="#equation-periodo">(1)</a>, <a class="reference internal" href="#equation-longitud-l0">(3)</a> y <a class="reference internal" href="#equation-longitud-t0">(4)</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sin_constante</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+    <span class="n">Tp</span> <span class="o">=</span> <span class="n">T</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">g</span> <span class="o">*</span> <span class="n">Tp</span><span class="o">**</span><span class="mi">2</span>
+
+
+<span class="k">def</span> <span class="nf">sistematico_longitud</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">L_0</span><span class="p">):</span>
+    <span class="n">Tp</span> <span class="o">=</span> <span class="n">T</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">g</span> <span class="o">*</span> <span class="n">Tp</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">L_0</span>
+
+
+<span class="k">def</span> <span class="nf">sistematico_periodo</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">T_0</span><span class="p">):</span>
+    <span class="n">Tp</span> <span class="o">=</span> <span class="n">T</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">g</span> <span class="o">*</span> <span class="p">(</span><span class="n">Tp</span> <span class="o">+</span> <span class="n">T_0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En lo siguiente,
+simularemos una medición y ajustaremos las 3 funciones,
+gráficando el ajuste y los residuos.
+Además,
+repetiremos estre proceso <span class="math notranslate nohighlight">\(N=1000\)</span> veces,
+graficaremos histogramas de la estimación de <span class="math notranslate nohighlight">\(g\)</span>
+para cada uno de estos modelos.</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">repetir_experimentos</span><span class="p">(</span><span class="n">medir</span><span class="p">,</span> <span class="n">N_experimentos</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">create_plot_axes</span><span class="p">(</span><span class="n">fig</span><span class="p">):</span>
+        <span class="n">ax_plot</span><span class="p">,</span> <span class="o">*</span><span class="n">ax_residuos</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax_plot</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Longitud [mm]&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">ax_residuos</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Residuos [mm]&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Periodo [s]&quot;</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">align_ylabels</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">ax_plot</span><span class="p">,</span> <span class="n">ax_residuos</span>
+
+    <span class="k">def</span> <span class="nf">create_hist_axes</span><span class="p">(</span><span class="n">fig</span><span class="p">):</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subfigures</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">height_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Ac. de la gravedad [mm/s]&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ax</span>
+
+    <span class="k">def</span> <span class="nf">ajustar_y_graficar</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">L_err</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">ax_plot</span><span class="p">,</span> <span class="n">ax_residuos</span><span class="p">):</span>
+        <span class="n">p</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">ajustar</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">L_err</span><span class="p">)</span>
+        <span class="n">L_pred</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="o">*</span><span class="n">p</span><span class="p">)</span>
+
+        <span class="n">ax_plot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">L_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+        <span class="n">ax_residuos</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">L</span> <span class="o">-</span> <span class="n">L_pred</span><span class="p">,</span> <span class="n">L_err</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+        <span class="n">ax_residuos</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+
+    <span class="n">figs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span><span class="o">.</span><span class="n">subfigures</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax_plot</span><span class="p">,</span> <span class="n">ax_residuos</span> <span class="o">=</span> <span class="n">create_plot_axes</span><span class="p">(</span><span class="n">figs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">ax_hist</span> <span class="o">=</span> <span class="n">create_hist_axes</span><span class="p">(</span><span class="n">figs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Sin constante&quot;</span><span class="p">,</span> <span class="s2">&quot;Longitud $L_0$&quot;</span><span class="p">,</span> <span class="s2">&quot;Tiempo $T_0$&quot;</span><span class="p">)</span>
+    <span class="n">funcs</span> <span class="o">=</span> <span class="p">(</span><span class="n">sin_constante</span><span class="p">,</span> <span class="n">sistematico_longitud</span><span class="p">,</span> <span class="n">sistematico_periodo</span><span class="p">)</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;C0&quot;</span><span class="p">,</span> <span class="s2">&quot;C1&quot;</span><span class="p">,</span> <span class="s2">&quot;C2&quot;</span><span class="p">)</span>
+
+    <span class="n">T</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">L_err</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">medir</span><span class="p">()</span>
+    <span class="n">ax_plot</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">L_err</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ax_residuos</span><span class="p">,</span> <span class="n">funcs</span><span class="p">,</span> <span class="n">colors</span><span class="p">):</span>
+        <span class="n">ajustar_y_graficar</span><span class="p">(</span>
+            <span class="n">func</span><span class="p">,</span>
+            <span class="n">T</span><span class="p">,</span>
+            <span class="n">L</span><span class="p">,</span>
+            <span class="n">L_err</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">ax_plot</span><span class="o">=</span><span class="n">ax_plot</span><span class="p">,</span>
+            <span class="n">ax_residuos</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">analisis_multiple</span><span class="p">():</span>
+        <span class="n">T</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">L_err</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">medir</span><span class="p">()</span>
+        <span class="n">p0</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ajustar</span><span class="p">(</span><span class="n">sin_constante</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">L_err</span><span class="p">)</span>
+        <span class="n">p1</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ajustar</span><span class="p">(</span><span class="n">sistematico_longitud</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">L_err</span><span class="p">)</span>
+        <span class="n">p2</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ajustar</span><span class="p">(</span><span class="n">sistematico_periodo</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">L_err</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">p0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">analisis_multiple</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_experimentos</span><span class="p">)])</span>
+
+    <span class="n">ax_hist</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Valor real&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">pi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+        <span class="n">ax_hist</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+    <span class="n">ax_hist</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower left&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h3>Sin error sistemático<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Al no tener error sistemático,
+los tres modelos ajustan bien a las mediciones,
+a juzgar por los gráficos de los residuos.
+Con respecto a los histogramas de <span class="math notranslate nohighlight">\(g\)</span>,
+en los tres casos se encuentran centrados alrededor del valor real.
+Sin embargo,
+hay una mayor variación en los valores obtenidos
+para los modelos con constante.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">repetir_experimentos</span><span class="p">(</span><span class="n">experimento</span><span class="p">(</span><span class="n">L_min</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">L0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">N_largos</span><span class="o">=</span><span class="mi">30</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/error-sistematico-y-modelado_24_0.png" src="../_images/error-sistematico-y-modelado_24_0.png" />
+</div>
+</div>
+</section>
+<section id="error-sistematico-grande">
+<h3>Error sistemático grande<a class="headerlink" href="#error-sistematico-grande" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Si tenemos un error sistemático «grande»,
+<span class="math notranslate nohighlight">\(L_0 = 5 \text{ mm}\)</span>,
+vemos que solo el ajuste que incluye un <span class="math notranslate nohighlight">\(L_0\)</span> tiene residuos sin estructura.
+En los histogramas de <span class="math notranslate nohighlight">\(g\)</span>,
+vemos que los valores obtenidos en las sucesivas repeticiones
+están centrados en el valor real
+para dicho modelo.
+En cambio,
+para el modelo sin constante,
+o el que modela un error sistemático en el periodo,
+los histogramas se encuentran corridos.
+En ninguna iteración,
+sus valores coincidieron con el valor real.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">repetir_experimentos</span><span class="p">(</span><span class="n">experimento</span><span class="p">(</span><span class="n">L_min</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">L0</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">N_largos</span><span class="o">=</span><span class="mi">30</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/error-sistematico-y-modelado_26_0.png" src="../_images/error-sistematico-y-modelado_26_0.png" />
+</div>
+</div>
+</section>
+<section id="id2">
+<h3>Rango de longitudes medidas<a class="headerlink" href="#id2" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Si achicamos el rango de longitudes medidas,
+alejándonos de <span class="math notranslate nohighlight">\(L=0\)</span>,
+el modelo que incluye un error sistemático en <span class="math notranslate nohighlight">\(T_0\)</span>
+también ajustaría bien,
+a juzgar por el gráfico de residuos.
+Sin embargo,
+según el histograma,
+vemos que tiene un sesgo en la estimación de <span class="math notranslate nohighlight">\(g\)</span>:
+siempre estima un valor menor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">repetir_experimentos</span><span class="p">(</span><span class="n">experimento</span><span class="p">(</span><span class="n">L_min</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">L0</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">N_largos</span><span class="o">=</span><span class="mi">30</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/error-sistematico-y-modelado_28_0.png" src="../_images/error-sistematico-y-modelado_28_0.png" />
+</div>
+</div>
+</section>
+<section id="error-sistematico-pequeno">
+<h3>Error sistemático pequeño<a class="headerlink" href="#error-sistematico-pequeno" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Consideramos un error sistemático pequeño,
+<span class="math notranslate nohighlight">\(L_0 = 0.1 \text{ mm}\)</span>,
+<span class="math notranslate nohighlight">\(10\)</span> veces menor que la resolución <span class="math notranslate nohighlight">\(\Delta L = 1 \text{ mm}\)</span> de medición.</p>
+<p>Si medimos para pocas longitudes,
+<span class="math notranslate nohighlight">\(N=10\)</span>,
+se observa un ligero sesgo en el ajuste sin constante,
+pero no muy significativo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">repetir_experimentos</span><span class="p">(</span><span class="n">experimento</span><span class="p">(</span><span class="n">L_min</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">L0</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">N_largos</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/error-sistematico-y-modelado_30_0.png" src="../_images/error-sistematico-y-modelado_30_0.png" />
+</div>
+</div>
+<p>En cambio,
+si medimos para más longitudes,
+<span class="math notranslate nohighlight">\(N=100\)</span>,
+el sesgo se incrementa en los modelos incorrectos.
+En particular,
+para el modelo sin constante
+siempre se obtuvo valores de <span class="math notranslate nohighlight">\(g\)</span> superiores al real.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">repetir_experimentos</span><span class="p">(</span><span class="n">experimento</span><span class="p">(</span><span class="n">L_min</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">L0</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">N_largos</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/python-tutorial/lib/python3.11/site-packages/scipy/optimize/_minpack_py.py:881: OptimizeWarning: Covariance of the parameters could not be estimated
+  warnings.warn(&#39;Covariance of the parameters could not be estimated&#39;,
+</pre></div>
+</div>
+<img alt="../_images/error-sistematico-y-modelado_32_1.png" src="../_images/error-sistematico-y-modelado_32_1.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python",
+            path: "./estadistica"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="mediciones-consecutivas.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title">Múltiples mediciones</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mauro Silberberg<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
