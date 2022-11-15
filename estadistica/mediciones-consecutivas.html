@@ -387,6 +387,11 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliografia">
+   Bibliografía
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -457,6 +462,11 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliografia">
+   Bibliografía
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -510,40 +520,27 @@ el error será:</p>
 </section>
 <section id="con-error-estadistico">
 <h3>Con error estadístico<a class="headerlink" href="#con-error-estadistico" title="Enlazar permanentemente con este título">#</a></h3>
-<p>En cambio,
-si tenemos un error estadístico <span class="math notranslate nohighlight">\(\sigma_L\)</span>,
-podemos promediar las mediciones y disminuir el error.
-El error del promedio <span class="math notranslate nohighlight">\(\bar{L}\)</span> disminuye como</p>
-<div class="math notranslate nohighlight">
-\[ \sigma_{\bar{L}} = \frac{\sigma_L}{\sqrt N} \]</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>El error estadístico tiene que tener promedio <span class="math notranslate nohighlight">\(0\)</span>.
 Coloquialmente,
 tener las mismas chances de medir por exceso que por defecto.</p>
 </div>
-<p>El error de este promedio <span class="math notranslate nohighlight">\(\bar{L}\)</span>
-no depende de la resolución instrumental <span class="math notranslate nohighlight">\(\Delta L\)</span>,
-si <span class="math notranslate nohighlight">\(\sigma_L \gtrsim \Delta L\)</span>.
-Pero no significa que podamos hacerlo tan chico como queramos,
-ya que sí depende de la calibración instrumental.
-Por ejemplo,
-un cronómetro típico tiene una resolución instrumental de <span class="math notranslate nohighlight">\(10 \text{ ms} = 0.01 \text{ s} = 10^{-2} \text{ s}\)</span>,
-pero tiene un error de calibración del orden de <span class="math notranslate nohighlight">\(\sim 5 \text{ μs} = 5 \times 10^{-6} \text{ s}\)</span>.
-Midiendo a mano,
-donde se tiene un error del orden de <span class="math notranslate nohighlight">\(\sigma_T \approx 50 \text{ ms}\)</span>,
-hay que tener cuidado de no promediar más de <span class="math notranslate nohighlight">\(N = \left(\frac{50 \text{ ms}}{5 \times 10^{-6} \text{s}}\right)^2 = 10^8\)</span> veces.</p>
-<div class="admonition warning">
-<p class="admonition-title">Advertencia</p>
-<p>Probablemente se rompan otras hipótesis de la teoría ante de llegar a ese nivel de precisión.
-Por ejemplo,
-en el caso del péndulo,
-la aproximación de pequeñas oscilaciones.</p>
-</div>
+</aside>
+<p>En cambio,
+si en cada medición tenemos un error estadístico <span class="math notranslate nohighlight">\(\sigma_L\)</span>,
+podemos promediar las mediciones y disminuir el error.
+El error del promedio <span class="math notranslate nohighlight">\(\langle L \rangle\)</span> disminuye como</p>
+<div class="math notranslate nohighlight">
+\[ \sigma_{\langle L \rangle} = \frac{\sigma_L}{\sqrt N} \]</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>Técnicamente,
-<span class="math notranslate nohighlight">\(\sigma_L\)</span> si depende del error instrumental <span class="math notranslate nohighlight">\(\Delta L\)</span></p>
+<span class="math notranslate nohighlight">\(\sigma_L\)</span> depende del error instrumental <span class="math notranslate nohighlight">\(\Delta L\)</span></p>
 <div class="math notranslate nohighlight">
 \[\sigma_L^2 = \sigma_{L_0}^2 + (\Delta L)^2 / 12\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\sigma_{L_0}\)</span> es la desviación estándar de las mediciones no limitadas por la resolución.
@@ -552,6 +549,25 @@ con todos los decimales.
 Sin embargo,
 casi siempre estimamos <span class="math notranslate nohighlight">\(\sigma_L\)</span> directamente a partir de mediciones
 ya «redondeadas» por el instrumento.</p>
+</div>
+</aside>
+<p>El error <span class="math notranslate nohighlight">\(\sigma_{\langle L \rangle}\)</span> de este promedio <span class="math notranslate nohighlight">\(\langle L \rangle\)</span>
+no depende de la resolución instrumental <span class="math notranslate nohighlight">\(\Delta L\)</span>,
+si <span class="math notranslate nohighlight">\(\sigma_L \gtrsim \Delta L\)</span>.
+Pero no significa que podamos hacerlo tan chico como queramos,
+ya que sí depende de la calibración instrumental.
+Por ejemplo,
+un cronómetro típico tiene una resolución instrumental de <span class="math notranslate nohighlight">\(10 \text{ ms} = 0.01 \text{ s} = 10^{-2} \text{ s}\)</span>,
+pero tiene un error de calibración del orden de <span class="math notranslate nohighlight">\(\sim 5 \text{ μs} = 5 \times 10^{-6} \text{ s}\)</span>.
+Midiendo intervalos de tiempo a mano,
+donde se tiene un error del orden de <span class="math notranslate nohighlight">\(\sigma_T \approx 50 \text{ ms}\)</span>,
+hay que tener cuidado de no promediar más de <span class="math notranslate nohighlight">\(N = \left(\frac{50 \text{ ms}}{5 \text{ μs}}\right)^2 = 10^8\)</span> veces.</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Probablemente se rompan otras hipótesis de la teoría antes de llegar a ese nivel de precisión.
+Por ejemplo,
+en el caso del péndulo,
+la aproximación de pequeñas oscilaciones.</p>
 </div>
 </section>
 </section>
@@ -582,15 +598,15 @@ medir <strong>indirectamente</strong> <span class="math notranslate nohighlight"
 <p>que disminuye más rápido que el promedio.</p>
 <p>Repitiendo la cuenta anterior,
 al medir a mano con un cronómetro,
-si <span class="math notranslate nohighlight">\(N = \left(\frac{50 \text{ ms}}{5 \times 10^{-6} \text{s}}\right)^1 = 10^4 = 10.000\)</span>,
+si <span class="math notranslate nohighlight">\(N = \left(\frac{50 \text{ ms}}{5 \text{ μs}}\right)^1 = 10^4 = 10.000\)</span>,
 tendríamos que tener en cuenta el error de calibración.</p>
 <section id="ejemplo-del-caso-2">
 <h3>Ejemplo del caso 2<a class="headerlink" href="#ejemplo-del-caso-2" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Imaginemos que la sección mide <span class="math notranslate nohighlight">\(L_1^{real} = 10.12 \text{ mm}\)</span>,
-pero medimos con una regla de resolución <span class="math notranslate nohighlight">\(1 \text{ mm}\)</span>.</p>
-<p>Si medimos una única sección,
-nuestra medición va ser <span class="math notranslate nohighlight">\(L_1^{medido} = (10 \pm 1) \text{ mm}\)</span>.</p>
-<p>Pero,
+pero medimos con una regla de resolución <span class="math notranslate nohighlight">\(1 \text{ mm}\)</span>.
+Si medimos una única sección,
+nuestra medición va ser <span class="math notranslate nohighlight">\(L_1^{medido} = (10 \pm 1) \text{ mm}\)</span>.
+Pero,
 si medimos <span class="math notranslate nohighlight">\(N=10\)</span> secciones consecutivas,
 cuyo largo es</p>
 <div class="math notranslate nohighlight">
@@ -598,8 +614,8 @@ cuyo largo es</p>
 = 10 \times 10.12 \text{ mm}
 = 101.2 \text{ mm}
 \]</div>
-<p>vamos a medir <span class="math notranslate nohighlight">\(L_{10}^{medido} = 101 \pm 1 \text{ mm}\)</span>.</p>
-<p>Noten que es diferente a multiplicar por <span class="math notranslate nohighlight">\(N=10\)</span>
+<p>vamos a medir <span class="math notranslate nohighlight">\(L_{10}^{medido} = 101 \pm 1 \text{ mm}\)</span>.
+Noten que es diferente a multiplicar por <span class="math notranslate nohighlight">\(N=10\)</span>
 la medición de una sección:</p>
 <div class="math notranslate nohighlight">
 \[ 10 \times L_1^{medido}
@@ -612,8 +628,8 @@ llegamos a:</p>
 <div class="math notranslate nohighlight">
 \[ L_1^{indirecto} = 10.1 \pm 0.1 \text{ mm} \]</div>
 <p>que tiene un error 10 veces menor
-que la medición directa de <span class="math notranslate nohighlight">\(L_1\)</span>.</p>
-<p>¡Ganamos un decimal!</p>
+que la medición directa de <span class="math notranslate nohighlight">\(L_1\)</span>.
+¡Ganamos un decimal!</p>
 </section>
 </section>
 <section id="caso-3-mediciones-consecutivas">
@@ -625,27 +641,30 @@ Pero,
 medimos todas las distancias intermedios <span class="math notranslate nohighlight">\(L(n)\)</span>:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/mediciones-consecutivas_19_0.png" src="../_images/mediciones-consecutivas_19_0.png" />
+<img alt="../_images/mediciones-consecutivas_16_0.png" src="../_images/mediciones-consecutivas_16_0.png" />
 </div>
 </div>
 <p>¿Cómo calculamos el largo <span class="math notranslate nohighlight">\(L_1\)</span> de un segmento a partir de estas mediciones?</p>
 <section id="opcion-1-incorrecta">
 <h3>Opción 1 (incorrecta)<a class="headerlink" href="#opcion-1-incorrecta" title="Enlazar permanentemente con este título">#</a></h3>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Ojo, este <span class="math notranslate nohighlight">\(\Delta L_n\)</span> no es un error de medición.</p>
+</div>
+</aside>
 <p>Podemos tomar las diferencias entre puntos consecutivos:</p>
 <div class="math notranslate nohighlight">
 \[ \Delta L_n = L(n) - L(n-1) \]</div>
 <p>y promediarlas.</p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Ojo, este <span class="math notranslate nohighlight">\(\Delta L_n\)</span> no tiene es un error de medición.</p>
-</div>
 <p>¿Si hacemos un promedio,
 el error no debería disminuir como <span class="math notranslate nohighlight">\(1 / \sqrt{N}\)</span>?
 En ese caso, ¿no es mejor el caso anterior,
-donde mediamos los extremos
+donde solo mediamos los extremos
 y el error disminuía como <span class="math notranslate nohighlight">\(1 / N\)</span>?</p>
 <p>Como los <span class="math notranslate nohighlight">\(\Delta L_n\)</span> no son independientes,
-no se cumples las hipótesis
+no se cumplen las hipótesis
 para que el error del promedio sea <span class="math notranslate nohighlight">\(\sigma_L / \sqrt{N}\)</span>.</p>
 <p>Si escribimos explícitamente los <span class="math notranslate nohighlight">\(\Delta L_n\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -665,7 +684,7 @@ Si hacemos un promedio de estos:</p>
 <p>Si lo extendemos a las <span class="math notranslate nohighlight">\(N\)</span> mediciones,</p>
 <div class="math notranslate nohighlight">
 \[ \frac{1}{N} \sum_{n=1}^N \Delta L_n = \frac{L(n) - L(0)}{N} \]</div>
-<p>que es lo mismo que calculábamos en el caso anterior.</p>
+<p>llegamos a lo mismo que calculábamos en el caso anterior.</p>
 </section>
 <section id="opcion-2">
 <h3>Opción 2<a class="headerlink" href="#opcion-2" title="Enlazar permanentemente con este título">#</a></h3>
@@ -678,15 +697,31 @@ se puede realizar un ajuste lineal:</p>
 <p>donde <span class="math notranslate nohighlight">\(n\)</span> es la cantidad de secciones consecutivas.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/mediciones-consecutivas_23_0.png" src="../_images/mediciones-consecutivas_23_0.png" />
+<img alt="../_images/mediciones-consecutivas_20_0.png" src="../_images/mediciones-consecutivas_20_0.png" />
 </div>
 </div>
 <p>En este caso,
-el error de <span class="math notranslate nohighlight">\(L_1\)</span> disminuye aún más rápido que en el caso anterior:</p>
+el error de <span class="math notranslate nohighlight">\(L_1\)</span> disminuye aún más rápido que en el caso anterior.
+Según Bevington and Robinson<a class="footnote-reference brackets" href="#footcite-bevington2003data" id="id1">1</a>,
+ecuaciones (6.23) y (6.13):</p>
 <div class="math notranslate nohighlight">
-\[ \sigma_{L_1} \propto \frac{\sigma_L}{N^{3/2}} \]</div>
+\[ \sigma_{L_1} = \frac{N \sigma_L}{N \sum_n n^2 + (\sum_n n)^2} \]</div>
+<p>Dado que <span class="math notranslate nohighlight">\(n = \{1, \ldots, N\}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{cases}
+\sum_n n = \frac{N^2 + N}{2} \\ \\
+\sum_n n^2 = \frac{2N^3 + 3N + N}{6}
+\end{cases}
+\end{split}\]</div>
+<p>Reemplazando en la ecuación anterior:</p>
+<div class="math notranslate nohighlight">
+\[ \sigma_{L_1}
+   = \frac{\sqrt{12} \, \sigma_L}{\sqrt{N^3 - N}}
+\sim \frac{\sqrt{12} \, \sigma_L}{N^{3/2}}
+\]</div>
 <p>Repitiendo la cuenta para el cronómetro,
-si <span class="math notranslate nohighlight">\(N = \left(\frac{50 \text{ ms}}{5 \times 10^{-6} \text{s}}\right)^{\frac{2}{3}} \approx 464\)</span>,
+si <span class="math notranslate nohighlight">\(N \approx 1063\)</span>,
 tendríamos que tener en cuenta el error de calibración.
 Ya no es (tan) inalcanzable.</p>
 </section>
@@ -697,7 +732,7 @@ que lo diferencia de simplemente repetir <span class="math notranslate nohighlig
 una vez para cada <span class="math notranslate nohighlight">\(L(n)\)</span>:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/mediciones-consecutivas_26_0.png" src="../_images/mediciones-consecutivas_26_0.png" />
+<img alt="../_images/mediciones-consecutivas_24_0.png" src="../_images/mediciones-consecutivas_24_0.png" />
 </div>
 </div>
 <p>En el caso 3,
@@ -715,6 +750,17 @@ se puede:</p>
 cada vez que apoyamos la regla,
 estamos introduciendo un error en el origen.</p>
 </section>
+</section>
+<section id="bibliografia">
+<h2>Bibliografía<a class="headerlink" href="#bibliografia" title="Enlazar permanentemente con este título">#</a></h2>
+<div class="docutils container" id="id2">
+<dl class="footnote brackets">
+<dt class="label" id="footcite-bevington2003data"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>P. Bevington and D.K. Robinson. <em>Data Reduction and Error Analysis for the Physical Sciences</em>. McGraw-Hill Education, 2003. ISBN 9780072472271.</p>
+</dd>
+</dl>
+</div>
+<hr class="footnotes docutils" />
 </section>
 </section>
 
