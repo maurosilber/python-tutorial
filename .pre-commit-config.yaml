@@ -1,26 +1,21 @@
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.3.0
+    rev: v4.4.0
     hooks:
     -   id: check-yaml
     -   id: end-of-file-fixer
     -   id: trailing-whitespace
--   repo: https://github.com/pycqa/isort
-    rev: 5.10.1
-    hooks:
-    -   id: isort
-        additional_dependencies:
-        - toml
 -   repo: https://github.com/psf/black
-    rev: 22.6.0
+    rev: 23.1.0
     hooks:
-    -   id: black
--   repo: https://gitlab.com/pycqa/flake8
-    rev: 3.9.2
-    hooks:
-    -   id: flake8
+    - id: black
+- repo: https://github.com/charliermarsh/ruff-pre-commit
+  rev: 'v0.0.243'
+  hooks:
+    - id: ruff
+      args: ["--fix"]
 -   repo: https://github.com/mwouts/jupytext
-    rev: v1.14.1
+    rev: v1.14.4
     hooks:
     -   id: jupytext
         args:
