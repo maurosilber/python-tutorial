@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
     <link rel="next" title="Cuadrados mínimos" href="cuadrados_minimos.html" />
-    <link rel="prev" title="Array (parte 2)" href="../numpy/array-2.html" />
+    <link rel="prev" title="Comparación de intervalos" href="grafico_de_intervalos.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -161,6 +161,11 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="grafico_de_intervalos.html">
+   Comparación de intervalos
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Histogramas
@@ -1105,7 +1110,7 @@ para generar <span class="math notranslate nohighlight">\(N\)</span> bins para d
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generar_bins_truncados</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">resolucion</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">n_bins</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Genera bins para datos truncados a una dada resolución.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Genera bins para datos truncados a una dada resolución.&quot;&quot;&quot;</span>
     <span class="c1"># Como el ancho de bin va a ser un múltiplo de la resolución,</span>
     <span class="c1"># le sumo y resto media resolución a los extremos,</span>
     <span class="c1"># para no tener problemas numéricos en los bordes de los bins.</span>
@@ -1133,7 +1138,7 @@ para generar <span class="math notranslate nohighlight">\(N\)</span> bins para d
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fbf2c7def90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb910937f10&gt;
 </pre></div>
 </div>
 <img alt="../_images/histograma_56_1.png" src="../_images/histograma_56_1.png" />
@@ -1156,7 +1161,7 @@ para generar <span class="math notranslate nohighlight">\(N\)</span> bins para d
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python",
+            name: "python",
             path: "./estadistica"
         },
         predefinedOutput: true
@@ -1171,11 +1176,11 @@ para generar <span class="math notranslate nohighlight">\(N\)</span> bins para d
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../numpy/array-2.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="grafico_de_intervalos.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Array (parte 2)</p>
+            <p class="prev-next-title">Comparación de intervalos</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="cuadrados_minimos.html" title="siguiente página">
