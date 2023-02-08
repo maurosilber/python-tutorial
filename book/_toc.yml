@@ -12,6 +12,7 @@ parts:
     - file: numpy/array-2
   - caption: Estadística
     chapters:
+    - file: estadistica/grafico_de_intervalos
     - file: estadistica/histograma
     - file: estadistica/cuadrados_minimos
     - file: estadistica/mediciones-consecutivas
