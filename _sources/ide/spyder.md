@@ -30,7 +30,7 @@ donde el archivo completo se corre linea por linea,
 y después podemos seguir de manera interactiva en la terminal:
 
 <video width=100% controls>
-  <source src="/ide/spyder/run_file.mov" type="video/mp4" />
+  <source src="spyder/run_file.mov" type="video/mp4" />
 </video>
 
 Al correr el archivo con el botón ▶️ verde,
@@ -47,7 +47,7 @@ Esto se puede hacer con el botón de ▶️ superpuesto a un cursor.
 Es equivalente a copiar y pegar esa linea en la consola:
 
 <video width=100% controls>
-  <source src="/ide/spyder/run_line.mov" type="video/mp4" />
+  <source src="spyder/run_line.mov" type="video/mp4" />
 </video>
 
 Noten que,
@@ -66,7 +66,7 @@ es correrlo por celdas.
 Una celda es un conjunto de lineas delimitado por `# %%`:
 
 <video width=100% controls>
-  <source src="/ide/spyder/run_cell.mov" type="video/mp4" />
+  <source src="spyder/run_cell.mov" type="video/mp4" />
 </video>
 
 En el editor de texto,
@@ -103,7 +103,7 @@ Nos va a aparecer un error,
 avisandonos que la variable `y` no está definida.
 
 <video width=100% controls>
-  <source src="/ide/spyder/run_combined.mov" type="video/mp4" />
+  <source src="spyder/run_combined.mov" type="video/mp4" />
 </video>
 
 Otra opción es reiniciar la consola,
