@@ -1,35 +1,45 @@
 
+
 <!DOCTYPE html>
 
-<html lang="es">
+
+<html lang="es" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Error sistemático y modelado &#8212; Tutorial de Python</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -37,13 +47,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -53,60 +63,92 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'estadistica/error-sistematico-y-modelado';</script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
     <link rel="prev" title="Múltiples mediciones" href="mediciones-consecutivas.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="es">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Tutorial de Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,444 +157,238 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Base
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usando Python desde</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../base/variables.html">
-   Variables y operaciones aritméticas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../base/funciones.html">
-   Funciones
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../base/listas-e-iteraciones.html">
-   Listas e iteraciones
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../ide/terminal.html">La terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ide/spyder.html">Spyder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ide/jupyter.html">Jupyter o Google Colab</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  NumPy y matplotlib
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Base</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/array-1.html">
-   Array (parte 1)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/array-2.html">
-   Array (parte 2)
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../base/variables.html">Variables y operaciones aritméticas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../base/funciones.html">Funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../base/listas-e-iteraciones.html">Listas e iteraciones</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Estadística
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NumPy y matplotlib</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../numpy/array-1.html">Array (parte 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/array-2.html">Array (parte 2)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Estadística</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="grafico_de_intervalos.html">
-   Comparación de intervalos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="histograma.html">
-   Histogramas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="cuadrados_minimos.html">
-   Cuadrados mínimos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="mediciones-consecutivas.html">
-   Múltiples mediciones
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Error sistemático y modelado
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="grafico_de_intervalos.html">Comparación de intervalos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histograma.html">Histogramas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuadrados_minimos.html">Cuadrados mínimos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mediciones-consecutivas.html">Múltiples mediciones</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Error sistemático y modelado</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://colab.research.google.com/github/maurosilber/python-tutorial/blob/main/book/estadistica/error-sistematico-y-modelado.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/maurosilber/python-tutorial/blob/main/book/estadistica/error-sistematico-y-modelado.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/estadistica/error-sistematico-y-modelado.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/estadistica/error-sistematico-y-modelado.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#simulando-una-medicion">
-   Simulando una medición
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hipotesis">
-     Hipótesis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#error-por-resolucion-en-la-longitud-l">
-     Error por resolución en la longitud
-     <span class="math notranslate nohighlight">
-      \(L\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#con-un-error-sistematico-l-0">
-     Con un error sistemático
-     <span class="math notranslate nohighlight">
-      \(L_0\)
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#efecto-del-error-sistematico">
-   Efecto del error sistemático
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sin-error-sistematico">
-     Sin error sistemático
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#error-sistematico-en-la-longitud">
-     Error sistemático en la longitud
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rango-de-longitudes-medidas">
-     Rango de longitudes medidas
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aumentando-la-precision-en-l">
-     Aumentando la precisión en
-     <span class="math notranslate nohighlight">
-      \(L\)
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ajustes-y-el-g-estimado">
-   Ajustes y el
-   <span class="math notranslate nohighlight">
-    \(g\)
-   </span>
-   estimado
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Sin error sistemático
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#error-sistematico-grande">
-     Error sistemático grande
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Rango de longitudes medidas
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#error-sistematico-pequeno">
-     Error sistemático pequeño
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Error sistemático y modelado</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#simulando-una-medicion">
-   Simulando una medición
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hipotesis">
-     Hipótesis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#error-por-resolucion-en-la-longitud-l">
-     Error por resolución en la longitud
-     <span class="math notranslate nohighlight">
-      \(L\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#con-un-error-sistematico-l-0">
-     Con un error sistemático
-     <span class="math notranslate nohighlight">
-      \(L_0\)
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#efecto-del-error-sistematico">
-   Efecto del error sistemático
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sin-error-sistematico">
-     Sin error sistemático
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#error-sistematico-en-la-longitud">
-     Error sistemático en la longitud
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rango-de-longitudes-medidas">
-     Rango de longitudes medidas
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aumentando-la-precision-en-l">
-     Aumentando la precisión en
-     <span class="math notranslate nohighlight">
-      \(L\)
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ajustes-y-el-g-estimado">
-   Ajustes y el
-   <span class="math notranslate nohighlight">
-    \(g\)
-   </span>
-   estimado
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Sin error sistemático
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#error-sistematico-grande">
-     Error sistemático grande
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Rango de longitudes medidas
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#error-sistematico-pequeno">
-     Error sistemático pequeño
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Error sistemático y modelado</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulando-una-medicion">Simulando una medición</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hipotesis">Hipótesis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-por-resolucion-en-la-longitud-l">Error por resolución en la longitud <span class="math notranslate nohighlight">\(L\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#con-un-error-sistematico-l-0">Con un error sistemático <span class="math notranslate nohighlight">\(L_0\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efecto-del-error-sistematico">Efecto del error sistemático</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sin-error-sistematico">Sin error sistemático</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-sistematico-en-la-longitud">Error sistemático en la longitud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rango-de-longitudes-medidas">Rango de longitudes medidas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aumentando-la-precision-en-l">Aumentando la precisión en <span class="math notranslate nohighlight">\(L\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajustes-y-el-g-estimado">Ajustes y el <span class="math notranslate nohighlight">\(g\)</span> estimado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Sin error sistemático</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-sistematico-grande">Error sistemático grande</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Rango de longitudes medidas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-sistematico-pequeno">Error sistemático pequeño</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="error-sistematico-y-modelado">
 <h1>Error sistemático y modelado<a class="headerlink" href="#error-sistematico-y-modelado" title="Enlazar permanentemente con este título">#</a></h1>
 <p>Bajo la aproximación de pequeñas oscilaciones,
@@ -592,6 +428,11 @@ L = g \left( \frac{T+T_0}{2π} \right)^2
 <p>Veamos que sucede si simulamos uno de estos casos
 y ajustamos por los modelos incorrectos.</p>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -621,6 +462,7 @@ y ajustamos por los modelos incorrectos.</p>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -647,7 +489,7 @@ necesitamos simular <strong>correctamente</strong> el proceso de medición.</p>
 <h3>Hipótesis<a class="headerlink" href="#hipotesis" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Para la simulación,
 vamos a asumir dos cosas:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>tenemos un error sistemático <span class="math notranslate nohighlight">\(L_0\)</span> en la longitud <span class="math notranslate nohighlight">\(L\)</span>,</p></li>
 <li><p>el error en el periodo <span class="math notranslate nohighlight">\(T\)</span> es despreciable frente al error en la longitud <span class="math notranslate nohighlight">\(L\)</span>.</p></li>
 </ol>
@@ -702,6 +544,11 @@ se lo sumamos al <span class="math notranslate nohighlight">\(L_{real}\)</span> 
 el <span class="math notranslate nohighlight">\(T_{real}\)</span> se calcula a partir del <span class="math notranslate nohighlight">\(L_{real}\)</span>,
 sin considerar el error sistemático ni la medición.</p>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">experimento</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">L_min</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">L_max</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">N_largos</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">L0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">decimales</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">medir</span><span class="p">():</span>
@@ -730,6 +577,7 @@ sin considerar el error sistemático ni la medición.</p>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 </section>
@@ -744,6 +592,11 @@ Para eso,
 vamos a realizar simulaciones para diferentes parámetros,
 y gráficar tanto <span class="math notranslate nohighlight">\(L\)</span> vs <span class="math notranslate nohighlight">\(T^2\)</span> como <span class="math notranslate nohighlight">\(\sqrt{L}\)</span> vs <span class="math notranslate nohighlight">\(T\)</span>.</p>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">graficar_vs_real</span><span class="p">(</span><span class="n">medir</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Realiza una medición y realiza un gráfico con residuos,</span>
@@ -771,6 +624,7 @@ y gráficar tanto <span class="math notranslate nohighlight">\(L\)</span> vs <sp
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <section id="sin-error-sistematico">
 <h3>Sin error sistemático<a class="headerlink" href="#sin-error-sistematico" title="Enlazar permanentemente con este título">#</a></h3>
@@ -784,7 +638,7 @@ y los residuos se distribuyen aleatoriamente alrededor del 0.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/error-sistematico-y-modelado_12_0.png" src="../_images/error-sistematico-y-modelado_12_0.png" />
+<img alt="../_images/02ba4dcbcbb62a0f2fc8e3e1c1e6d2c51f857fc626c7215611a136bc228be094.png" src="../_images/02ba4dcbcbb62a0f2fc8e3e1c1e6d2c51f857fc626c7215611a136bc228be094.png" />
 </div>
 </div>
 </section>
@@ -810,7 +664,7 @@ como en <a class="reference internal" href="#equation-longitud-t0">(4)</a>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/error-sistematico-y-modelado_14_0.png" src="../_images/error-sistematico-y-modelado_14_0.png" />
+<img alt="../_images/64806823e468f75f38c3ef42f4ae7a1b18fba3d915e04c2552fe9a319ca2163c.png" src="../_images/64806823e468f75f38c3ef42f4ae7a1b18fba3d915e04c2552fe9a319ca2163c.png" />
 </div>
 </div>
 </section>
@@ -829,7 +683,7 @@ a pesar de que este último es incorrecto.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/error-sistematico-y-modelado_16_0.png" src="../_images/error-sistematico-y-modelado_16_0.png" />
+<img alt="../_images/23a85c0530d57e49bcf7f27e209e4ecc450cb0a36ff6191bfdf22b6e76cf3468.png" src="../_images/23a85c0530d57e49bcf7f27e209e4ecc450cb0a36ff6191bfdf22b6e76cf3468.png" />
 </div>
 </div>
 </section>
@@ -845,7 +699,7 @@ volvemos a distinguir entre ambos casos.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/error-sistematico-y-modelado_18_0.png" src="../_images/error-sistematico-y-modelado_18_0.png" />
+<img alt="../_images/85c6ab551caab5138672a2e282beb53e50b3bccbd9b6c3b7cdd16f97c9d7d83c.png" src="../_images/85c6ab551caab5138672a2e282beb53e50b3bccbd9b6c3b7cdd16f97c9d7d83c.png" />
 </div>
 </div>
 </section>
@@ -883,6 +737,11 @@ repetiremos estre proceso <span class="math notranslate nohighlight">\(N=1000\)<
 graficaremos histogramas de la estimación de <span class="math notranslate nohighlight">\(g\)</span>
 para cada uno de estos modelos.</p>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">repetir_experimentos</span><span class="p">(</span><span class="n">medir</span><span class="p">,</span> <span class="n">N_experimentos</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">create_plot_axes</span><span class="p">(</span><span class="n">fig</span><span class="p">):</span>
@@ -945,6 +804,7 @@ para cada uno de estos modelos.</p>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <section id="id1">
 <h3>Sin error sistemático<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">#</a></h3>
@@ -963,7 +823,7 @@ para los modelos con constante.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/error-sistematico-y-modelado_24_0.png" src="../_images/error-sistematico-y-modelado_24_0.png" />
+<img alt="../_images/b5057cb7e813ad31a157ea0420b16f916f5bfb88aa84bd012f06d258d4dca67a.png" src="../_images/b5057cb7e813ad31a157ea0420b16f916f5bfb88aa84bd012f06d258d4dca67a.png" />
 </div>
 </div>
 </section>
@@ -989,7 +849,7 @@ sus valores coincidieron con el valor real.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/error-sistematico-y-modelado_26_0.png" src="../_images/error-sistematico-y-modelado_26_0.png" />
+<img alt="../_images/6cf24f9b9fb5606181aa995819c2aab164957795dd8c44f5a5b07a82c57ca72f.png" src="../_images/6cf24f9b9fb5606181aa995819c2aab164957795dd8c44f5a5b07a82c57ca72f.png" />
 </div>
 </div>
 </section>
@@ -1011,7 +871,7 @@ siempre estima un valor menor.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/error-sistematico-y-modelado_28_0.png" src="../_images/error-sistematico-y-modelado_28_0.png" />
+<img alt="../_images/294b5e733feb3190ff5f78386647b995badfc7147042b7e9118d516e688f3a90.png" src="../_images/294b5e733feb3190ff5f78386647b995badfc7147042b7e9118d516e688f3a90.png" />
 </div>
 </div>
 </section>
@@ -1031,7 +891,7 @@ pero no muy significativo.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/error-sistematico-y-modelado_30_0.png" src="../_images/error-sistematico-y-modelado_30_0.png" />
+<img alt="../_images/032b96390a3ff7dbfdfe0401def6eb59db402b68909f9619405eecb8e9f27502.png" src="../_images/032b96390a3ff7dbfdfe0401def6eb59db402b68909f9619405eecb8e9f27502.png" />
 </div>
 </div>
 <p>En cambio,
@@ -1048,11 +908,11 @@ siempre se obtuvo valores de <span class="math notranslate nohighlight">\(g\)</s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/python-tutorial/lib/python3.11/site-packages/scipy/optimize/_minpack_py.py:906: OptimizeWarning: Covariance of the parameters could not be estimated
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba-root/envs/python-tutorial/lib/python3.11/site-packages/scipy/optimize/_minpack_py.py:906: OptimizeWarning: Covariance of the parameters could not be estimated
   warnings.warn(&#39;Covariance of the parameters could not be estimated&#39;,
 </pre></div>
 </div>
-<img alt="../_images/error-sistematico-y-modelado_32_1.png" src="../_images/error-sistematico-y-modelado_32_1.png" />
+<img alt="../_images/375afd773634598b9b464f95164729763c823d2a0a990d96e3b808abb9b991be.png" src="../_images/375afd773634598b9b464f95164729763c823d2a0a990d96e3b808abb9b991be.png" />
 </div>
 </div>
 </section>
@@ -1079,43 +939,109 @@ siempre se obtuvo valores de <span class="math notranslate nohighlight">\(g\)</s
     </script>
     <script>kernelName = 'python'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="mediciones-consecutivas.html" title="anterior página">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Múltiples mediciones</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="mediciones-consecutivas.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Múltiples mediciones</p>
+      </div>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulando-una-medicion">Simulando una medición</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hipotesis">Hipótesis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-por-resolucion-en-la-longitud-l">Error por resolución en la longitud <span class="math notranslate nohighlight">\(L\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#con-un-error-sistematico-l-0">Con un error sistemático <span class="math notranslate nohighlight">\(L_0\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efecto-del-error-sistematico">Efecto del error sistemático</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sin-error-sistematico">Sin error sistemático</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-sistematico-en-la-longitud">Error sistemático en la longitud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rango-de-longitudes-medidas">Rango de longitudes medidas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aumentando-la-precision-en-l">Aumentando la precisión en <span class="math notranslate nohighlight">\(L\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajustes-y-el-g-estimado">Ajustes y el <span class="math notranslate nohighlight">\(g\)</span> estimado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Sin error sistemático</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-sistematico-grande">Error sistemático grande</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Rango de longitudes medidas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-sistematico-pequeno">Error sistemático pequeño</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
   
-    By Mauro Silberberg<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
-</div>
+<p class="component-author">
+Por Mauro Silberberg
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
 
-      </div>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
