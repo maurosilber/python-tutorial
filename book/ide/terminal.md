@@ -1,6 +1,6 @@
 <head>
-  <link rel="stylesheet" type="text/css" href="/ide/terminal/asciinema-player.css" />
-  <script src="/ide/terminal/asciinema-player.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="terminal/asciinema-player.css" />
+  <script src="terminal/asciinema-player.min.js"></script>
 </head>
 
 # La terminal

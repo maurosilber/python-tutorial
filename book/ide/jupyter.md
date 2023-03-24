@@ -16,5 +16,5 @@ En el siguiente video,
 se muestra la interfaz de Google Colab:
 
 <video width=100% controls>
-  <source src="/ide/colab/run_colab.mov" type="video/mp4" />
+  <source src="colab/run_colab.mov" type="video/mp4" />
 </video>
