@@ -2,6 +2,7 @@ name: publish
 
 # Only run this when the main branch changes
 on:
+  workflow_dispatch:
   push:
     branches:
     - main
