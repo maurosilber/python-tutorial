@@ -26,3 +26,4 @@ launch_buttons:
 sphinx:
   config:
     language: es
+    html_extra_path: ['assets/']
