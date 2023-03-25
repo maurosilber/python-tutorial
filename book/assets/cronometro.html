@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronómetro</title>
+    <link rel="stylesheet" href="simple.css">
+</head>
+
+<body>
+    <div>
+        <h1>Cronómetro</h1>
+        <p>Presionar cualquier tecla para medir.</p>
+        <button id="start">Medir</button>
+        <button id="reset">Borrar</button>
+        <button id="export">Exportar</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tiempo [s]</th>
+                </tr>
+            </thead>
+            <tbody id="table">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Define variables
+        let startTime = null;
+        let table = document.getElementById("table")
+
+        // Define functions
+        function addTime() {
+            let time = new Date();
+            if (startTime === null) {
+                startTime = time;
+            }
+            let newText = document.createTextNode((time - startTime) / 1000);
+            table.insertRow().insertCell().appendChild(newText);
+        }
+
+        function resetTimer() {
+            startTime = null;
+            table.innerHTML = "";
+        }
+
+        function exportCsv() {
+            let csvContent = 'data:text/csv;charset=utf-8,';
+            csvContent += '# tiempo [s]\n';
+            csvContent += table.innerText;
+            let link = document.createElement('a');
+            link.setAttribute('href', encodeURI(csvContent));
+            link.setAttribute('download', 'datos.csv');
+            document.body.appendChild(link);
+            link.click();
+        }
+
+        // Attach event listeners
+        document.getElementById('start').addEventListener('click', addTime);
+        document.getElementById('reset').addEventListener('click', resetTimer);
+        document.getElementById('export').addEventListener('click', exportCsv);
+        addEventListener("keydown", (event) => {
+            if (!event.repeat) addTime()
+        });
+    </script>
+</body>
+
+</html>
