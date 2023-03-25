@@ -15,9 +15,16 @@
         <p><i>Nota: las mediciones son consecutivas. Después, se puede calcular periodos como la diferencia entre dos
             mediciones consecutivas.</i></p>
         <p>
-        <button id="start">Medir</button>
-        <button id="reset">Borrar</button>
-        <button id="export">Exportar</button>
+            <button id="start">Medir</button>
+            <button id="reset">Borrar</button>
+            <button id="export">Exportar</button>
+        </p>
+        <p>
+            <label for="total_mediciones">Total de mediciones</label>
+            <input id="total_mediciones" readonly value=0>
+            <label for="total_tiempo">Tiempo total</label>
+            <input id="total_tiempo" readonly value=0>
+        </p>
         <table>
             <thead>
                 <tr>
@@ -33,20 +40,34 @@
         // Define variables
         let startTime = null;
         let table = document.getElementById("table")
+        let total_mediciones = document.getElementById("total_mediciones")
+        let total_tiempo = document.getElementById("total_tiempo")
+        let currentTime;
 
         // Define functions
         function addTime() {
             let time = new Date();
             if (startTime === null) {
                 startTime = time;
+                currentTime = setInterval(() => total_tiempo.setAttribute("value", getTime()), 10)
             }
             let newText = document.createTextNode((time - startTime) / 1000);
             table.insertRow().insertCell().appendChild(newText);
+            total_mediciones.value = parseFloat(total_mediciones.value) + 1;
+        }
+
+        function getTime() {
+            let time = new Date();
+            return (time - startTime) / 1000;
         }
 
         function resetTimer() {
             startTime = null;
+            elapsed = 0
             table.innerHTML = "";
+            total_mediciones.value = "0";
+            clearInterval(currentTime);
+            total_tiempo.value = elapsed;
         }
 
         function exportCsv() {
