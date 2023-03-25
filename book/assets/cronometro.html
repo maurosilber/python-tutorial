@@ -47,11 +47,10 @@
         }
 
         function exportCsv() {
-            let csvContent = 'data:text/csv;charset=utf-8,';
-            csvContent += '# tiempo [s]\n';
-            csvContent += table.innerText;
+            let blob = new Blob(['# tiempo [s]\n' + table.innerText], { type: 'text/csv;charset=utf-8;' });
+            let url = URL.createObjectURL(blob);
             let link = document.createElement('a');
-            link.setAttribute('href', encodeURI(csvContent));
+            link.setAttribute('href', url);
             link.setAttribute('download', 'datos.csv');
             document.body.appendChild(link);
             link.click();
