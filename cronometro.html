@@ -63,11 +63,10 @@
 
         function resetTimer() {
             startTime = null;
-            elapsed = 0
             table.innerHTML = "";
             total_mediciones.value = "0";
             clearInterval(currentTime);
-            total_tiempo.value = elapsed;
+            total_tiempo.setAttribute("value", 0);
         }
 
         function exportCsv() {
