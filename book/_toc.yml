@@ -22,3 +22,6 @@ parts:
     - file: estadistica/cuadrados_minimos
     - file: estadistica/mediciones-consecutivas
     - file: estadistica/error-sistematico-y-modelado
+  - caption: Laboratorio
+    chapters:
+    - file: laboratorio/cronometro
