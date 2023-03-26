@@ -112,6 +112,6 @@ periodos = np.diff(tiempos)  # [t1-t0, t2-t1, ...]
     document.getElementById('reset').addEventListener('click', resetTimer);
     document.getElementById('export').addEventListener('click', exportCsv);
     addEventListener("keydown", (event) => {
-        if (!event.repeat) addTime()
+        if (!event.repeat && event.target.id != "nombre_archivo") addTime()
     });
 </script>
