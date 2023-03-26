@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>La terminal &#8212; Tutorial de Python</title>
+    <title>Cronómetro &#8212; Tutorial de Python</title>
   
   
   
@@ -61,11 +61,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ide/terminal';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'laboratorio/cronometro';</script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Spyder" href="spyder.html" />
-    <link rel="prev" title="Introducción a Python" href="../index.html" />
+    <link rel="prev" title="Error sistemático y modelado" href="../estadistica/error-sistematico-y-modelado.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -157,10 +156,10 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usando Python desde</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">La terminal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="spyder.html">Spyder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter o Google Colab</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ide/terminal.html">La terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ide/spyder.html">Spyder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ide/jupyter.html">Jupyter o Google Colab</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Base</span></p>
 <ul class="nav bd-sidenav">
@@ -182,8 +181,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../estadistica/error-sistematico-y-modelado.html">Error sistemático y modelado</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Laboratorio</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../laboratorio/cronometro.html">Cronómetro</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Cronómetro</a></li>
 </ul>
 
     </div>
@@ -238,7 +237,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/ide/terminal.md" target="_blank"
+      <li><a href="../_sources/laboratorio/cronometro.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -307,9 +306,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -320,21 +317,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>La terminal</h1>
+    <h1>Cronómetro</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contenido </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-manera-interactiva">De manera interactiva</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desde-un-archivo-de-texto">Desde un archivo de texto</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-manera-mixta">De manera mixta</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -345,209 +332,113 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <head>
-  <link rel="stylesheet" type="text/css" href="terminal/asciinema-player.css" />
-  <script src="terminal/asciinema-player.min.js"></script>
+<style>
+    .cronometer-button {
+        width: 10ch;
+    }
+    label, input {
+        width: 10ch;
+        text-align: right;
+    }
+</style>
 </head>
-<section class="tex2jax_ignore mathjax_ignore" id="la-terminal">
-<h1>La terminal<a class="headerlink" href="#la-terminal" title="Enlazar permanentemente con este título">#</a></h1>
-<p>Correr Python desde la terminal es la forma más básica de usarlo
-y, aunque no vayan a usar Python de esta manera,
-es útil entender como funciona.
-Los otros entornos que usen para correr Python,
-como Google Colab,
-van a estar haciendo esto detrás de escenas.</p>
-<section id="de-manera-interactiva">
-<h2>De manera interactiva<a class="headerlink" href="#de-manera-interactiva" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Para correr Python de manera interactiva,
-escribimos <code class="docutils literal notranslate"><span class="pre">python</span></code> en una terminal,
-y se abre un <em>REPL</em> (<em>Read-Eval-Print-Loop</em>),
-que va a leer (<em>read</em>) los comandos que escribamos,
-evaluarlos (<em>eval</em>),
-mostrar o imprimir (<em>primt</em>) el resultado,
-y repetir (<em>loop</em>) estos pasos.</p>
-<p>Después vamos a ver más en detalle que hace el código,
-pero,
-para entender que esta pasando,
-la sintaxis <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span></code>
-define una variable con el nombre <code class="docutils literal notranslate"><span class="pre">x</span></code>,
-donde <em>guarda</em> el valor <code class="docutils literal notranslate"><span class="pre">1</span></code>,
-para que lo podamos reutilizar más adelante.</p>
-<div id="interactive"></div>
-<script>AsciinemaPlayer.create({data: [
-{"version": 2, "width": 80, "height": 13, "timestamp": 1679010876, "env": {"SHELL": "/bin/zsh", "TERM": "xterm-256color"}},
-[0., "o", "maurosilber@annie ~ % "],
-[0.5, "o", "p"],
-[0.6, "o", "y"],
-[0.7, "o", "t"],
-[0.8, "o", "h"],
-[0.9, "o", "o"],
-[1.0, "o", "n"],
-[1.1, "o", "3"],
-[1.2, "o", "\r\n"],
-[1.5, "o", "Python 3.11.2 (main, Feb 16 2023, 02:55:59) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin\r\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\r\n"],
-[2.0, "o", ">>> "],
-[2.0, "o", "2"],
-[2.1, "o", " "],
-[2.2, "o", "+"],
-[2.3, "o", " "],
-[2.4, "o", "2"],
-[2.5, "o", "\r\n"],
-[2.5, "o", "4"],
-[2.5, "o", "\r\n"],
-[2.5, "o", ">>> "],
-[3.0, "o", "x"],
-[3.1, "o", " "],
-[3.2, "o", "="],
-[3.3, "o", " "],
-[3.4, "o", "1"],
-[3.5, "o", "\r\n"],
-[3.5, "o", ">>> "],
-[4.0, "o", "x"],
-[4.1, "o", "\r\n"],
-[4.1, "o", "1"],
-[4.1, "o", "\r\n"],
-[4.1, "o", ">>> "],
-[4.6, "o", "y"],
-[4.7, "o", " "],
-[4.8, "o", "="],
-[4.9, "o", " "],
-[5.0, "o", "2"],
-[5.1, "o", " "],
-[5.2, "o", "*"],
-[5.3, "o", " "],
-[5.4, "o", "x"],
-[5.5, "o", "\r\n"],
-[5.5, "o", ">>> "],
-[6.0, "o", "p"],
-[6.1, "o", "r"],
-[6.2, "o", "i"],
-[6.3, "o", "n"],
-[6.4, "o", "t"],
-[6.5, "o", "("],
-[6.6, "o", "y"],
-[6.7, "o", ")"],
-[6.8, "o", "\r\n"],
-[6.8, "o", "2\r\n"],
-[6.8, "o", ">>> "]
-]},
-document.getElementById("interactive"),
-{
-    rows: 13,
-    preload: true,
-    }
-);</script>
-</section>
-<section id="desde-un-archivo-de-texto">
-<h2>Desde un archivo de texto<a class="headerlink" href="#desde-un-archivo-de-texto" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Para poder volver a correr un mismo código
-sin tener que tipearlo nuevamente,
-los programas se escriben en un archivo de texto.
-Generalmente,
-se suelen guardar con extensión <code class="docutils literal notranslate"><span class="pre">.py</span></code>,
-para señalar que es un archivo de Python.</p>
-<p>Por ejemplo,
-en un archivo de texto escribimos
-los mismos los comandos del ejemplo anterior:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">x</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<section class="tex2jax_ignore mathjax_ignore" id="cronometro">
+<h1>Cronómetro<a class="headerlink" href="#cronometro" title="Enlazar permanentemente con este título">#</a></h1>
+<p>Presionar el botón:</p>
+<ul class="simple">
+<li><p><strong>medir</strong>: para realizar mediciones (o cualquier tecla en el teclado).</p></li>
+<li><p><strong>borrar</strong>: borra la tabla de mediciones y reinicia el cronómetro.</p></li>
+<li><p><strong>exportar</strong>: descarga las mediciones en un archivo de texto.</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Las mediciones son consecutivas.</p>
+<p>Se puede calcular periodos
+como la diferencia entre dos mediciones consecutivas.</p>
+<p>En Python,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">tiempos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;datos.txt&quot;</span><span class="p">)</span>
+<span class="n">periodos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">tiempos</span><span class="p">)</span>  <span class="c1"># [t1-t0, t2-t1, ...]</span>
 </pre></div>
 </div>
-<p>y lo guardamos como <code class="docutils literal notranslate"><span class="pre">ejemplo.py</span></code>.</p>
-<p>Para correr este código,
-en la terminal ponemos:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>ejemplo.py
-</pre></div>
 </div>
-<div id="non-interactive"></div>
-<script>AsciinemaPlayer.create({data: [
-{"version": 2, "width": 80, "height": 10, "timestamp": 1679010876, "env": {"SHELL": "/bin/zsh", "TERM": "xterm-256color"}},
-[0., "o", "maurosilber@annie ~ % "],
-[0.5, "o", "p"],
-[0.6, "o", "y"],
-[0.7, "o", "t"],
-[0.8, "o", "h"],
-[0.9, "o", "o"],
-[1.0, "o", "n"],
-[1.1, "o", "3"],
-[1.2, "o", " "],
-[1.3, "o", "e"],
-[1.4, "o", "j"],
-[1.5, "o", "e"],
-[1.6, "o", "m"],
-[1.7, "o", "p"],
-[1.8, "o", "l"],
-[1.9, "o", "o"],
-[2.0, "o", "."],
-[2.1, "o", "p"],
-[2.2, "o", "y"],
-[2.3, "o", "\r\n"],
-[2.5, "o", "2\r\n"],
-[3.0, "o", "maurosilber@annie ~ % "]
-]},
-document.getElementById("non-interactive"),
-{
-    rows: 5,
-    preload: true,
-    }
-);</script>
-<p>Noten que,
-a diferencia de cuando lo corremos de manera interactiva,
-solo vemos el resultado de la expresión que está dentro de <code class="docutils literal notranslate"><span class="pre">print(...)</span></code>.</p>
-</section>
-<section id="de-manera-mixta">
-<h2>De manera mixta<a class="headerlink" href="#de-manera-mixta" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Estas dos maneras de correr código no son exclusivas.
-Podemos empezar corriendo un archivo de texto y,
-luego,
-seguir interactuando con las variables que quedaron definidas.
-Para ello,
-hay que agregar <code class="docutils literal notranslate"><span class="pre">-i</span></code> (de interactivo) al correr el archivo:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-i<span class="w"> </span>ejemplo.py
-</pre></div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column sd-col-9 sd-col-xs-9 sd-col-sm-9 sd-col-md-9 sd-col-lg-9 docutils">
+<p><label for="total_tiempo">Tiempo total</label>
+<input id="total_tiempo" readonly value=0>
+<button class="cronometer-button" id="start">Medir</button></p>
+<p><label for="total_mediciones">Mediciones</label>
+<input id="total_mediciones" readonly value=0>
+<button class="cronometer-button" id="reset">Borrar</button></p>
+<p><label for="nombre_archivo">Nombre</label>
+<input id="nombre_archivo" value="datos.txt">
+<button class="cronometer-button" id="export">Exportar</button></p>
 </div>
-<div id="mixed"></div>
-<script>AsciinemaPlayer.create({data: [
-{"version": 2, "width": 80, "height": 10, "timestamp": 1679010876, "env": {"SHELL": "/bin/zsh", "TERM": "xterm-256color"}},
-[0., "o", "maurosilber@annie ~ % "],
-[0.5, "o", "p"],
-[0.6, "o", "y"],
-[0.7, "o", "t"],
-[0.8, "o", "h"],
-[0.9, "o", "o"],
-[1.0, "o", "n"],
-[1.1, "o", "3"],
-[1.2, "o", " "],
-[1.3, "o", "-"],
-[1.4, "o", "i"],
-[1.5, "o", " "],
-[1.6, "o", "e"],
-[1.7, "o", "j"],
-[1.8, "o", "e"],
-[1.9, "o", "m"],
-[2.0, "o", "p"],
-[2.1, "o", "l"],
-[2.2, "o", "o"],
-[2.3, "o", "."],
-[2.4, "o", "p"],
-[2.5, "o", "y"],
-[2.6, "o", "\r\n"],
-[3.0, "o", "2\r\n"],
-[3.5, "o", ">>> "],
-[4.5, "o", "x"],
-[4.6, "o", "\r\n"],
-[5.0, "o", "1\r\n"],
-[5.0, "o", ">>> "]
-]},
-document.getElementById("mixed"),
-{
-    rows: 5,
-    preload: true,
+<div class="sd-col sd-d-flex-column sd-col-3 sd-col-xs-3 sd-col-sm-3 sd-col-md-3 sd-col-lg-3 docutils">
+<table>
+    <thead>
+        <tr>
+            <th>Tiempo [s]</th>
+        </tr>
+    </thead>
+    <tbody id="table">
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+<script>
+    // Define variables
+    let startTime = null;
+    let table = document.getElementById("table")
+    let total_mediciones = document.getElementById("total_mediciones")
+    let total_tiempo = document.getElementById("total_tiempo")
+    let currentTime;
+
+    // Define functions
+    function addTime() {
+        let time = new Date();
+        if (startTime === null) {
+            startTime = time;
+            currentTime = setInterval(() => total_tiempo.setAttribute("value", getTime()), 10)
+        }
+        let newText = document.createTextNode((time - startTime) / 1000);
+        table.insertRow().insertCell().appendChild(newText);
+        total_mediciones.value = parseFloat(total_mediciones.value) + 1;
     }
-);</script>
-</section>
+
+    function getTime() {
+        let time = new Date();
+        return (time - startTime) / 1000;
+    }
+
+    function resetTimer() {
+        startTime = null;
+        table.innerHTML = "";
+        total_mediciones.value = "0";
+        clearInterval(currentTime);
+        total_tiempo.setAttribute("value", 0);
+    }
+
+    function exportCsv() {
+        let blob = new Blob(['# tiempo [s]\n' + table.innerText], { type: 'text/csv;charset=utf-8;' });
+        let url = URL.createObjectURL(blob);
+        let link = document.createElement('a');
+        link.setAttribute('href', url);
+        link.setAttribute('download', document.getElementById("nombre_archivo").value);
+        document.body.appendChild(link);
+        link.click();
+    }
+
+    // Attach event listeners
+    document.getElementById('start').addEventListener('click', addTime);
+    document.getElementById('reset').addEventListener('click', resetTimer);
+    document.getElementById('export').addEventListener('click', exportCsv);
+    addEventListener("keydown", (event) => {
+        if (!event.repeat) addTime()
+    });
+</script>
 </section>
 
     <script type="text/x-thebe-config">
@@ -563,7 +454,7 @@ document.getElementById("mixed"),
         },
         kernelOptions: {
             name: "python3",
-            path: "./ide"
+            path: "./laboratorio"
         },
         predefinedOutput: true
     }
@@ -579,22 +470,13 @@ document.getElementById("mixed"),
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../index.html"
+       href="../estadistica/error-sistematico-y-modelado.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Introducción a Python</p>
+        <p class="prev-next-title">Error sistemático y modelado</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="spyder.html"
-       title="siguiente página">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Spyder</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -602,22 +484,6 @@ document.getElementById("mixed"),
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contenido
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-manera-interactiva">De manera interactiva</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desde-un-archivo-de-texto">Desde un archivo de texto</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-manera-mixta">De manera mixta</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
