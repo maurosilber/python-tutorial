@@ -25,3 +25,4 @@ parts:
   - caption: Laboratorio
     chapters:
     - file: laboratorio/cronometro
+    - file: laboratorio/photogate/paso_a_paso.ipynb
