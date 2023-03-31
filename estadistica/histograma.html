@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -186,6 +186,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Laboratorio</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../laboratorio/cronometro.html">Cronómetro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../laboratorio/photogate/paso_a_paso.html">Photogate explicado paso a paso</a></li>
 </ul>
 
     </div>
@@ -363,6 +364,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograma">Histograma</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grafico-de-histograma">Gráfico de histograma</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cantidad-de-bins">Cantidad de bins</a></li>
@@ -398,11 +400,43 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s2">&quot;figure&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s2">&quot;figure&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
+<section id="resumen">
+<h2>Resumen<a class="headerlink" href="#resumen" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Dado un conjunto de datos que tenemos en una variable <code class="docutils literal notranslate"><span class="pre">x</span></code>,
+por ejemplo,
+datos que cargmos desde un archivo de texto con <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">np.loadtxt(&quot;mis_datos.txt&quot;)</span></code>,
+podemos hacer un histograma de los datos con <code class="docutils literal notranslate"><span class="pre">plt.hist</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 3.,  6., 12., 15., 15., 18., 20.,  9.,  1.,  1.]),
+ array([ 8.  ,  8.41,  8.82,  9.23,  9.64, 10.05, 10.46, 10.87, 11.28,
+        11.69, 12.1 ]),
+ &lt;BarContainer object of 10 artists&gt;)
+</pre></div>
+</div>
+<img alt="../_images/77e33dc1ff87430e18f5016f0c8ecfb13813bba114ecf50076eca74b1272c416.png" src="../_images/77e33dc1ff87430e18f5016f0c8ecfb13813bba114ecf50076eca74b1272c416.png" />
+</div>
+</div>
+<p>En la siguientes secciones,
+se explica:</p>
+<ul class="simple">
+<li><p>¿Qué es un histograma?</p></li>
+<li><p>¿Cómo se grafica un histograma?</p></li>
+<li><p>¿Cómo se elige la cantidad de intervalos o <em>bins</em>?</p></li>
+<li><p>¿Cómo comparar y normalizar histogramas?</p></li>
+<li><p>¿Qué cuidados hay que tener con variables «discretas»?</p></li>
+</ul>
+</section>
 <section id="histograma">
 <h2>Histograma<a class="headerlink" href="#histograma" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Un histograma es una representación de la distribución de datos numéricos.</p>
@@ -496,7 +530,7 @@ pueden usar la función <code class="docutils literal notranslate"><span class="
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Cantidad de valores&#39;)
 </pre></div>
 </div>
-<img alt="../_images/3eb1cdc22a6d5af8d66132d16582c257985b3420793956209eb49a3d4639c89f.png" src="../_images/3eb1cdc22a6d5af8d66132d16582c257985b3420793956209eb49a3d4639c89f.png" />
+<img alt="../_images/23180e0fa35c4ba12d484e2538d49bdf2a63e4d6396d759dbe53baa76b9976d7.png" src="../_images/23180e0fa35c4ba12d484e2538d49bdf2a63e4d6396d759dbe53baa76b9976d7.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -529,7 +563,7 @@ va a hacer un gráfico distinto.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Cantidad de valores&#39;)
 </pre></div>
 </div>
-<img alt="../_images/21917421c9cd96b405c5586227c4ea904236c0d8d60cc3a4b9098e6e2af7ed16.png" src="../_images/21917421c9cd96b405c5586227c4ea904236c0d8d60cc3a4b9098e6e2af7ed16.png" />
+<img alt="../_images/57f114499ca5d2d3e96826dc355cdc8430e8a7f3d34782d87b57047631395144.png" src="../_images/57f114499ca5d2d3e96826dc355cdc8430e8a7f3d34782d87b57047631395144.png" />
 </div>
 </div>
 <p>Hay una arbitrariedad al elegir
@@ -582,7 +616,7 @@ es con un gráfico de puntos:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Valor del dato&#39;)
 </pre></div>
 </div>
-<img alt="../_images/86e641832e2cd262bac9be86c42f4ce6bb283e8c90855d50c23bf5bd380c4ce0.png" src="../_images/86e641832e2cd262bac9be86c42f4ce6bb283e8c90855d50c23bf5bd380c4ce0.png" />
+<img alt="../_images/32d809927908b166dbb040478e42bf062596c5ed8885f1824a09118ce1faf0d5.png" src="../_images/32d809927908b166dbb040478e42bf062596c5ed8885f1824a09118ce1faf0d5.png" />
 </div>
 </div>
 <p>Pero este gráfico
@@ -609,7 +643,7 @@ en base a un algoritmo:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Cantidad de datos&#39;)
 </pre></div>
 </div>
-<img alt="../_images/f078f4b7559f1d2433175dd4be07f96728a32a34393da655af3cf5c4a80c78f8.png" src="../_images/f078f4b7559f1d2433175dd4be07f96728a32a34393da655af3cf5c4a80c78f8.png" />
+<img alt="../_images/f7c813239c4f51ff599ece7d26a14b554c1e9b7597ef07d342d6646ff59a08ed.png" src="../_images/f7c813239c4f51ff599ece7d26a14b554c1e9b7597ef07d342d6646ff59a08ed.png" />
 </div>
 </div>
 <p>Con este gráfico,
@@ -620,7 +654,7 @@ y la cantidad disminuye a medida que nos alejamos.</p>
 Veamos que pasa si variamos el número a mano:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">n_bins</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">1_000</span><span class="p">)):</span>
@@ -630,7 +664,7 @@ Veamos que pasa si variamos el número a mano:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8dd45d3de1216e02380c5629cb2b9c285016973429a6d4ca09ed52700500892b.png" src="../_images/8dd45d3de1216e02380c5629cb2b9c285016973429a6d4ca09ed52700500892b.png" />
+<img alt="../_images/7def4201731f9b80eadeb547552ba6f216592c81019c5bea43466bd03eab395b.png" src="../_images/7def4201731f9b80eadeb547552ba6f216592c81019c5bea43466bd03eab395b.png" />
 </div>
 </div>
 <p>En el primer caso,
@@ -694,7 +728,7 @@ el nuevo histograma tapa el anterior.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Cantidad de datos&#39;)
 </pre></div>
 </div>
-<img alt="../_images/a385c03bca857d918cf3fd90dc2645d612a8f1bd35cb7e8e9b5320198c3ae868.png" src="../_images/a385c03bca857d918cf3fd90dc2645d612a8f1bd35cb7e8e9b5320198c3ae868.png" />
+<img alt="../_images/fa345c897b240891bc060806271c17912c1ff68102aea1ae6e4578891a8330c5.png" src="../_images/fa345c897b240891bc060806271c17912c1ff68102aea1ae6e4578891a8330c5.png" />
 </div>
 </div>
 <p>En ese caso,
@@ -714,7 +748,7 @@ para cambiar la forma en que grafica:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Cantidad de datos&#39;)
 </pre></div>
 </div>
-<img alt="../_images/e1a65c696d96ef428186e179b75dbb10f0604b04234ca61e15a7e1fbbebaa095.png" src="../_images/e1a65c696d96ef428186e179b75dbb10f0604b04234ca61e15a7e1fbbebaa095.png" />
+<img alt="../_images/0a64733d4b7ceb2c8c65109a366eb40bdf7cf441f5b512613d1b275a7065df5f.png" src="../_images/0a64733d4b7ceb2c8c65109a366eb40bdf7cf441f5b512613d1b275a7065df5f.png" />
 </div>
 </div>
 <div class="admonition tip">
@@ -751,7 +785,7 @@ pero con distinta cantidad de bins:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Cantidad de datos&#39;)
 </pre></div>
 </div>
-<img alt="../_images/22155c09a4fa91f32455aa6df19ad20c93dd5cfa806ff07a7c7a80dd50f09736.png" src="../_images/22155c09a4fa91f32455aa6df19ad20c93dd5cfa806ff07a7c7a80dd50f09736.png" />
+<img alt="../_images/7af782e7facbf56cbc2776c70ed6233f4e0818e831aecb8d9610c8e6dae023ef.png" src="../_images/7af782e7facbf56cbc2776c70ed6233f4e0818e831aecb8d9610c8e6dae023ef.png" />
 </div>
 </div>
 <p>Entonces,
@@ -781,7 +815,7 @@ con el parámetro <code class="docutils literal notranslate"><span class="pre">d
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Densidad de fracción de valores&#39;)
 </pre></div>
 </div>
-<img alt="../_images/1d2dbebfd5ee2da044baba122f375a526a8ab898df8e61799c91c3cfcaf4a298.png" src="../_images/1d2dbebfd5ee2da044baba122f375a526a8ab898df8e61799c91c3cfcaf4a298.png" />
+<img alt="../_images/288569bdeb3739a84e25b61b1a6a90c4e2009d1c3edfebd63f20fcc0e1347e78.png" src="../_images/288569bdeb3739a84e25b61b1a6a90c4e2009d1c3edfebd63f20fcc0e1347e78.png" />
 </div>
 </div>
 <p>La normalización es tal que
@@ -864,7 +898,7 @@ y comparemos sus histogramas.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a65378e1a32dc63b3648619eb896926788c5882dc58b526b7c7913b84692d435.png" src="../_images/a65378e1a32dc63b3648619eb896926788c5882dc58b526b7c7913b84692d435.png" />
+<img alt="../_images/c535d15bf316fdedb229dbc909ea8fecdf30da93ac007c32d456a376a57354c3.png" src="../_images/c535d15bf316fdedb229dbc909ea8fecdf30da93ac007c32d456a376a57354c3.png" />
 </div>
 </div>
 <p>La forma del histograma es parecida,
@@ -900,7 +934,7 @@ se redondearon a 0.1 o 0.2.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/abe174f0c48f4eb9df65a5f8cb168b9952508e1c764dbe267a09c327c14e7293.png" src="../_images/abe174f0c48f4eb9df65a5f8cb168b9952508e1c764dbe267a09c327c14e7293.png" />
+<img alt="../_images/6d806f4d0066fece79c11fb14d1470637b8e9562139f5b75b513fabaa715ae4c.png" src="../_images/6d806f4d0066fece79c11fb14d1470637b8e9562139f5b75b513fabaa715ae4c.png" />
 </div>
 </div>
 <p>En este caso,
@@ -934,7 +968,7 @@ y pero bins de ancho <code class="docutils literal notranslate"><span class="pre
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.  , 0.14, 0.28, 0.42, 0.56])
 </pre></div>
 </div>
-<img alt="../_images/89a3b46ba3eafc475704e1efe8b7a0c9b53833343d6ecde2982d34290a6e467b.png" src="../_images/89a3b46ba3eafc475704e1efe8b7a0c9b53833343d6ecde2982d34290a6e467b.png" />
+<img alt="../_images/16a6bc5f6eeff492eca3b1a5dd67ea043ba536edc6874806a6c31c6c4565788a.png" src="../_images/16a6bc5f6eeff492eca3b1a5dd67ea043ba536edc6874806a6c31c6c4565788a.png" />
 </div>
 </div>
 </section>
@@ -964,7 +998,7 @@ se resuelve el problema que mencionamos:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Cantidad de datos&#39;)
 </pre></div>
 </div>
-<img alt="../_images/d64c6dccabfd457e06cc55f1d849029b7b48042329cc93c8daa7879686995e6c.png" src="../_images/d64c6dccabfd457e06cc55f1d849029b7b48042329cc93c8daa7879686995e6c.png" />
+<img alt="../_images/b5c91f630eb7deb8a9d4f3fd7c32642a2243b63ea7606623a6d7e098aff67aaf.png" src="../_images/b5c91f630eb7deb8a9d4f3fd7c32642a2243b63ea7606623a6d7e098aff67aaf.png" />
 </div>
 </div>
 <p>Este problema no es tan relevante
@@ -994,7 +1028,7 @@ ya no es tan relevante:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Cantidad de datos&#39;)
 </pre></div>
 </div>
-<img alt="../_images/d4e54e340e1c7f4b995f2216ad3dfd9bc6784c7bdb6012088bec5e1cc81a448e.png" src="../_images/d4e54e340e1c7f4b995f2216ad3dfd9bc6784c7bdb6012088bec5e1cc81a448e.png" />
+<img alt="../_images/8b8fe2b55b2306b1311246bba59794d1a7a276dac2f83a09d40902c4f7620d6c.png" src="../_images/8b8fe2b55b2306b1311246bba59794d1a7a276dac2f83a09d40902c4f7620d6c.png" />
 </div>
 </div>
 <p>Si llegaran a tener este problema,
@@ -1031,10 +1065,10 @@ para generar <span class="math notranslate nohighlight">\(N\)</span> bins para d
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f17bc421910&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f466495c6d0&gt;
 </pre></div>
 </div>
-<img alt="../_images/3b88e074aaeadf10a73ffec1dd9bec2668be96d57506f6f7c56beca70519ac7d.png" src="../_images/3b88e074aaeadf10a73ffec1dd9bec2668be96d57506f6f7c56beca70519ac7d.png" />
+<img alt="../_images/a480b5d941e7b4084b5a266701c600c87ff6c9eb5937a04715dd235333fdfbc4.png" src="../_images/a480b5d941e7b4084b5a266701c600c87ff6c9eb5937a04715dd235333fdfbc4.png" />
 </div>
 </div>
 </section>
@@ -1068,7 +1102,10 @@ para generar <span class="math notranslate nohighlight">\(N\)</span> bins para d
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="grafico_de_intervalos.html"
@@ -1088,7 +1125,10 @@ para generar <span class="math notranslate nohighlight">\(N\)</span> bins para d
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -1103,6 +1143,7 @@ para generar <span class="math notranslate nohighlight">\(N\)</span> bins para d
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograma">Histograma</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grafico-de-histograma">Gráfico de histograma</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cantidad-de-bins">Cantidad de bins</a></li>
@@ -1128,7 +1169,7 @@ para generar <span class="math notranslate nohighlight">\(N\)</span> bins para d
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1158,7 +1199,7 @@ Por Mauro Silberberg
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1167,8 +1208,8 @@ Por Mauro Silberberg
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
