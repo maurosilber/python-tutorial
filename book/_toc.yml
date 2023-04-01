@@ -26,3 +26,4 @@ parts:
     chapters:
     - file: laboratorio/cronometro
     - file: laboratorio/photogate/paso_a_paso.ipynb
+    - file: laboratorio/photogate/plantilla.ipynb
