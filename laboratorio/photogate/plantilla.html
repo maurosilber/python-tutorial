@@ -461,20 +461,6 @@ muchas lineas están comendatas.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">def</span> <span class="nf">extrar_longitud</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Extrae el valor de la longitud del nombre del archivo.&quot;&quot;&quot;</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <section id="buscando-los-archivos">
 <h2>Buscando los archivos<a class="headerlink" href="#buscando-los-archivos" title="Enlazar permanentemente con este título">#</a></h2>
@@ -514,17 +500,10 @@ y graficamos la señal:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">archivo</span> <span class="o">=</span> <span class="n">archivos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># el primer archivo</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">t</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">cargar_archivo_de_motionDAQ</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo [s]&quot;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;cargar_archivo_de_motionDAQ&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f62ae287750&gt;]
 </pre></div>
 </div>
+<img alt="../../_images/569e2ed27fffcc9ffc0ac59884fa7fd6b759057c4ef0b2230d7b7e58c971fff7.png" src="../../_images/569e2ed27fffcc9ffc0ac59884fa7fd6b759057c4ef0b2230d7b7e58c971fff7.png" />
 </div>
 </div>
 <p>Es importante revisar los archivos,
@@ -549,17 +528,10 @@ para asegurarse que no haya habido problemas al medir.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">archivo</span> <span class="o">=</span> <span class="n">archivos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># el primer archivo</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">t</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">cargar_archivo_de_motionDAQ</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">tiempos</span> <span class="o">=</span> <span class="n">encontrar_tiempos_de_saltos</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;cargar_archivo_de_motionDAQ&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.LineCollection at 0x7f62ae08d3d0&gt;
 </pre></div>
 </div>
+<img alt="../../_images/9679fcac6e6de58ee7f18e6ecaaf2a53770b282eda7d05f2664d65d22ac88647.png" src="../../_images/9679fcac6e6de58ee7f18e6ecaaf2a53770b282eda7d05f2664d65d22ac88647.png" />
 </div>
 </div>
 <p>Si hacemos zoom a uno de los saltos:</p>
@@ -575,19 +547,10 @@ para asegurarse que no haya habido problemas al medir.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo [s]&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Voltaje [V]&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="s2">&quot;o--&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">tiempos</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>  <span class="c1"># lineas verticales</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>  <span class="c1"># zoom en el eje x</span>
-
-<span class="ne">NameError</span>: name &#39;t&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.1, 0.2)
 </pre></div>
 </div>
-<img alt="../../_images/d6ac9104a25d3ee1e2385a7beda86cb11493fa669e866342195e7325578cb4d3.png" src="../../_images/d6ac9104a25d3ee1e2385a7beda86cb11493fa669e866342195e7325578cb4d3.png" />
+<img alt="../../_images/d346ce140b546f4785be214f6e6c382a7837c752e4ed37cc28ca0fa6c9791bf3.png" src="../../_images/d346ce140b546f4785be214f6e6c382a7837c752e4ed37cc28ca0fa6c9791bf3.png" />
 </div>
 </div>
 </section>
@@ -610,17 +573,10 @@ para asegurarse que no haya habido problemas al medir.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">archivo</span> <span class="o">=</span> <span class="n">archivos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># el primer archivo</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">t</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">cargar_archivo_de_motionDAQ</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">tiempos</span> <span class="o">=</span> <span class="n">encontrar_tiempos_de_saltos</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">periodos</span> <span class="o">=</span> <span class="n">calcular_periodos</span><span class="p">(</span><span class="n">tiempos</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;cargar_archivo_de_motionDAQ&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f62a5fd5190&gt;]
 </pre></div>
 </div>
+<img alt="../../_images/75f436a48cf09dc7a3f6d08305bed898c97121d2fb457da9fa58adbdbf40691b.png" src="../../_images/75f436a48cf09dc7a3f6d08305bed898c97121d2fb457da9fa58adbdbf40691b.png" />
 </div>
 </div>
 <p>Para estos datos,
@@ -638,12 +594,7 @@ cuando se realiza este experimento por primera vez.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">periodos</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;periodos&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2249999999999999
 </pre></div>
 </div>
 </div>
@@ -674,12 +625,7 @@ cuando se realiza este experimento por primera vez.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">extrar_longitud</span><span class="p">(</span><span class="n">archivos</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;extrar_longitud&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
 </pre></div>
 </div>
 </div>
@@ -705,20 +651,7 @@ el periodo promedio y la longitud correspondiente.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">longitud</span> <span class="o">=</span> <span class="n">extrar_longitud</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">return</span> <span class="n">longitud</span><span class="p">,</span> <span class="n">periodo_promedio</span>
-<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">analisis</span><span class="p">(</span><span class="n">archivos</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-<span class="nn">Cell In[10], line 2,</span> in <span class="ni">analisis</span><span class="nt">(archivo)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">analisis</span><span class="p">(</span><span class="n">archivo</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">t</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">cargar_archivo_de_motionDAQ</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">tiempos</span> <span class="o">=</span> <span class="n">encontrar_tiempos_de_saltos</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">periodos</span> <span class="o">=</span> <span class="n">calcular_periodos</span><span class="p">(</span><span class="n">tiempos</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;cargar_archivo_de_motionDAQ&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.0, 1.2249999999999999)
 </pre></div>
 </div>
 </div>
@@ -737,26 +670,6 @@ el periodo promedio y la longitud correspondiente.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">periodos</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">for</span> <span class="n">archivo</span> <span class="ow">in</span> <span class="n">archivos</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">L</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">analisis</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">longitudes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">periodos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-
-<span class="nn">Cell In[10], line 2,</span> in <span class="ni">analisis</span><span class="nt">(archivo)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">analisis</span><span class="p">(</span><span class="n">archivo</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">t</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">cargar_archivo_de_motionDAQ</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">tiempos</span> <span class="o">=</span> <span class="n">encontrar_tiempos_de_saltos</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">periodos</span> <span class="o">=</span> <span class="n">calcular_periodos</span><span class="p">(</span><span class="n">tiempos</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;cargar_archivo_de_motionDAQ&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -765,7 +678,7 @@ el periodo promedio y la longitud correspondiente.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 2.])
 </pre></div>
 </div>
 </div>
@@ -777,7 +690,7 @@ el periodo promedio y la longitud correspondiente.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.225, 1.225])
 </pre></div>
 </div>
 </div>
@@ -793,10 +706,10 @@ el periodo promedio y la longitud correspondiente.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe7e8543a10&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f62a60211d0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/357d27c2b3ef618e89a2dd8bd7e2d8349e4cf1a0b9fb186a8447e1dd0eb2f702.png" src="../../_images/357d27c2b3ef618e89a2dd8bd7e2d8349e4cf1a0b9fb186a8447e1dd0eb2f702.png" />
+<img alt="../../_images/713ece82bbab7bc92feb9f11af2b27d45174144d87b546b6fa0becf4c11df6fd.png" src="../../_images/713ece82bbab7bc92feb9f11af2b27d45174144d87b546b6fa0becf4c11df6fd.png" />
 </div>
 </div>
 <p>También se puede hacer así:</p>
@@ -809,23 +722,8 @@ el periodo promedio y la longitud correspondiente.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">resultados</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">analisis</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span> <span class="k">for</span> <span class="n">archivo</span> <span class="ow">in</span> <span class="n">archivos</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">resultados</span>
-
-<span class="nn">Cell In[15], line 1,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">resultados</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">analisis</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span> <span class="k">for</span> <span class="n">archivo</span> <span class="ow">in</span> <span class="n">archivos</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">resultados</span>
-
-<span class="nn">Cell In[10], line 2,</span> in <span class="ni">analisis</span><span class="nt">(archivo)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">analisis</span><span class="p">(</span><span class="n">archivo</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">t</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">cargar_archivo_de_motionDAQ</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">tiempos</span> <span class="o">=</span> <span class="n">encontrar_tiempos_de_saltos</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">periodos</span> <span class="o">=</span> <span class="n">calcular_periodos</span><span class="p">(</span><span class="n">tiempos</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;cargar_archivo_de_motionDAQ&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.   , 1.225],
+       [2.   , 1.225]])
 </pre></div>
 </div>
 </div>
@@ -838,12 +736,7 @@ el periodo promedio y la longitud correspondiente.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">resultados</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;resultados&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 2.])
 </pre></div>
 </div>
 </div>

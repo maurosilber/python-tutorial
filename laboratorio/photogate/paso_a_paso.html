@@ -440,18 +440,6 @@ pero es confuso de usar al principio.</p></li>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="buscando-los-archivos">
@@ -550,21 +538,88 @@ para que sepa como interpretar el archivo.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">archivos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>  <span class="c1"># el primer archivo,</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">skiprows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>  <span class="c1"># que ignore las primeras 3 filas</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span>  <span class="c1"># separador Tab</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span>  <span class="c1"># coma decimal</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">df</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;pd&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>(V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000</td>
+      <td>0.300851</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.005</td>
+      <td>0.308388</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.010</td>
+      <td>0.303364</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.015</td>
+      <td>0.308388</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.020</td>
+      <td>0.313413</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>4.955</td>
+      <td>0.303364</td>
+    </tr>
+    <tr>
+      <th>992</th>
+      <td>4.960</td>
+      <td>0.303364</td>
+    </tr>
+    <tr>
+      <th>993</th>
+      <td>4.965</td>
+      <td>0.303364</td>
+    </tr>
+    <tr>
+      <th>994</th>
+      <td>4.970</td>
+      <td>0.313413</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>4.975</td>
+      <td>0.303364</td>
+    </tr>
+  </tbody>
+</table>
+<p>996 rows × 2 columns</p>
+</div></div></div>
 </div>
 <p>La variable <code class="docutils literal notranslate"><span class="pre">df</span></code> tiene un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.
 Podemos extraer el <code class="docutils literal notranslate"><span class="pre">array</span></code> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> interno con <code class="docutils literal notranslate"><span class="pre">df.values</span></code>:</p>
@@ -577,13 +632,13 @@ Podemos extraer el <code class="docutils literal notranslate"><span class="pre">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">values</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data</span>
-
-<span class="ne">NameError</span>: name &#39;df&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.       , 0.3008515],
+       [0.005    , 0.3083884],
+       [0.01     , 0.3033638],
+       ...,
+       [4.965    , 0.3033638],
+       [4.97     , 0.313413 ],
+       [4.975    , 0.3033638]])
 </pre></div>
 </div>
 </div>
@@ -596,12 +651,7 @@ Podemos extraer el <code class="docutils literal notranslate"><span class="pre">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span>
-
-<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(996, 2)
 </pre></div>
 </div>
 </div>
@@ -612,17 +662,6 @@ podemos separar cada una en una variable:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># tiempo [s]</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># voltaje [V]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># tiempo [s]</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">v</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># voltaje [V]</span>
-
-<span class="ne">NameError</span>: name &#39;data&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -643,17 +682,10 @@ Grafiquemos estas dos variables:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo [s]&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Voltaje [V]&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;t&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fd88b251390&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/d6ac9104a25d3ee1e2385a7beda86cb11493fa669e866342195e7325578cb4d3.png" src="../../_images/d6ac9104a25d3ee1e2385a7beda86cb11493fa669e866342195e7325578cb4d3.png" />
+<img alt="../../_images/569e2ed27fffcc9ffc0ac59884fa7fd6b759057c4ef0b2230d7b7e58c971fff7.png" src="../../_images/569e2ed27fffcc9ffc0ac59884fa7fd6b759057c4ef0b2230d7b7e58c971fff7.png" />
 </div>
 </div>
 <p>Hagamos zoom sobre el primer salto,
@@ -670,19 +702,7 @@ y graficamos los valores discretos de la señal:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo [s]&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Voltaje [V]&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.18</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;t&#39; is not defined
-</pre></div>
-</div>
-<img alt="../../_images/d6ac9104a25d3ee1e2385a7beda86cb11493fa669e866342195e7325578cb4d3.png" src="../../_images/d6ac9104a25d3ee1e2385a7beda86cb11493fa669e866342195e7325578cb4d3.png" />
+<img alt="../../_images/58c06566525f8272a3fc0913ac44f926e0b7cc0c6200f03088abd3e741005799.png" src="../../_images/58c06566525f8272a3fc0913ac44f926e0b7cc0c6200f03088abd3e741005799.png" />
 </div>
 </div>
 <section id="preguntas">
@@ -706,16 +726,6 @@ podemos calcular la diferencia entre un punto <span class="math notranslate nohi
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dif_de_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;v&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <p>Este vector tiene un valor menos el original,
 ya que no puede calcular la diferencia del último con el siguiente
@@ -727,12 +737,7 @@ ya que no puede calcular la diferencia del último con el siguiente
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;v&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>996
 </pre></div>
 </div>
 </div>
@@ -744,12 +749,7 @@ ya que no puede calcular la diferencia del último con el siguiente
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">dif_de_v</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;dif_de_v&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>995
 </pre></div>
 </div>
 </div>
@@ -767,17 +767,10 @@ y dejar que grafique contra el número de indice del array:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Indice del array&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Dif. de voltaje [V]&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dif_de_v</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;dif_de_v&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fd88b16fe10&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/562c75e15c9186cec8375163097a1a298bcbc8b55af75edf442955fc54135deb.png" src="../../_images/562c75e15c9186cec8375163097a1a298bcbc8b55af75edf442955fc54135deb.png" />
+<img alt="../../_images/ddeda1852fa7f5bedd740250f4d3eb4a61c23c2e5f53c04f4156687857720e27.png" src="../../_images/ddeda1852fa7f5bedd740250f4d3eb4a61c23c2e5f53c04f4156687857720e27.png" />
 </div>
 </div>
 <p>Si hacemos zoom al primer salto,
@@ -797,19 +790,10 @@ menos en los cambios de voltaje:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Indice del array&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Voltaje [V]&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Voltaje&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dif_de_v</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Dif. de voltaje&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;v&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 40.0)
 </pre></div>
 </div>
-<img alt="../../_images/80b4055f4329b350b27cfb01e8e53c2a4bbd5e12cb61b44ecf33512e3789b9ff.png" src="../../_images/80b4055f4329b350b27cfb01e8e53c2a4bbd5e12cb61b44ecf33512e3789b9ff.png" />
+<img alt="../../_images/3605c0110d4222a47c0d1530625a0739ae3b180390bc98503cb2bb666c7a7f67.png" src="../../_images/3605c0110d4222a47c0d1530625a0739ae3b180390bc98503cb2bb666c7a7f67.png" />
 </div>
 </div>
 <p>Pero ojo,
@@ -822,12 +806,7 @@ ya que el voltaje fluctua levemente:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">v</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;v&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.3008515, 0.3083884, 0.3033638, 0.3083884, 0.313413 ])
 </pre></div>
 </div>
 </div>
@@ -839,12 +818,7 @@ ya que el voltaje fluctua levemente:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dif_de_v</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;dif_de_v&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.0075369, -0.0050246,  0.0050246,  0.0050246,  0.       ])
 </pre></div>
 </div>
 </div>
@@ -913,13 +887,8 @@ como:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">dif_de_v</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">2.5</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">pos</span>
-
-<span class="ne">NameError</span>: name &#39;dif_de_v&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 28,  33, 187, 191, 275, 280, 426, 431, 524, 528, 670, 675, 765,
+        770, 920, 924]),)
 </pre></div>
 </div>
 </div>
@@ -935,13 +904,8 @@ sino los tiempos en esas posiciones:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tiempo_saltos</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">tiempo_saltos</span>
-
-<span class="ne">NameError</span>: name &#39;t&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.14 , 0.165, 0.935, 0.955, 1.375, 1.4  , 2.13 , 2.155, 2.62 ,
+       2.64 , 3.35 , 3.375, 3.825, 3.85 , 4.6  , 4.62 ])
 </pre></div>
 </div>
 </div>
@@ -963,12 +927,7 @@ podemos tomar una «rebanada» (<em>slice</em>) del array con la siguiente expre
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tiempo_saltos</span><span class="p">[::</span><span class="mi">4</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;tiempo_saltos&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.14 , 1.375, 2.62 , 3.825])
 </pre></div>
 </div>
 </div>
@@ -998,12 +957,7 @@ podriamos calcular la diferencia entre valores consecutivos con:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">tiempo_saltos</span><span class="p">[::</span><span class="mi">4</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;tiempo_saltos&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.235, 1.245, 1.205])
 </pre></div>
 </div>
 </div>
@@ -1021,12 +975,7 @@ pero empezando de la segunda medicion (indice 1):</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">tiempo_saltos</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">4</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;tiempo_saltos&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.235, 1.24 , 1.21 ])
 </pre></div>
 </div>
 </div>
@@ -1040,12 +989,8 @@ pero empezando de la segunda medicion (indice 1):</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tiempo_saltos</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span> <span class="o">-</span> <span class="n">tiempo_saltos</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;tiempo_saltos&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.235, 1.235, 1.195, 1.2  , 1.245, 1.24 , 1.22 , 1.22 , 1.205,
+       1.21 , 1.25 , 1.245])
 </pre></div>
 </div>
 </div>
