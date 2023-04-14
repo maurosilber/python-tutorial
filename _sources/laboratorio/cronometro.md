@@ -98,7 +98,7 @@ periodos = np.diff(tiempos)  # [t1-t0, t2-t1, ...]
     }
 
     function exportCsv() {
-        let blob = new Blob(['# tiempo [s]\n' + table.innerText], { type: 'text/csv;charset=utf-8;' });
+        let blob = new Blob(['# tiempo [s]\r\n' + table.innerText.replaceAll("\n", "\r\n")], { type: 'text/csv;charset=utf-8;' });
         let url = URL.createObjectURL(blob);
         let link = document.createElement('a');
         link.setAttribute('href', url);
