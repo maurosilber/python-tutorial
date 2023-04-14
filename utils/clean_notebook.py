@@ -28,7 +28,7 @@ def process_notebook(notebook: Notebook):
 def clean_notebook(notebook: Notebook):
     remove_notebook_metadata(notebook)
 
-    keep = {"tags"}
+    keep = {"tags", "lines_to_next_cell"}
     for cell in notebook["cells"]:
         remove_cell_metadata(cell, keep=keep)
         if cell["cell_type"] == "code":
