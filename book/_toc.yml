@@ -19,6 +19,8 @@ parts:
     chapters:
     - file: estadistica/grafico_de_intervalos
     - file: estadistica/histograma
+    - file: estadistica/la_gaussiana
+    - file: estadistica/desviacion_estandar
     - file: estadistica/cuadrados_minimos
     - file: estadistica/mediciones-consecutivas
     - file: estadistica/error-sistematico-y-modelado
