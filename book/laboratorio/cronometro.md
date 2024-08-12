@@ -14,6 +14,7 @@
 # Cronómetro
 
 Presionar el botón:
+
 - **medir**: para realizar mediciones (o cualquier tecla en el teclado).
 - **borrar**: borra la tabla de mediciones y reinicia el cronómetro.
 - **exportar**: descarga las mediciones en un archivo de texto.
@@ -51,6 +52,7 @@ periodos = np.diff(tiempos)  # [t1-t0, t2-t1, ...]
 
 :::{grid-item}
 :columns: 3
+
 <table>
     <thead>
         <tr>

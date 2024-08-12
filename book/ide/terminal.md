@@ -173,7 +173,7 @@ hay que agregar `-i` (de interactivo) al correr el archivo:
 
 ```sh
 python -i ejemplo.py
-````
+```
 
 <div id="mixed"></div>
 <script>AsciinemaPlayer.create({data: [

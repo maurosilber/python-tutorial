@@ -15,6 +15,7 @@ En [la documentación de Spyder](https://docs.spyder-ide.org/current/quickstart.
 tienen más detalles de todos los componentes que tiene (en inglés).
 
 Hay diferentes formas de correr código en Spyder:
+
 - correr un archivo completo
 - correr por lineas
 - correr por celdas
