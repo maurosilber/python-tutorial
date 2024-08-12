@@ -18,21 +18,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # Check out repo
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     # Install dependencies
-    - uses: mamba-org/provision-with-micromamba@main
-      with:
-        environment-file: environment.yaml
+    - uses: prefix-dev/setup-pixi@v0.8.1
 
     # Build the book
     - name: Build the book
-      shell: bash -l {0}
-      run: jupyter-book build book
+      run: pixi run build
 
-    # Push the book's HTML to github-pages
-    - name: GitHub Pages action
-      uses: peaceiris/actions-gh-pages@v3.9.2
+     # Upload the book's HTML as an artifact
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: book/_build/html
+        path: "book/_build/html"
+
+    # Deploy the book's HTML to GitHub Pages
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
