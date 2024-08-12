@@ -27,3 +27,5 @@ entre otras.
 Finalmente,
 vamos a mostrar como funciona Google Colab,
 que lo pueden usar desde el navegador para hacer este tutorial.
+Algunas secciones del tutorial se pueden abrir directamente en Google Colab con el botón del cohete
+que va a aparecer arriba a la derecha.
