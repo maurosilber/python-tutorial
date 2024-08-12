@@ -15,6 +15,9 @@ on:
 # This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
   publish:
+    permissions:
+      pages: write
+      id-token: write
     runs-on: ubuntu-latest
     steps:
     # Check out repo
