@@ -4,8 +4,8 @@ channels = ["conda-forge"]
 platforms = ["osx-arm64", "linux-64"]
 
 [tasks]
-build = { cmd="jupyter-book build book", inputs=["book/"], outputs=["book/_build"] }
-open = { cmd="open book/_build/html/index.html", depends-on=["build"] }
+build = { cmd="jupyter-book build book --path-output .", inputs=["book/"], outputs=["_build/"] }
+open = { cmd="open _build/html/index.html", depends-on=["build"] }
 
 [environments]
 default = ["book", "colab"]
