@@ -1,6 +1,6 @@
 [project]
 name = "python-tutorial"
-channels = ["conda-forge"]
+channels = ["https://prefix.dev/conda-forge"]
 platforms = ["osx-arm64", "linux-64"]
 
 [tasks]
@@ -9,16 +9,29 @@ open = { cmd="open _build/html/index.html", depends-on=["build"] }
 
 [environments]
 default = ["book", "colab"]
+lint = ["lint"]
 
 [feature.colab.dependencies]
-python = "3.10.12"
-numpy = "1.26.4"
-scipy = "1.13.1"
-matplotlib = "3.7.1"
-pandas = "2.1.4"
+python = "==3.10.12"
+numpy = "==1.26.4"
+scipy = "==1.13.1"
+matplotlib = "==3.7.1"
+pandas = "==2.1.4"
 ipykernel = ">=5.5.6"
-nbformat = "5.10.4"
+nbformat = "==5.10.4"
 
 [feature.book.dependencies]
 jupyter-book = "*"
 jupytext = "*"
+
+[feature.lint.dependencies]
+pre-commit = "*"
+pre-commit-hooks = "*"
+ruff = "*"
+mdformat = "*"
+mdformat-ruff = "*"
+
+[feature.lint.tasks]
+pre-commit-install = "pre-commit install"
+lint-staged = "pre-commit run"
+lint-all = "pre-commit run --all-files"
