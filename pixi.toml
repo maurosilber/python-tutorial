@@ -7,17 +7,22 @@ platforms = ["osx-arm64", "linux-64"]
 build = { cmd="jupyter-book build book --path-output .", inputs=["book/"], outputs=["_build/"] }
 open = { cmd="open _build/html/index.html", depends-on=["build"] }
 
+[tasks.get-colab-deps]
+env = { GH = "https://github.com/googlecolab/backend-info/raw/main" }
+cmd = "curl -OL $GH/os-info.txt; curl -OL $GH/pip-freeze.txt;"
+outputs = ["os-info.txt", "pip-freeze.txt"]
+
 [environments]
 default = ["book", "colab"]
 lint = ["lint"]
 
 [feature.colab.dependencies]
-python = "==3.10.12"
-numpy = "==1.26.4"
-scipy = "==1.13.1"
-matplotlib = "==3.7.1"
-pandas = "==2.1.4"
-ipykernel = ">=5.5.6"
+python = "==3.11.12"
+numpy = "==2.0.2"
+scipy = "==1.15"
+matplotlib = "==3.10.0"
+pandas = "==2.2.2"
+ipykernel = "==6.17.1"
 nbformat = "==5.10.4"
 
 [feature.book.dependencies]
