@@ -23,6 +23,7 @@ parts:
     - file: estadistica/desviacion_estandar
     - file: estadistica/cuadrados_minimos
     - file: estadistica/mediciones-consecutivas
+    - file: estadistica/cuantizacion
     - file: estadistica/error-sistematico-y-modelado
   - caption: Laboratorio
     chapters:
