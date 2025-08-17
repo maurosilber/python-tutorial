@@ -1,13 +1,50 @@
 <head>
 <style>
-    .cronometer-button {
-        width: 10ch;
-    }
-    label, input {
-        width: 10ch;
-        text-align: right;
+    .buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1em;
+
+        height: 10em;
+
+        button,
+        input {
+            font-size: large;
+        }
+
+        input {
+            width: 8em;
+            text-align: center;
+        }
+
+        label {
+            text-align: right;
+            align-content: center;
+        }
     }
 
+    table {
+        max-height: 300px;
+        overflow-y: auto;
+        display: block;
+
+        text-align: center;
+
+        thead th {
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 1;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #fff;
+        }
+    }
 </style>
 </head>
 
@@ -37,16 +74,17 @@ periodos = np.diff(tiempos)  # [t1-t0, t2-t1, ...]
 
 :::{grid-item}
 :columns: 9
-<label for="total_tiempo">Tiempo total</label>
+<div class="buttons">
+<label for="total_tiempo">Tiempo</label>
 <input id="total_tiempo" readonly value=0>
-<button class="cronometer-button" id="start"><u>M</u>edir (M)</button>
+<button id="start"><u>M</u>edir (M)</button>
 <label for="total_mediciones">Mediciones</label>
 <input id="total_mediciones" readonly value=0>
-<button class="cronometer-button" id="reset">Borrar</button>
-
+<button id="reset">Borrar</button>
 <label for="nombre_archivo">Nombre</label>
 <input id="nombre_archivo" value="datos.txt">
-<button class="cronometer-button" id="export">Exportar</button>
+<button id="export">Exportar</button>
+</div>
 :::
 
 :::{grid-item}
