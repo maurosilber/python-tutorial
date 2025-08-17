@@ -24,7 +24,7 @@
     }
 
     table {
-        max-height: 300px;
+        max-height: 150px;
         overflow-y: auto;
         display: block;
 
@@ -73,7 +73,8 @@ periodos = np.diff(tiempos)  # [t1-t0, t2-t1, ...]
 ::::{grid}
 
 :::{grid-item}
-:columns: 9
+:columns: 8
+
 <div class="buttons">
 <label for="total_tiempo">Tiempo</label>
 <input id="total_tiempo" readonly value=0>
@@ -88,7 +89,7 @@ periodos = np.diff(tiempos)  # [t1-t0, t2-t1, ...]
 :::
 
 :::{grid-item}
-:columns: 3
+:columns: 4
 
 <table>
     <thead>
@@ -121,7 +122,8 @@ periodos = np.diff(tiempos)  # [t1-t0, t2-t1, ...]
         let elapsed = (time - startTime) / 1000;
         let newText = document.createTextNode(elapsed.toFixed(3));
         table.insertRow().insertCell().appendChild(newText);
-        total_mediciones.value = parseFloat(total_mediciones.value) + 1;
+        // Scroll table to bottom
+        table.parentElement.scrollTop = table.parentElement.scrollHeight;total_mediciones.value = parseFloat(total_mediciones.value) + 1;
     }
 
     function getTime() {
