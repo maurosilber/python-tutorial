@@ -96,6 +96,7 @@ Se ocultan los decimales antes de medir.
     <thead>
         <tr>
             <th>Tiempo [s]</th>
+            <th>Borrar</th>
         </tr>
     </thead>
     <tbody id="table">
@@ -192,8 +193,14 @@ Se ocultan los decimales antes de medir.
         // Increase counter
         total_mediciones.value = parseFloat(total_mediciones.value) + 1;
         // Insert new row
-        let newText = document.createTextNode(elapsed.toFixed(3));
-        table.insertRow().insertCell().appendChild(newText);
+        let row = table.insertRow();
+        // Add value
+        row.insertCell().innerText = elapsed.toFixed(3);
+        // Add delete button
+        let cross = row.insertCell();
+        cross.innerText = "❌";
+        cross.style = "cursor:pointer;";
+        cross.onclick = function() { this.parentElement.remove() };
         // Scroll table to bottom
         table.parentElement.scrollTop = table.parentElement.scrollHeight;
     }
@@ -204,7 +211,16 @@ Se ocultan los decimales antes de medir.
     }
 
     function exportCsv() {
-        let blob = new Blob(['# tiempo [s]\r\n' + table.innerText.replaceAll("\n", "\r\n")], { type: 'text/csv;charset=utf-8;' });
+        let times = [];
+        for (let row of table.rows) {
+            let cell = row.cells[0];
+            if (cell) times.push(cell.innerText);
+        }
+
+        let blob = new Blob(
+            ['# tiempo [s]\r\n' + times.map(t => t + '\r\n').join('')],
+            { type: 'text/csv;charset=utf-8;' }
+        );
         let url = URL.createObjectURL(blob);
         let link = document.createElement('a');
         link.setAttribute('href', url);
