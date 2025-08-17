@@ -15,7 +15,7 @@
 
 Presionar el botón:
 
-- **medir**: para realizar mediciones (o cualquier tecla en el teclado).
+- **medir**: para realizar mediciones (o la "M" en el teclado).
 - **borrar**: borra la tabla de mediciones y reinicia el cronómetro.
 - **exportar**: descarga las mediciones en un archivo de texto.
 
@@ -39,8 +39,7 @@ periodos = np.diff(tiempos)  # [t1-t0, t2-t1, ...]
 :columns: 9
 <label for="total_tiempo">Tiempo total</label>
 <input id="total_tiempo" readonly value=0>
-<button class="cronometer-button" id="start">Medir</button>
-
+<button class="cronometer-button" id="start"><u>M</u>edir (M)</button>
 <label for="total_mediciones">Mediciones</label>
 <input id="total_mediciones" readonly value=0>
 <button class="cronometer-button" id="reset">Borrar</button>
@@ -115,6 +114,12 @@ periodos = np.diff(tiempos)  # [t1-t0, t2-t1, ...]
     document.getElementById('reset').addEventListener('click', resetTimer);
     document.getElementById('export').addEventListener('click', exportCsv);
     addEventListener("keydown", (event) => {
-        if (!event.repeat && event.target.id != "nombre_archivo") addTime()
+      if (
+        !event.repeat &&
+        event.key.toLowerCase() === "m" &&
+        event.target.id != "nombre_archivo"
+      ) {
+        addTime();
+      }
     });
 </script>
