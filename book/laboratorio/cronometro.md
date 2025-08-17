@@ -81,7 +81,8 @@ periodos = np.diff(tiempos)  # [t1-t0, t2-t1, ...]
             startTime = time;
             currentTime = setInterval(() => total_tiempo.setAttribute("value", getTime()), 10)
         }
-        let newText = document.createTextNode((time - startTime) / 1000);
+        let elapsed = (time - startTime) / 1000;
+        let newText = document.createTextNode(elapsed.toFixed(3));
         table.insertRow().insertCell().appendChild(newText);
         total_mediciones.value = parseFloat(total_mediciones.value) + 1;
     }
