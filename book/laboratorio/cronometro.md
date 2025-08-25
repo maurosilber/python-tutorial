@@ -65,9 +65,9 @@ Frenando el cronómetro entre mediciones.
 :name: consecutivas
 Mediciones consecutivas sin frenar el cronómetro.
 ```
-```{tab-item} Decimales ocultos
+```{tab-item} Tiempo de respuesta
 :name: decimales
-Se ocultan los decimales antes de medir.
+Se mide el tiempo desde que aparece "AHORA" hasta que se frena el cronómetro.
 ```
 ````
 
@@ -114,7 +114,7 @@ Se ocultan los decimales antes de medir.
     let total_mediciones = document.getElementById("total_mediciones")
     let total_tiempo = document.getElementById("total_tiempo")
     let currentTime;
-    
+
     let measurementFunc;
     let shown_time = (t) => t;
 
@@ -137,7 +137,17 @@ Se ocultan los decimales antes de medir.
         }
     }
 
-    measurementFunc = separateMeasurement;
+    function responseTimeMeasurement() {
+        if (startTime === null) {
+            startTimer("Frenar (M)")
+            let delay = 1000 * (1 + Math.random());
+            startTime = new Date(startTime.getTime() + delay);
+        } else {
+            let time = getTime();
+            addMeasurement(time);
+            stopTimer()
+        }
+    }
 
     // Get input given its label id
     function getInputFromLabelId(id) {
@@ -166,8 +176,8 @@ Se ocultan los decimales antes de medir.
     });
 
     attachOnChange(getInputFromLabelId("decimales"), () => {
-      measurementFunc = separateMeasurement;
-      shown_time = (t) => Math.floor(t);
+        measurementFunc = responseTimeMeasurement;
+        shown_time = (t) => (t >= 0 ? "AHORA" : "");
     });
 
     function startTimer(text) {
@@ -230,7 +240,8 @@ Se ocultan los decimales antes de medir.
     }
 
     // Attach event listeners
-    document.getElementById('start').addEventListener('click', measurementFunc);
+    measurementFunc = separateMeasurement;
+    startButton.addEventListener('click', () => measurementFunc());
     document.getElementById('reset').addEventListener('click', resetTimer);
     document.getElementById('export').addEventListener('click', exportCsv);
     addEventListener("keydown", (event) => {
