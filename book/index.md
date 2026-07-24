@@ -29,3 +29,7 @@ vamos a mostrar como funciona Google Colab,
 que lo pueden usar desde el navegador para hacer este tutorial.
 Algunas secciones del tutorial se pueden abrir directamente en Google Colab con el botón del cohete
 que va a aparecer arriba a la derecha.
+
+## Licencia
+
+Este tutorial se distribuye bajo la licencia [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
